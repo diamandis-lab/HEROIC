@@ -1,0 +1,21 @@
+{
+    "Markers": [
+    ],
+    "demographics": {
+        "birthday": "1900-01-01",
+        "countryOfInfluence": {
+            "iso": "",
+            "printable": ""
+        },
+        "countryOfResidence": {
+            "iso": "",
+            "printable": ""
+        },
+        "gender": "U"
+    },
+    "exportApp": "com.emotiv.emotivpro",
+    "exportTime": "2021-07-06T18:50:29.516-04:00",
+    "mappings": null,
+    "recordId": "1fd3e4ce-127c-4970-9f46-b7415c95d163",
+    "user": "diamandislab"
+}

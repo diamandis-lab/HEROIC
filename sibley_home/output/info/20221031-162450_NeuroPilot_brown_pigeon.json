@@ -1,0 +1,182 @@
+{
+    "params": {
+        "study": "NeuroPilot",
+        "session_type": "home_session_2209",
+        "eeg_device": "Muse S",
+        "participant_id": "brown_pigeon",
+        "group": "unknown",
+        "age": "unknown",
+        "comments": "unknown",
+        "session_uuid": "f7d59275-f25b-4cd3-bdd5-9574fc06e255",
+        "timestamp": "20221031-162450",
+        "user_interface": "muse"
+    },
+    "data_file": {
+        "EEG": "output/EEG/museS/20221031-162450_NeuroPilot_brown_pigeon.csv"
+    },
+    "EEG_marks": {
+        "EEG_markers": [
+            {
+                "name": "P300 visual color circles",
+                "type": "task",
+                "mark": 84
+            },
+            {
+                "name": "control",
+                "type": "stimulus",
+                "mark": 1
+            },
+            {
+                "name": "oddball",
+                "type": "stimulus",
+                "mark": 2
+            }
+        ]
+    },
+    "task_log": [
+        {
+            "name": "image",
+            "start": 1667247903.7177563,
+            "end": 1667247908.7772174,
+            "filename": "images/home_session_2203/task_rest_info.png"
+        },
+        {
+            "name": "audio",
+            "start": 1667247908.7772174,
+            "end": 1667247908.9976275,
+            "filename": "audio/home_session_2203/task_rest_eyes_closed_msg.mp3"
+        },
+        {
+            "name": "image",
+            "start": 1667247908.9996278,
+            "end": 1667247914.06727,
+            "filename": "images/home_session_2203/task_rest_eyes_closed_msg.png"
+        },
+        {
+            "name": "image",
+            "start": 1667247914.06727,
+            "end": 1667247974.0999062,
+            "filename": "images/home_session_2203/task_rest_eyes_closed.png"
+        },
+        {
+            "name": "audio",
+            "start": 1667247974.0999062,
+            "end": 1667247974.2445016,
+            "filename": "audio/home_session_2203/task_rest_eyes_open_msg.mp3"
+        },
+        {
+            "name": "image",
+            "start": 1667247974.2454982,
+            "end": 1667247979.2773056,
+            "filename": "images/home_session_2203/task_rest_eyes_open_msg.png"
+        },
+        {
+            "name": "image",
+            "start": 1667247979.2773056,
+            "end": 1667248039.3080356,
+            "filename": "images/home_session_2203/task_rest_eyes_open.png"
+        },
+        {
+            "name": "audio",
+            "start": 1667248039.3080356,
+            "end": 1667248039.4456623,
+            "filename": "P300_visual_circles/audio/p300_visual_circles_instructions.mp3"
+        },
+        {
+            "name": "text",
+            "start": 1667248039.4456623,
+            "end": 1667248047.4897175
+        },
+        {
+            "name": "P300 visual color circles",
+            "start": 1667248047.4897175,
+            "end": 1667248104.7724779
+        },
+        {
+            "name": "audio",
+            "start": 1667248104.7724779,
+            "end": 1667248104.9140484,
+            "filename": "relax_1min/audio/relax_1min_instructions.mp3"
+        },
+        {
+            "name": "image",
+            "start": 1667248104.9140484,
+            "end": 1667248109.9565656,
+            "filename": "relax_1min/images/instructions_calmness_1min.png"
+        },
+        {
+            "name": "audio",
+            "start": 1667248109.9565656,
+            "end": 1667248110.0193932,
+            "filename": "relax_1min/audio/audio_2547fa5a12-1min.mp3"
+        },
+        {
+            "name": "video",
+            "start": 1667248110.0193932,
+            "end": 1667248171.0626285,
+            "filename": "relax_1min/video/Background-8788.mp4"
+        },
+        {
+            "name": "audio",
+            "start": 1667248171.0636241,
+            "end": 1667248171.207242,
+            "filename": "P300_visual_circles/audio/p300_visual_circles_instructions.mp3"
+        },
+        {
+            "name": "text",
+            "start": 1667248171.207242,
+            "end": 1667248179.2606955
+        },
+        {
+            "name": "P300 visual color circles",
+            "start": 1667248179.2616649,
+            "end": 1667248236.468781
+        },
+        {
+            "name": "audio",
+            "start": 1667248236.468781,
+            "end": 1667248236.603167,
+            "filename": "relax_1min/audio/relax_1min_instructions.mp3"
+        },
+        {
+            "name": "image",
+            "start": 1667248236.603167,
+            "end": 1667248241.6440709,
+            "filename": "relax_1min/images/instructions_calmness_1min.png"
+        },
+        {
+            "name": "audio",
+            "start": 1667248241.6440709,
+            "end": 1667248241.7108924,
+            "filename": "relax_1min/audio/audio_2547fa5a12-1min.mp3"
+        },
+        {
+            "name": "video",
+            "start": 1667248241.7118924,
+            "end": 1667248302.552104,
+            "filename": "relax_1min/video/Background-8788.mp4"
+        },
+        {
+            "name": "audio",
+            "start": 1667248302.552104,
+            "end": 1667248302.7016945,
+            "filename": "P300_visual_circles/audio/p300_visual_circles_instructions.mp3"
+        },
+        {
+            "name": "text",
+            "start": 1667248302.7026908,
+            "end": 1667248310.7521327
+        },
+        {
+            "name": "P300 visual color circles",
+            "start": 1667248310.7531219,
+            "end": 1667248368.921222
+        },
+        {
+            "name": "audio",
+            "start": 1667248368.921222,
+            "end": 1667248369.0666573,
+            "filename": "common/audio/session_is_over.mp3"
+        }
+    ]
+}

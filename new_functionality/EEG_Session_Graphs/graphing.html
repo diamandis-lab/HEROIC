@@ -1,0 +1,289 @@
+<html>
+  <head>
+    <script type="text/javascript" src="node_modules/dygraphs/dist/dygraph.js"></script>
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.css" integrity="sha512-QG68tUGWKc1ItPqaThfgSFbubTc+hBv4OW/4W1pGi0HHO5KmijzXzLEOlEbbdfDtVT7t7mOohcOrRC5mxKuaHA==" crossorigin="anonymous" referrerpolicy="no-referrer" />-->
+    <link rel="stylesheet" href="node_modules/dygraphs/dist/dygraph.css">
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.css" integrity="sha512-QG68tUGWKc1ItPqaThfgSFbubTc+hBv4OW/4W1pGi0HHO5KmijzXzLEOlEbbdfDtVT7t7mOohcOrRC5mxKuaHA==" crossorigin="anonymous" referrerpolicy="no-referrer" />-->
+<!--    <script src="//cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.min.js"></script>-->
+  </head>
+    <body>
+    <h2>EEG Session</h2>
+    <div id="graphdiv" style="width:600px; height:500px;"></div>
+    <style>
+      #graphdiv{
+      position: relative;
+      left: 30px;
+    }
+    </style>
+    <p id = "xlabel">Brain Wave Signals</p>
+    <style>
+    #xlabel{
+      transform: rotate(270deg);
+      -webkit-transform: rotate(270deg);
+      -moz-transform: rotate(270deg);
+      -o-transform: rotate(270deg);
+      -ms-transform: rotate(270deg);
+      position: absolute;
+      left: -40px;
+      top: 270;
+    }
+    </style>
+    <p id = "four" style="display:none" >
+      Channels
+      <input type=checkbox id='TP9' onclick='update()' checked = 'checked'><label for='TP9'>TP9 </label>
+      <input type=checkbox id='AF7' onclick='update()' checked = 'checked'><label for='AF7'>AF7 </label>
+      <input type=checkbox id='AF8' onclick='update()' checked = 'checked'><label for='AF8'>AF8 </label>
+      <input type=checkbox id='TP10' onclick='update()' checked = 'checked'><label for='TP10'>TP10 </label>
+            <input type=checkbox id='deactivate4' onclick='update()'><label for='deactivate4'>deactivate all</label>
+      <input type=checkbox id='activate4'  onclick='update()'><label for='activate4'>activate all</label>
+    </p>
+    <p id = "fourteen" style="display:none">
+      Channels
+      <input type=checkbox id='AF3' onclick='update()' checked = 'checked'><label for='AF3'>AF3 </label>
+      <input type=checkbox id='F7' onclick='update()' checked = 'checked'><label for='F7'>F7 </label>
+      <input type=checkbox id='F3' onclick='update()' checked = 'checked'><label for='F3'>F3 </label>
+      <input type=checkbox id='FC5' onclick='update()' checked = 'checked'><label for='FC5'>FC5 </label>
+      <input type=checkbox id='T7' onclick='update()' checked = 'checked'><label for='T7'>T7 </label>
+      <input type=checkbox id='P7' onclick='update()' checked = 'checked'><label for='P7'>P7 </label>
+      <input type=checkbox id='O1' onclick='update()' checked = 'checked'><label for='O1'>O1 </label>
+      <input type=checkbox id='O2' onclick='update()' checked = 'checked'><label for='O2'>O2 </label>
+      <input type=checkbox id='P8' onclick='update()' checked = 'checked'><label for='P8'>P8 </label>
+      <input type=checkbox id='T8' onclick='update()' checked = 'checked'><label for='T8'>T8 </label>
+      <input type=checkbox id='FC6' onclick='update()' checked = 'checked'><label for='FC6'>FC6 </label>
+      <input type=checkbox id='F4' onclick='update()' checked = 'checked'><label for='F4'>F4 </label>
+      <input type=checkbox id='F8' onclick='update()' checked = 'checked'><label for='F8'>F8 </label>
+      <input type=checkbox id='AF4' onclick='update()' checked = 'checked'><label for='AF4'>AF4 </label>
+      <input type=checkbox id='deactivate14' onclick='update()'><label for='deactivate14'>deactivate all</label>
+      <input type=checkbox id='activate14' onclick='update()'><label for='activate14'>activate all</label>
+    </p>
+    <p id = "names4" class="right">
+    </p>
+    <p id = "names14" class="right">
+    </p>
+    <p id = "colour">
+      <span style = "color:#F9D71C;">Yellow</span> = Relax &emsp;&emsp;&emsp;&emsp;
+      <span style="color:green">Green</span> = Stroop Test <br>
+      <span style="color: #6401FF;">Purple</span> = Concordant &emsp;&emsp;
+      <span style = "color: #0164FF;">Blue</span>: Discordant
+
+    </p>
+    <style>
+      #colour{
+      position: absolute;
+      top: 5px;
+      left: 200px;
+      font-size: 15;}
+    </style>
+
+    <style>
+      #names4 {
+      width: 20px;
+      height: 100px;
+      position: relative;
+      bottom: 550px;
+      left: 650px;
+      font-size: 18px;
+      line-height: 6.2;
+    }
+    </style>
+    <style>
+      #names14 {
+      width: 20px;
+      height: 100px;
+      position: relative;
+      bottom: 630\px;
+      left: 650px;
+      font-size: 9.5px;
+      line-height: 2.65;
+    }
+    </style>
+    <script>
+      var info = new XMLHttpRequest();
+      info.open("GET", 'session.csv', false);
+      info.send();
+    </script>
+    <script type="text/javascript">
+      function Extract(request){
+        var text = request['responseText']
+        var mark = [];
+        var a = 0;
+        var word = ""
+        while(text[a]){
+            if(text[a] == ','){
+                mark.push(word)
+                word = ""
+            }
+            else{
+                word = word + text[a]
+            }
+            a++;
+        }
+        mark.push(word)
+        return mark
+      }
+      var session = Extract(info);
+      var channels = parseInt(session[1])
+      var folder = session[0]
+      filename = "offset_" + folder+".csv"
+      mark_file = "marker_list_"+ "offset_" + folder+".csv"
+      mark_values = "marker_value_"+ "offset_" + folder+".csv"
+      if(channels == 4){
+          waves = ['TP9', 'AF7', 'AF8', 'TP10']
+          document.getElementById("four").style.display = "block";
+          name = document.getElementById("name4")
+      }
+      else if(channels == 14){
+          waves = ['AF3', 'F7', 'F3', 'FC5', 'T7', 'P7', 'O1', 'O2', 'P8', 'T8', 'FC6', 'F4', 'F8', 'AF4']
+          document.getElementById("fourteen").style.display = "block";
+      }
+    </script>
+    <script>
+      var list = new XMLHttpRequest();
+      list.open("GET", mark_file, false);
+      list.send();
+
+      var val = new XMLHttpRequest();
+      val.open("GET", mark_values, false);
+      val.send();
+    </script>
+
+      <script type="text/javascript">
+      function markExtract(request){
+        var text = request['responseText']
+        var mark = [];
+        var a = 0;
+        var word = ""
+        while(text[a]){
+            if(text[a] == ','){
+                mark.push(word)
+                word = ""
+            }
+            else{
+                word = word + text[a]
+            }
+            a++;
+        }
+        return mark
+      }
+      mark = markExtract(list)
+      value = markExtract(val)
+      tests = []
+
+      function colour(i){
+          if (value[i] == 80.0 || value[i] == 1080.0 ||value[i] == 73.0 || value[i] == 1073.0){
+              rgb = ['255', '0', '0', '1.0']
+              tests.push(mark[i])
+          }
+<!--          else if (value[i] == 72.0 || value[i] == 1072.0){-->
+<!--              rgb = ['0', '0', '255', '1.0']-->
+<!--              tests.push(mark[i])-->
+<!--          }-->
+          else if (value[i] == 2.0){
+              rgb = ['0', '100', '255', '0.5']
+          }
+          else if (value[i] == 1.0){
+              rgb = ['255', '0', '100', '0.5']
+          }
+          else{
+              rgb = ['0', '0', '0', '0.25']
+          }
+          return rgb
+      }
+
+      function makeGraph(){
+        if(channels==4){
+            var label = document.getElementById('names4')
+        }
+        else if(channels == 14){
+            var label = document.getElementById('names14')
+        }
+        g = new Dygraph(
+            document.getElementById("graphdiv"),
+            filename,
+            {
+              animatedZooms: true,
+              showInRangeSelector: true,
+              drawGrid: false,
+              axes: {
+                y:{
+                  drawAxis: false,
+
+                  legend: 'always',
+                }
+              },
+              xlabel: 'Timestamps in Seconds',
+              legend: 'always',
+              labelsDiv:label,
+              labelsSeparateLines: true,
+              rollPeriod: 2,
+              showRoller: true,
+<!--              highlightSeriesOpts: { strokeWidth: 1.25 },-->
+              underlayCallback: function(canvas, area, g) {
+                for(var i = 0; i<mark.length; i++){
+                  var left = g.toDomXCoord(mark[i]);
+                  var col = colour(i)
+                  canvas.fillStyle = 'rgba('+col[0]+', '+col[1]+', '+col[2]+', '+col[3];
+                  canvas.fillRect(left, 0, 0.7, 600);
+              }
+              var h=0
+              while(tests[h]){
+                if(h == 2 || h == 6 || h == 10 || h == 14){
+                  canvas.fillStyle = 'rgba(11, 156, 49, 1.0)'
+                  var start = g.toDomXCoord(tests[h])
+                  var end = g.toDomXCoord(tests[h+1])
+                  canvas.fillRect(start, 0, end-start, 20)
+                  h += 2;
+                }
+                else if(h == 0 || h == 4 || h == 8 || h == 12){
+                  canvas.fillStyle = 'rgba(255, 229, 124, 1.0)'
+                  var start = g.toDomXCoord(tests[h])
+                  var end = g.toDomXCoord(tests[h+1])
+                  canvas.fillRect(start, 0, end-start, 20)
+                  h += 1;
+                }
+                else{
+                h += 1;
+                }
+              }
+              }
+            }
+        );}
+
+        function update() {
+          var visible = new Array(channels+1)
+          var c;
+
+          if(document.getElementById('deactivate14').checked || document.getElementById('deactivate4').checked){
+            for(c =0; c < channels; c++){
+                visible[c] = false;
+                document.getElementById(waves[c]).checked = false;
+            }
+            document.getElementById('deactivate14').checked = false
+          }
+          else if(document.getElementById('activate14').checked || document.getElementById('activate4').checked){
+            for(c =0; c < channels; c++){
+                visible[c] = true;
+                document.getElementById(waves[c]).checked = true
+            }
+            document.getElementById('activate14').checked = false
+          }
+          else{
+            for( c = 0; c < channels; c++){
+            if (document.getElementById(waves[c]).checked == false){
+               visible[c] = false
+            }
+            else{
+                visible[c] = true
+              }
+          }
+        }
+        visible[channels] = false
+        g.updateOptions({
+        visibility: visible});
+        }
+        makeGraph()
+        update()
+    </script>
+
+    </body>
+    </html>

@@ -1,0 +1,114 @@
+2022-10-31 15:28:43.191 (   8.779s) [        3FF53AEC]      netinterfaces.cpp:36    INFO| netif '{CAEDD7A2-14D4-420B-B5EF-3A63BD530386}' (status: 2, multicast: 1
+2022-10-31 15:28:43.191 (   8.779s) [        3FF53AEC]      netinterfaces.cpp:36    INFO| netif '{4873A346-38D2-4C7B-A291-54049D52395F}' (status: 2, multicast: 1
+2022-10-31 15:28:43.191 (   8.779s) [        3FF53AEC]      netinterfaces.cpp:36    INFO| netif '{EADE208B-8D16-45DD-BD7E-AFD990548B1B}' (status: 2, multicast: 1
+2022-10-31 15:28:43.191 (   8.779s) [        3FF53AEC]      netinterfaces.cpp:36    INFO| netif '{05CFEDDD-E458-448F-8C18-D13CE79F73B6}' (status: 1, multicast: 1
+2022-10-31 15:28:43.191 (   8.779s) [        3FF53AEC]      netinterfaces.cpp:58    INFO| 	IPv6 ifindex 2
+2022-10-31 15:28:43.191 (   8.779s) [        3FF53AEC]      netinterfaces.cpp:36    INFO| netif '{24B01DAD-F5E1-4A37-A958-E96877DBF04B}' (status: 2, multicast: 1
+2022-10-31 15:28:43.191 (   8.779s) [        3FF53AEC]      netinterfaces.cpp:36    INFO| netif '{2B778739-136A-11ED-9DA1-806E6F6E6963}' (status: 1, multicast: 1
+2022-10-31 15:28:43.191 (   8.779s) [        3FF53AEC]      netinterfaces.cpp:58    INFO| 	IPv6 ifindex 1
+2022-10-31 15:28:43.191 (   8.779s) [        3FF53AEC]         api_config.cpp:270   INFO| Loaded default config
+2022-10-31 15:28:47.932 (  13.519s) [        8E080378]             common.cpp:65    INFO| git:5eded5c1d381a1a5fbbcce105edfaa53f009176a/branch:refs/tags/v1.16.0/build:Release/compiler:MSVC-19.0.24245.0/link:SHARED
+{'is_connected': False, 'bluemuse_running': False, 'is_streaming': False, 'battery_level': None, 'quality_ch1': None, 'quality_ch2': None, 'quality_ch3': None, 'quality_ch4': None, 'channel_summary': 'n_n_n_n', 'ready': False}
+muse.start_bluemuse()
+{'is_connected': False, 'bluemuse_running': True, 'is_streaming': False, 'battery_level': None, 'quality_ch1': None, 'quality_ch2': None, 'quality_ch3': None, 'quality_ch4': None, 'channel_summary': 'n_n_n_n', 'ready': False}
+update_gui_muse...
+update_status_telemetry
+{'is_connected': False, 'bluemuse_running': True, 'is_streaming': False, 'battery_level': None, 'quality_ch1': None, 'quality_ch2': None, 'quality_ch3': None, 'quality_ch4': None, 'channel_summary': 'n_n_n_n', 'ready': False}
+update_gui_muse...
+update_status_telemetry
+{'is_connected': False, 'bluemuse_running': True, 'is_streaming': False, 'battery_level': None, 'quality_ch1': None, 'quality_ch2': None, 'quality_ch3': None, 'quality_ch4': None, 'channel_summary': 'n_n_n_n', 'ready': False}
+{'is_connected': False, 'bluemuse_running': True, 'is_streaming': False, 'battery_level': None, 'quality_ch1': None, 'quality_ch2': None, 'quality_ch3': None, 'quality_ch4': None, 'channel_summary': 'n_n_n_n', 'ready': False}
+update_gui_muse...
+update_status_telemetry
+{'is_connected': False, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': None, 'quality_ch1': None, 'quality_ch2': None, 'quality_ch3': None, 'quality_ch4': None, 'channel_summary': 'n_n_n_n', 'ready': False}
+update_gui_muse...
+update_status_telemetry
+{'is_connected': False, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': None, 'quality_ch1': None, 'quality_ch2': None, 'quality_ch3': None, 'quality_ch4': None, 'channel_summary': 'n_n_n_n', 'ready': False}
+{'is_connected': False, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': None, 'quality_ch1': None, 'quality_ch2': None, 'quality_ch3': None, 'quality_ch4': None, 'channel_summary': 'n_n_n_n', 'ready': False}
+update_gui_muse...
+update_status_telemetry
+{'is_connected': False, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': None, 'quality_ch1': None, 'quality_ch2': None, 'quality_ch3': None, 'quality_ch4': None, 'channel_summary': 'n_n_n_n', 'ready': False}
+update_gui_muse...
+update_status_telemetry
+{'is_connected': False, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': None, 'quality_ch1': None, 'quality_ch2': None, 'quality_ch3': None, 'quality_ch4': None, 'channel_summary': 'n_n_n_n', 'ready': False}
+{'is_connected': False, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': None, 'quality_ch1': None, 'quality_ch2': None, 'quality_ch3': None, 'quality_ch4': None, 'channel_summary': 'n_n_n_n', 'ready': False}
+update_gui_muse...
+update_status_telemetry
+{'is_connected': False, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': None, 'quality_ch1': None, 'quality_ch2': None, 'quality_ch3': None, 'quality_ch4': None, 'channel_summary': 'n_n_n_n', 'ready': False}
+update_gui_muse...
+update_status_telemetry
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': None, 'quality_ch2': None, 'quality_ch3': None, 'quality_ch4': None, 'channel_summary': 'n_n_n_n', 'ready': False}
+resolve_byprop: type=EEG
+Creating RawArray with float64 data, n_channels=4, n_times=100
+    Range : 0 ... 99 =      0.000 ...     0.387 secs
+Ready.
+    Using multitaper spectrum estimation with 7 DPSS windows
+    Using multitaper spectrum estimation with 7 DPSS windows
+    Using multitaper spectrum estimation with 7 DPSS windows
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+update_gui_muse...
+update_status_telemetry
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+Creating RawArray with float64 data, n_channels=4, n_times=100
+    Range : 0 ... 99 =      0.000 ...     0.387 secs
+Ready.
+    Using multitaper spectrum estimation with 7 DPSS windows
+    Using multitaper spectrum estimation with 7 DPSS windows
+    Using multitaper spectrum estimation with 7 DPSS windows
+2022-10-31 15:28:56.854 (  22.442s) [        8E080378]         udp_server.cpp:82    WARN| Could not bind multicast responder for ff02:113d:6fdd:2c17:a643:ffe2:1bd1:3cd2 to interface ::1 (An invalid argument was supplied.)
+2022-10-31 15:28:56.855 (  22.443s) [        8E080378]         udp_server.cpp:82    WARN| Could not bind multicast responder for ff05:113d:6fdd:2c17:a643:ffe2:1bd1:3cd2 to interface ::1 (An invalid argument was supplied.)
+2022-10-31 15:29:01.857 (   4.700s) [        F3E7EAE9]      netinterfaces.cpp:36    INFO| netif '{CAEDD7A2-14D4-420B-B5EF-3A63BD530386}' (status: 2, multicast: 1
+2022-10-31 15:29:01.857 (   4.700s) [        F3E7EAE9]      netinterfaces.cpp:36    INFO| netif '{4873A346-38D2-4C7B-A291-54049D52395F}' (status: 2, multicast: 1
+2022-10-31 15:29:01.857 (   4.700s) [        F3E7EAE9]      netinterfaces.cpp:36    INFO| netif '{EADE208B-8D16-45DD-BD7E-AFD990548B1B}' (status: 2, multicast: 1
+2022-10-31 15:29:01.857 (   4.700s) [        F3E7EAE9]      netinterfaces.cpp:36    INFO| netif '{05CFEDDD-E458-448F-8C18-D13CE79F73B6}' (status: 1, multicast: 1
+2022-10-31 15:29:01.857 (   4.700s) [        F3E7EAE9]      netinterfaces.cpp:58    INFO| 	IPv6 ifindex 2
+2022-10-31 15:29:01.857 (   4.700s) [        F3E7EAE9]      netinterfaces.cpp:36    INFO| netif '{24B01DAD-F5E1-4A37-A958-E96877DBF04B}' (status: 2, multicast: 1
+2022-10-31 15:29:01.857 (   4.700s) [        F3E7EAE9]      netinterfaces.cpp:36    INFO| netif '{2B778739-136A-11ED-9DA1-806E6F6E6963}' (status: 1, multicast: 1
+2022-10-31 15:29:01.857 (   4.700s) [        F3E7EAE9]      netinterfaces.cpp:58    INFO| 	IPv6 ifindex 1
+2022-10-31 15:29:01.857 (   4.700s) [        F3E7EAE9]         api_config.cpp:270   INFO| Loaded default config
+2022-10-31 15:29:01.865 (   4.708s) [        F3E7EAE9]             common.cpp:65    INFO| git:5eded5c1d381a1a5fbbcce105edfaa53f009176a/branch:refs/tags/v1.16.0/build:Release/compiler:MSVC-19.0.24245.0/link:SHARED
+close_window
+start_session
+Muse S
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+_run_task.image: images/home_session_2203/task_rest_info.png
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'name': 'image', 'start': 1667244549.9589586, 'end': 1667244555.0084667, 'filename': 'images/home_session_2203/task_rest_info.png'}
+_run_task.sound: audio/home_session_2203/task_rest_eyes_closed_msg.mp3
+{'name': 'audio', 'start': 1667244555.0084667, 'end': 1667244555.2208357, 'filename': 'audio/home_session_2203/task_rest_eyes_closed_msg.mp3'}
+_run_task.image: images/home_session_2203/task_rest_eyes_closed_msg.png
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'name': 'image', 'start': 1667244555.2208357, 'end': 1667244560.240122, 'filename': 'images/home_session_2203/task_rest_eyes_closed_msg.png'}
+_run_task.image: images/home_session_2203/task_rest_eyes_closed.png
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+{'is_connected': True, 'bluemuse_running': True, 'is_streaming': True, 'battery_level': 85.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}

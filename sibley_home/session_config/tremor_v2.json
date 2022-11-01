@@ -1,0 +1,380 @@
+{
+    "session_type": "tremor v2",
+    "duration": 0,
+    "data_capture": [
+        "motion"
+    ],
+    "task": [
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_instructions.png",
+                "duration": 10
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_rest.png",
+                "duration": 10
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_centre.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_nose.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_centre.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_nose.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_centre.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_nose.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_centre.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_nose.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_centre.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_nose.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_centre.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_nose.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_centre.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_nose.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_centre.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_nose.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_rest.png",
+                "duration": 10
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_top_left.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_nose.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_top_right.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_nose.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_bottom_left.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_nose.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_bottom_right.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_nose.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_top_left.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_nose.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_top_right.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_nose.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_bottom_left.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_nose.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_bottom_right.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_nose.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_rest.png",
+                "duration": 10
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_centre.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_nose.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_centre.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_nose.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_centre.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_nose.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_centre.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_nose.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_top_left.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_nose.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_top_right.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_nose.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_bottom_left.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_nose.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_bottom_right.png",
+                "duration": 2
+            }
+        },
+                {
+            "name": "image",
+            "params": {
+                "filename": "images/tremor_nose.png",
+                "duration": 2
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/session_end.png",
+                "duration": 12
+            }
+        }
+    ]
+}

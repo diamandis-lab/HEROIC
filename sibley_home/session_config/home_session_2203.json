@@ -1,0 +1,290 @@
+{
+    "session_type": "home_session_2203",
+    "duration": 910,
+    "data_capture": [
+        "audio",
+        "keyboard",
+        "EEG"
+    ],
+	"EEG_marks": [
+		{
+			"name": "Stroop test",
+			"type": "task",
+			"mark": 80
+		},
+		{
+			"name": "Relax",
+			"type": "task",
+			"mark": 73
+		},
+		{
+			"name": "Concordant",
+			"type": "stimulus",
+			"mark": 1		
+		},
+		{
+			"name": "Discordant",
+			"type": "stimulus",
+			"mark": 2		
+		}
+	],
+    "task": [
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/home_session_2203/task_rest_info.png",
+                "duration": 5
+            }
+        },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "audio/home_session_2203/task_rest_eyes_closed_msg.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/home_session_2203/task_rest_eyes_closed_msg.png",
+                "duration": 5
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/home_session_2203/task_rest_eyes_closed.png",
+                "duration": 60
+            }
+        },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "audio/home_session_2203/task_rest_eyes_open_msg.mp3",
+                "wait": false
+            }
+        },
+                {
+            "name": "image",
+            "params": {
+                "filename": "images/home_session_2203/task_rest_eyes_open_msg.png",
+                "duration": 5
+            }
+        },
+                {
+            "name": "image",
+            "params": {
+                "filename": "images/home_session_2203/task_rest_eyes_open.png",
+                "duration": 60
+            }
+        },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "audio/home_session_2203/task_meditation_info.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/home_session_2203/task_meditation_info.png",
+                "duration": 5
+            }
+        },
+        {
+            "name": "video",
+            "params": {
+                "filename": "video/home_session_2203/task_meditation.mp4",
+                "wait": true,
+                "no_repeats": 0
+            }
+        },
+                {
+            "name": "audio",
+            "params": {
+                "filename": "audio/home_session_2203/task_stroop_speak.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "audio/voice_speak_your_answers.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/stroop_instructions_speak.png",
+                "duration": 10
+            }
+        },
+        {
+            "name": "stroop",
+            "params": {
+                "color_no": 6,
+                "perc_mismatch": 50,
+                "rounds": 25,
+                "duration_text": 1.5,
+                "duration_blank": 1.0,
+                "keyboard_logfile": null
+            }
+        },
+		{
+            "name": "text",
+            "params": {
+                "text": "1 minute of calmness\n\nRelax your body, clear your mind",
+                "duration": 5,
+                "height": 2,
+                "wrap_width": 32
+            }
+        },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "audio/audio_2547fa5a12-1min.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "video",
+            "params": {
+                "filename": "video/Background-8788.mp4",
+                "wait": true,
+                "no_repeats": 5
+            }
+        },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "audio/home_session_2203/task_stroop_speak.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "audio/voice_speak_your_answers.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/stroop_instructions_speak.png",
+                "duration": 10
+            }
+        },
+        {
+            "name": "stroop",
+            "params": {
+                "color_no": 6,
+                "perc_mismatch": 50,
+                "rounds": 25,
+                "duration_text": 1.5,
+                "duration_blank": 1.0,
+                "keyboard_logfile": null
+            }
+        },
+		                {
+            "name": "text",
+            "params": {
+                "text": "1 minute of calmness\n\nRelax your body, clear your mind",
+                "duration": 5,
+                "height": 2,
+                "wrap_width": 32
+            }
+        },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "audio/audio_2547fa5a12-1min.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "video",
+            "params": {
+                "filename": "video/Background-8788.mp4",
+                "wait": true,
+                "no_repeats": 5
+            }
+        },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "audio/voice_speak_your_answers.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/stroop_instructions_speak.png",
+                "duration": 10
+            }
+        },
+        {
+            "name": "stroop",
+            "params": {
+                "color_no": 6,
+                "perc_mismatch": 50,
+                "rounds": 25,
+                "duration_text": 1.5,
+                "duration_blank": 1.0,
+                "keyboard_logfile": null
+            }
+        },
+		{
+            "name": "text",
+            "params": {
+                "text": "1 minute of calmness\n\nRelax your body, clear your mind",
+                "duration": 5,
+                "height": 2,
+                "wrap_width": 32
+            }
+        },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "audio/audio_2547fa5a12-1min.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "video",
+            "params": {
+                "filename": "video/Background-8788.mp4",
+                "wait": true,
+                "no_repeats": 5
+            }
+        },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "audio/voice_speak_your_answers.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/stroop_instructions_speak.png",
+                "duration": 10
+            }
+        },
+        {
+            "name": "stroop",
+            "params": {
+                "color_no": 6,
+                "perc_mismatch": 50,
+                "rounds": 25,
+                "duration_text": 1.5,
+                "duration_blank": 1.0,
+                "keyboard_logfile": null
+            }
+        }
+    ]
+}

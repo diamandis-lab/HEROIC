@@ -1,0 +1,432 @@
+{
+    "session_type": "rest_P300_meditate_oddball",
+    "duration": 1295,
+    "data_capture": [
+        "EEG"
+    ],
+	"EEG_marks": [
+		{
+			"name": "Relax",
+			"type": "task",
+			"mark": 73
+		},
+		{
+			"name": "p300 visual",
+			"type": "task",
+			"mark": 81
+		},
+        {
+			"name": "auditory_oddball",
+			"type": "task",
+			"mark": 83
+		},
+		{
+			"name": "Targets",
+			"type": "stimulus",
+			"mark": 21
+		},
+		{
+			"name": "NonTargets",
+			"type": "stimulus",
+			"mark": 22
+		},
+                {
+			"name": "standard",
+			"type": "stimulus",
+			"mark": 1
+		},
+		{
+			"name": "target",
+			"type": "stimulus",
+			"mark": 2
+		},
+		{
+			"name": "novel",
+			"type": "stimulus",
+			"mark": 3
+		}
+	],
+    "task": [
+
+
+        {
+            "name": "image",
+            "params": {
+                "filename": "rest_eyes_closed_open/images/task_rest_info.png",
+                "duration": 5
+            }
+        },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "rest_eyes_closed_open/audio/task_rest_eyes_closed_msg.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "rest_eyes_closed_open/images/task_rest_eyes_closed_msg.png",
+                "duration": 5
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "rest_eyes_closed_open/images/task_rest_eyes_closed.png",
+                "duration": 60
+            }
+        },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "rest_eyes_closed_open/audio/task_rest_eyes_open_msg.mp3",
+                "wait": false
+            }
+        },
+                {
+            "name": "image",
+            "params": {
+                "filename": "rest_eyes_closed_open/images/task_rest_eyes_open_msg.png",
+                "duration": 5
+            }
+        },
+                {
+            "name": "image",
+            "params": {
+                "filename": "rest_eyes_closed_open/images/task_rest_eyes_open.png",
+                "duration": 60
+            }
+        },
+
+
+
+
+
+        {
+            "name": "image",
+            "params": {
+                "filename": "relax_1min/images/instructions_calmness_1min.png",
+                "duration": 5
+            }
+        },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "relax_1min/audio/audio_2547fa5a12-1min.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "video",
+            "params": {
+                "filename": "relax_1min/video/Background-8788.mp4",
+                "wait": true,
+                "no_repeats": 5
+            }
+        },
+
+
+
+        {
+            "name": "text",
+            "params": {
+                "text": "Focus on the centre of the screen.\nTry not to blink",
+                "duration": 5,
+                "height": 2,
+                "wrap_width": 32
+            }
+        },
+        {
+            "name": "p300_visual",
+            "params": {
+                "duration": 60
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "relax_1min/images/instructions_calmness_1min.png",
+                "duration": 5
+            }
+        },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "relax_1min/audio/audio_2547fa5a12-1min.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "video",
+            "params": {
+                "filename": "relax_1min/video/Background-8788.mp4",
+                "wait": true,
+                "no_repeats": 5
+            }
+        },
+        {
+            "name": "text",
+            "params": {
+                "text": "Focus on the centre of the screen.\nTry not to blink",
+                "duration": 5,
+                "height": 2,
+                "wrap_width": 32
+            }
+        },
+        {
+            "name": "p300_visual",
+            "params": {
+                "duration": 60
+            }
+        },
+
+
+
+        {
+            "name": "audio",
+            "params": {
+                "filename": "meditation_5min/audio/task_meditation_info.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "meditation_5min/images/task_meditation_info.png",
+                "duration": 5
+            }
+        },
+        {
+            "name": "video",
+            "params": {
+                "filename": "meditation_5min/video/task_meditation.mp4",
+                "wait": true,
+                "no_repeats": 0
+            }
+        },
+
+
+
+
+
+
+        {
+            "name": "image",
+            "params": {
+                "filename": "relax_1min/images/instructions_calmness_1min.png",
+                "duration": 5
+            }
+        },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "relax_1min/audio/audio_2547fa5a12-1min.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "video",
+            "params": {
+                "filename": "relax_1min/video/Background-8788.mp4",
+                "wait": true,
+                "no_repeats": 5
+            }
+        },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "auditory_oddball/audio/instructions_1.wav",
+                "wait": false
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "auditory_oddball/images/instructions_1.png",
+                "duration": 35
+            }
+        },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "auditory_oddball/audio/instructions_2.wav",
+                "wait": false
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "auditory_oddball/images/instructions_2.png",
+                "duration": 10
+            }
+        },
+        {
+            "name": "auditory_oddball",
+            "params": {
+                "rounds": 50
+            }
+        },
+              {
+            "name": "audio",
+            "params": {
+                "filename": "auditory_oddball/audio/open_eyes_relax_1min.wav",
+                "wait": false
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "auditory_oddball/images/open_eyes_relax_1min.png",
+                "duration": 5
+            }
+        },
+              {
+            "name": "audio",
+            "params": {
+                "filename": "relax_1min/audio/audio_2547fa5a12-1min.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "video",
+            "params": {
+                "filename": "relax_1min/video/Background-8788.mp4",
+                "wait": true,
+                "no_repeats": 5
+            }
+        },
+              {
+            "name": "audio",
+            "params": {
+                "filename": "auditory_oddball/audio/instructions_2.wav",
+                "wait": false
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "auditory_oddball/images/instructions_2.png",
+                "duration": 10
+            }
+        },
+        {
+            "name": "auditory_oddball",
+            "params": {
+                "rounds": 50
+            }
+        },
+                     {
+            "name": "audio",
+            "params": {
+                "filename": "auditory_oddball/audio/open_eyes_relax_1min.wav",
+                "wait": false
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "auditory_oddball/images/open_eyes_relax_1min.png",
+                "duration": 5
+            }
+        },
+              {
+            "name": "audio",
+            "params": {
+                "filename": "relax_1min/audio/audio_2547fa5a12-1min.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "video",
+            "params": {
+                "filename": "relax_1min/video/Background-8788.mp4",
+                "wait": true,
+                "no_repeats": 5
+            }
+        },
+              {
+            "name": "audio",
+            "params": {
+                "filename": "auditory_oddball/audio/instructions_2.wav",
+                "wait": false
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "auditory_oddball/images/instructions_2.png",
+                "duration": 10
+            }
+        },
+        {
+            "name": "auditory_oddball",
+            "params": {
+                "rounds": 50
+            }
+        },
+                     {
+            "name": "audio",
+            "params": {
+                "filename": "auditory_oddball/audio/open_eyes_relax_1min.wav",
+                "wait": false
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "auditory_oddball/images/open_eyes_relax_1min.png",
+                "duration": 5
+            }
+        },
+              {
+            "name": "audio",
+            "params": {
+                "filename": "relax_1min/audio/audio_2547fa5a12-1min.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "video",
+            "params": {
+                "filename": "relax_1min/video/Background-8788.mp4",
+                "wait": true,
+                "no_repeats": 5
+            }
+        },
+              {
+            "name": "audio",
+            "params": {
+                "filename": "auditory_oddball/audio/instructions_2.wav",
+                "wait": false
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "auditory_oddball/images/instructions_2.png",
+                "duration": 10
+            }
+        },
+        {
+            "name": "auditory_oddball",
+            "params": {
+                "rounds": 50
+            }
+        },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "auditory_oddball/audio/open_eyes_end_session.wav",
+                "wait": false
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "auditory_oddball/images/open_eyes_end_session.png",
+                "duration": 5
+            }
+        }
+    ]
+}

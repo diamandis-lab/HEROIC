@@ -1,0 +1,53 @@
+docker pull couchdb:3.1.1
+
+docker run --rm --name couchdb -e COUCHDB_USER=admin -e COUCHDB_PASSWORD=password -v "C:/Users/alber/couchdb/data":/opt/couchdb/data -p 8080:5984 -d couchdb:3.1.1
+
+
+DB_URL=127.0.0.1
+DB_PORT=5984
+DB_NAME=sibley
+ADMIN_NAME=admin
+ADMIN_PASS=password
+USER_NAME=user
+USER_PASS=password
+
+#open in browser http://127.0.0.1:8080/_utils
+#perform 'verify install', second last item in the left menu
+
+#Documentation https://docs.couchdb.org/en/stable/intro/security.html
+#A database admin is created during the first startup through the credentials passed on to the container, i.e. admin:password
+
+#ssh the container:
+docker exec --it couchdb /bin/bash
+
+#first, we create the _users database; stores all the users and passwords known to CouchDB
+curl --user $ADMIN_NAME:$ADMIN_PASS \
+      -X PUT http://$DB_URL:$DB_PORT/_users
+
+#a user named $USER_NAME with password $USER_PASS is added to _users
+curl --user $ADMIN_NAME:$ADMIN_PASS \
+      -X PUT http://$DB_URL:$DB_PORT/_users/org.couchdb.user:$USER_NAME \
+      -H "Accept: application/json" \
+      -H "Content-Type: application/json" \
+      -d '{"name": "'"$USER_NAME"'", "password": "'"$USER_PASS"'", "roles": [], "type": "user"}'
+        
+
+#we verify that $USER_NAME:$USER_PASS exists
+curl -X POST http://$DB_URL:$DB_PORT/_session \
+      -d 'name='"$USER_NAME"'&password='"$USER_PASS"''
+
+#create a database named $DB_NAME (only admins can create/delete databases)
+curl --user $ADMIN_NAME:$ADMIN_PASS \
+      -X PUT http://$DB_URL:$DB_PORT/$DB_NAME
+
+#create the _security document in $DB_NAME, which stores user credentials for the database
+curl --user $ADMIN_NAME:$ADMIN_PASS \
+      -X PUT http://$DB_URL:$DB_PORT/$DB_NAME/_security \
+      -H "Content-Type: application/json" \
+      -d '{"admins": { "names": [], "roles": [] }, "members": { "names": ["'"$USER_NAME"'"], "roles": [] } }'
+
+
+curl http://$DB_URL:$DB_PORT/$DB_NAME
+#expected result: {"error":"unauthorized","reason":"You are not authorized to access this db."}
+
+curl --user $USER_NAME:$USER_PASS http://$DB_URL:$DB_PORT/$DB_NAME

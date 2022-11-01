@@ -1,0 +1,33 @@
+{
+    "Markers": [
+    ],
+    "demographics": {
+        "birthday": "1998-01-01",
+        "countryOfInfluence": {
+            "iso": "GR",
+            "printable": "Greece"
+        },
+        "countryOfResidence": {
+            "iso": "CA",
+            "printable": "Canada"
+        },
+        "education": "Bachelor's degree",
+        "gender": "F",
+        "handedness": "Right",
+        "languageAbility": "Multilingual",
+        "meditation": {
+            "answer": true,
+            "duration_frequency": "Week",
+            "duration_minute": 10,
+            "length": 2,
+            "length_unit": "Years"
+        },
+        "musicalAbility": "Multi-instrumentalist",
+        "profession": "Student"
+    },
+    "exportApp": "com.emotiv.emotivpro",
+    "exportTime": "2021-07-21T13:30:27.496-04:00",
+    "mappings": null,
+    "recordId": "2604f804-274b-46f7-bf6d-6dcbf2b526ee",
+    "user": "diamandislab"
+}

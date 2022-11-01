@@ -1,0 +1,169 @@
+{
+    "params": {
+        "study": "default",
+        "session_type": "Stroop_keyboard",
+        "eeg_device": "EPOC X",
+        "participant_id": "orange-crocodile",
+        "group": "default",
+        "age": "20",
+        "comments": "",
+        "session_uuid": "84fb94e2-615e-4a1c-b928-779daff31589",
+        "timestamp": "20210716-122310"
+    },
+    "data_file": {
+        "EEG": "output/EEG/EPOCX/orange crocodile_EPOCX_135154_2021.07.16T12.46.37.04.00.edf|output/EEG/EPOCX/orange crocodile_EPOCX_135154_2021.07.16T12.46.37.04.00.json|output/EEG/EPOCX/orange crocodile_EPOCX_135154_2021.07.16T12.46.37.04.00.md.edf|output/EEG/EPOCX/orange crocodile_EPOCX_135154_2021.07.16T12.46.37.04.00_intervalMarker.csv",
+        "keyboard": "output/keyboard/20210716-122310_default_orange-crocodile.csv"
+    },
+    "EEG_marks": {
+        "EEG_markers": [
+            {
+                "name": "Stroop test",
+                "type": "task",
+                "mark": 80
+            },
+            {
+                "name": "Relax",
+                "type": "task",
+                "mark": 73
+            },
+            {
+                "name": "Concordant",
+                "type": "stimulus",
+                "mark": 1
+            },
+            {
+                "name": "Discordant",
+                "type": "stimulus",
+                "mark": 2
+            }
+        ]
+    },
+    "task_log": [
+        {
+            "name": "text",
+            "start": 1626454026.037115,
+            "end": 1626454031.0627997
+        },
+        {
+            "name": "audio",
+            "start": 1626454031.0627997,
+            "end": 1626454031.180782,
+            "filename": "audio/audio_2547fa5a12-1min.mp3"
+        },
+        {
+            "name": "video",
+            "start": 1626454031.1817846,
+            "end": 1626454094.3151994,
+            "filename": "video/Background-8788.mp4"
+        },
+        {
+            "name": "image",
+            "start": 1626454094.3151994,
+            "end": 1626454104.492453,
+            "filename": "images/stroop_instructions_arrows.png"
+        },
+        {
+            "name": "audio",
+            "start": 1626454104.492453,
+            "end": 1626454108.8406355,
+            "filename": "audio/voice_type_your_answers.mp3"
+        },
+        {
+            "name": "stroop",
+            "start": 1626454108.8407228,
+            "end": 1626454159.2848787
+        },
+        {
+            "name": "text",
+            "start": 1626454159.2848787,
+            "end": 1626454164.3172486
+        },
+        {
+            "name": "audio",
+            "start": 1626454164.31825,
+            "end": 1626454164.3642473,
+            "filename": "audio/audio_2547fa5a12-1min.mp3"
+        },
+        {
+            "name": "video",
+            "start": 1626454164.3642473,
+            "end": 1626454227.3369148,
+            "filename": "video/Background-8788.mp4"
+        },
+        {
+            "name": "image",
+            "start": 1626454227.3369148,
+            "end": 1626454237.511559,
+            "filename": "images/stroop_instructions_arrows.png"
+        },
+        {
+            "name": "audio",
+            "start": 1626454237.511559,
+            "end": 1626454241.8653162,
+            "filename": "audio/voice_type_your_answers.mp3"
+        },
+        {
+            "name": "stroop",
+            "start": 1626454241.8653162,
+            "end": 1626454292.3056293
+        },
+        {
+            "name": "audio",
+            "start": 1626454292.3057537,
+            "end": 1626454292.359749,
+            "filename": "audio/audio_2547fa5a12-1min.mp3"
+        },
+        {
+            "name": "video",
+            "start": 1626454292.359749,
+            "end": 1626454355.3260672,
+            "filename": "video/Background-8788.mp4"
+        },
+        {
+            "name": "image",
+            "start": 1626454355.3260672,
+            "end": 1626454365.4804146,
+            "filename": "images/stroop_instructions_arrows.png"
+        },
+        {
+            "name": "audio",
+            "start": 1626454365.4804146,
+            "end": 1626454369.8278875,
+            "filename": "audio/voice_type_your_answers.mp3"
+        },
+        {
+            "name": "stroop",
+            "start": 1626454369.8278875,
+            "end": 1626454420.1446042
+        },
+        {
+            "name": "audio",
+            "start": 1626454420.1446042,
+            "end": 1626454420.2028725,
+            "filename": "audio/audio_2547fa5a12-1min.mp3"
+        },
+        {
+            "name": "video",
+            "start": 1626454420.2028725,
+            "end": 1626454483.2487347,
+            "filename": "video/Background-8788.mp4"
+        },
+        {
+            "name": "image",
+            "start": 1626454483.2487347,
+            "end": 1626454493.3927314,
+            "filename": "images/stroop_instructions_arrows.png"
+        },
+        {
+            "name": "audio",
+            "start": 1626454493.3927314,
+            "end": 1626454497.7686727,
+            "filename": "audio/voice_type_your_answers.mp3"
+        },
+        {
+            "name": "stroop",
+            "start": 1626454497.7686727,
+            "end": 1626454548.082133
+        }
+    ]
+}

@@ -1,0 +1,158 @@
+{
+    "session_type": "Cue Go/Nogo visual",
+    "duration": 730,
+    "data_capture": [
+        "EEG",
+        "keyboard"
+    ],
+    "task": [
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/stroop_instructions_calmness_1min.png",
+                "duration": 5
+            }
+        },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "audio/audio_2547fa5a12-1min.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "video",
+            "params": {
+                "filename": "video/Background-8788.mp4",
+                "wait": true,
+                "no_repeats": 5
+            }
+        },
+        {
+            "name": "text",
+            "params": {
+                "text": "When you see an [x], press the space bar.\nWith [\u25A0] or [+], do nothing",
+                "duration": 5,
+                "height": 2,
+                "wrap_width": 32
+            }
+        },
+        {
+            "name": "cue_go_nogo_visual",
+            "params": {
+                "no_trials": 25
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/stroop_instructions_calmness_1min.png",
+                "duration": 5
+            }
+        },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "audio/audio_2547fa5a12-1min.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "video",
+            "params": {
+                "filename": "video/Background-8788.mp4",
+                "wait": true,
+                "no_repeats": 5
+            }
+        },
+                {
+            "name": "text",
+            "params": {
+                "text": "When you see an [x], press the space bar.\nWith [\u25A0] or [+], do nothing",
+                "duration": 5,
+                "height": 2,
+                "wrap_width": 32
+            }
+        },
+        {
+            "name": "cue_go_nogo_visual",
+            "params": {
+                "no_trials": 25
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/stroop_instructions_calmness_1min.png",
+                "duration": 5
+            }
+        },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "audio/audio_2547fa5a12-1min.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "video",
+            "params": {
+                "filename": "video/Background-8788.mp4",
+                "wait": true,
+                "no_repeats": 5
+            }
+        },
+        {
+            "name": "text",
+            "params": {
+                "text": "When you see an [x], press the space bar.\nWith [\u25A0] or [+], do nothing",
+                "duration": 5,
+                "height": 2,
+                "wrap_width": 32
+            }
+        },
+        {
+            "name": "cue_go_nogo_visual",
+            "params": {
+                "no_trials": 25
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/stroop_instructions_calmness_1min.png",
+                "duration": 5
+            }
+        },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "audio/audio_2547fa5a12-1min.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "video",
+            "params": {
+                "filename": "video/Background-8788.mp4",
+                "wait": true,
+                "no_repeats": 5
+            }
+        },
+                {
+            "name": "text",
+            "params": {
+                "text": "When you see an [x], press the space bar.\nWith [\u25A0] or [+], do nothing",
+                "duration": 5,
+                "height": 2,
+                "wrap_width": 32
+            }
+        },
+        {
+            "name": "cue_go_nogo_visual",
+            "params": {
+                "no_trials": 25
+            }
+        }
+    ]
+}

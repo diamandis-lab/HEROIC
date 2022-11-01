@@ -1,0 +1,25 @@
+{
+    "session_type": "show image demo",
+    "duration": 10,
+    "data_capture": [
+        "audio",
+        "keyboard",
+		"EEG"
+    ],
+    "task": [
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/stroop_instructions_arrows.png",
+                "duration": 3
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/stroop_instructions_speak.png",
+                "duration": 3
+            }
+        }
+    ]
+}

@@ -1,0 +1,284 @@
+2022-09-26 13:30:45.455 ( 159.342s) [        E374911B]      netinterfaces.cpp:36    INFO| netif '{CAEDD7A2-14D4-420B-B5EF-3A63BD530386}' (status: 2, multicast: 1
+2022-09-26 13:30:45.456 ( 159.342s) [        E374911B]      netinterfaces.cpp:36    INFO| netif '{4873A346-38D2-4C7B-A291-54049D52395F}' (status: 2, multicast: 1
+2022-09-26 13:30:45.456 ( 159.342s) [        E374911B]      netinterfaces.cpp:36    INFO| netif '{EADE208B-8D16-45DD-BD7E-AFD990548B1B}' (status: 2, multicast: 1
+2022-09-26 13:30:45.456 ( 159.342s) [        E374911B]      netinterfaces.cpp:36    INFO| netif '{05CFEDDD-E458-448F-8C18-D13CE79F73B6}' (status: 1, multicast: 1
+2022-09-26 13:30:45.456 ( 159.342s) [        E374911B]      netinterfaces.cpp:58    INFO| 	IPv6 ifindex 2
+2022-09-26 13:30:45.456 ( 159.342s) [        E374911B]      netinterfaces.cpp:36    INFO| netif '{24B01DAD-F5E1-4A37-A958-E96877DBF04B}' (status: 2, multicast: 1
+2022-09-26 13:30:45.456 ( 159.342s) [        E374911B]      netinterfaces.cpp:36    INFO| netif '{2B778739-136A-11ED-9DA1-806E6F6E6963}' (status: 1, multicast: 1
+2022-09-26 13:30:45.456 ( 159.342s) [        E374911B]      netinterfaces.cpp:58    INFO| 	IPv6 ifindex 1
+2022-09-26 13:30:45.456 ( 159.342s) [        E374911B]         api_config.cpp:270   INFO| Loaded default config
+2022-09-26 13:30:51.531 ( 165.417s) [        E374911B]             common.cpp:65    INFO| git:5eded5c1d381a1a5fbbcce105edfaa53f009176a/branch:refs/tags/v1.16.0/build:Release/compiler:MSVC-19.0.24245.0/link:SHARED
+update_gui_muse...
+update_status_telemetry
+{'is_connected': False, 'battery_level': None, 'quality_ch1': None, 'quality_ch2': None, 'quality_ch3': None, 'quality_ch4': None, 'channel_summary': 'n_n_n_n', 'ready': False}
+update_gui_muse...
+update_status_telemetry
+{'is_connected': False, 'battery_level': None, 'quality_ch1': None, 'quality_ch2': None, 'quality_ch3': None, 'quality_ch4': None, 'channel_summary': 'n_n_n_n', 'ready': False}
+update_gui_muse...
+update_status_telemetry
+{'is_connected': False, 'battery_level': None, 'quality_ch1': None, 'quality_ch2': None, 'quality_ch3': None, 'quality_ch4': None, 'channel_summary': 'n_n_n_n', 'ready': False}
+update_gui_muse...
+update_status_telemetry
+{'is_connected': False, 'battery_level': None, 'quality_ch1': None, 'quality_ch2': None, 'quality_ch3': None, 'quality_ch4': None, 'channel_summary': 'n_n_n_n', 'ready': False}
+update_gui_muse...
+update_status_telemetry
+{'is_connected': False, 'battery_level': None, 'quality_ch1': None, 'quality_ch2': None, 'quality_ch3': None, 'quality_ch4': None, 'channel_summary': 'n_n_n_n', 'ready': False}
+update_gui_muse...
+update_status_telemetry
+{'is_connected': False, 'battery_level': None, 'quality_ch1': None, 'quality_ch2': None, 'quality_ch3': None, 'quality_ch4': None, 'channel_summary': 'n_n_n_n', 'ready': False}
+update_gui_muse...
+update_status_telemetry
+{'is_connected': True, 'battery_level': 45.0, 'quality_ch1': None, 'quality_ch2': None, 'quality_ch3': None, 'quality_ch4': None, 'channel_summary': 'n_n_n_n', 'ready': False}
+resolve_byprop: type=EEG
+Creating RawArray with float64 data, n_channels=4, n_times=256
+    Range : 0 ... 255 =      0.000 ...     0.996 secs
+Ready.
+    Using multitaper spectrum estimation with 7 DPSS windows
+    Using multitaper spectrum estimation with 7 DPSS windows
+    Using multitaper spectrum estimation with 7 DPSS windows
+update_gui_muse...
+update_status_telemetry
+{'is_connected': True, 'battery_level': 45.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+Creating RawArray with float64 data, n_channels=4, n_times=256
+    Range : 0 ... 255 =      0.000 ...     0.996 secs
+Ready.
+    Using multitaper spectrum estimation with 7 DPSS windows
+    Using multitaper spectrum estimation with 7 DPSS windows
+    Using multitaper spectrum estimation with 7 DPSS windows
+update_gui_muse...
+update_status_telemetry
+{'is_connected': True, 'battery_level': 45.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+Creating RawArray with float64 data, n_channels=4, n_times=256
+    Range : 0 ... 255 =      0.000 ...     0.996 secs
+Ready.
+    Using multitaper spectrum estimation with 7 DPSS windows
+    Using multitaper spectrum estimation with 7 DPSS windows
+    Using multitaper spectrum estimation with 7 DPSS windows
+update_gui_muse...
+update_status_telemetry
+{'is_connected': True, 'battery_level': 45.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+Creating RawArray with float64 data, n_channels=4, n_times=256
+    Range : 0 ... 255 =      0.000 ...     0.996 secs
+Ready.
+    Using multitaper spectrum estimation with 7 DPSS windows
+    Using multitaper spectrum estimation with 7 DPSS windows
+    Using multitaper spectrum estimation with 7 DPSS windows
+update_gui_muse...
+update_status_telemetry
+{'is_connected': True, 'battery_level': 45.0, 'quality_ch1': 1, 'quality_ch2': 1, 'quality_ch3': 1, 'quality_ch4': 1, 'channel_summary': 'g_g_g_g', 'ready': False}
+Creating RawArray with float64 data, n_channels=4, n_times=256
+    Range : 0 ... 255 =      0.000 ...     0.996 secs
+Ready.
+    Using multitaper spectrum estimation with 7 DPSS windows
+    Using multitaper spectrum estimation with 7 DPSS windows
+    Using multitaper spectrum estimation with 7 DPSS windows
+2022-09-26 13:31:01.169 ( 175.055s) [        E374911B]         udp_server.cpp:82    WARN| Could not bind multicast responder for ff02:113d:6fdd:2c17:a643:ffe2:1bd1:3cd2 to interface ::1 (An invalid argument was supplied.)
+2022-09-26 13:31:01.169 ( 175.056s) [        E374911B]         udp_server.cpp:82    WARN| Could not bind multicast responder for ff05:113d:6fdd:2c17:a643:ffe2:1bd1:3cd2 to interface ::1 (An invalid argument was supplied.)
+2022-09-26 13:31:10.206 (   8.581s) [        A6FD1EF3]      netinterfaces.cpp:36    INFO| netif '{CAEDD7A2-14D4-420B-B5EF-3A63BD530386}' (status: 2, multicast: 1
+2022-09-26 13:31:10.207 (   8.582s) [        A6FD1EF3]      netinterfaces.cpp:36    INFO| netif '{4873A346-38D2-4C7B-A291-54049D52395F}' (status: 2, multicast: 1
+2022-09-26 13:31:10.207 (   8.582s) [        A6FD1EF3]      netinterfaces.cpp:36    INFO| netif '{EADE208B-8D16-45DD-BD7E-AFD990548B1B}' (status: 2, multicast: 1
+2022-09-26 13:31:10.207 (   8.582s) [        A6FD1EF3]      netinterfaces.cpp:36    INFO| netif '{05CFEDDD-E458-448F-8C18-D13CE79F73B6}' (status: 1, multicast: 1
+2022-09-26 13:31:10.207 (   8.582s) [        A6FD1EF3]      netinterfaces.cpp:58    INFO| 	IPv6 ifindex 2
+2022-09-26 13:31:10.207 (   8.582s) [        A6FD1EF3]      netinterfaces.cpp:36    INFO| netif '{24B01DAD-F5E1-4A37-A958-E96877DBF04B}' (status: 2, multicast: 1
+2022-09-26 13:31:10.207 (   8.582s) [        A6FD1EF3]      netinterfaces.cpp:36    INFO| netif '{2B778739-136A-11ED-9DA1-806E6F6E6963}' (status: 1, multicast: 1
+2022-09-26 13:31:10.207 (   8.582s) [        A6FD1EF3]      netinterfaces.cpp:58    INFO| 	IPv6 ifindex 1
+2022-09-26 13:31:10.207 (   8.582s) [        A6FD1EF3]         api_config.cpp:270   INFO| Loaded default config
+2022-09-26 13:31:10.218 (   8.593s) [        A6FD1EF3]             common.cpp:65    INFO| git:5eded5c1d381a1a5fbbcce105edfaa53f009176a/branch:refs/tags/v1.16.0/build:Release/compiler:MSVC-19.0.24245.0/link:SHARED
+close_window
+start_session
+Muse S
+_run_task.image: images/home_session_2203/task_rest_info.png
+{'name': 'image', 'start': 1664213475.798855, 'end': 1664213480.8996046, 'filename': 'images/home_session_2203/task_rest_info.png'}
+_run_task.sound: audio/home_session_2203/task_rest_eyes_closed_msg.mp3
+{'name': 'audio', 'start': 1664213480.8996046, 'end': 1664213481.5715497, 'filename': 'audio/home_session_2203/task_rest_eyes_closed_msg.mp3'}
+_run_task.image: images/home_session_2203/task_rest_eyes_closed_msg.png
+{'name': 'image', 'start': 1664213481.571958, 'end': 1664213486.5959904, 'filename': 'images/home_session_2203/task_rest_eyes_closed_msg.png'}
+_run_task.image: images/home_session_2203/task_rest_eyes_closed.png
+{'name': 'image', 'start': 1664213486.5959904, 'end': 1664213546.6268976, 'filename': 'images/home_session_2203/task_rest_eyes_closed.png'}
+_run_task.sound: audio/home_session_2203/task_rest_eyes_open_msg.mp3
+{'name': 'audio', 'start': 1664213546.6278975, 'end': 1664213546.9372067, 'filename': 'audio/home_session_2203/task_rest_eyes_open_msg.mp3'}
+_run_task.image: images/home_session_2203/task_rest_eyes_open_msg.png
+{'name': 'image', 'start': 1664213546.9372067, 'end': 1664213551.9650908, 'filename': 'images/home_session_2203/task_rest_eyes_open_msg.png'}
+_run_task.image: images/home_session_2203/task_rest_eyes_open.png
+{'name': 'image', 'start': 1664213551.9656389, 'end': 1664213612.0229967, 'filename': 'images/home_session_2203/task_rest_eyes_open.png'}
+_run_task.sound: P300_visual_circles/audio/p300_visual_circles_instructions.mp3
+{'name': 'audio', 'start': 1664213612.0229967, 'end': 1664213612.2259011, 'filename': 'P300_visual_circles/audio/p300_visual_circles_instructions.mp3'}
+_run_task.text: b'Focus on the screen, and silently,\ncount the number of blue circles that you see'
+{'name': 'text', 'start': 1664213612.2259011, 'end': 1664213620.272094}
+_run_task.p300_visual_color_circles
+round=0 color=blue
+round=1 color=blue
+round=2 color=blue
+round=3 color=green
+round=4 color=green
+round=5 color=green
+round=6 color=green
+round=7 color=green
+round=8 color=green
+round=9 color=green
+round=10 color=green
+round=11 color=green
+round=12 color=green
+round=13 color=blue
+round=14 color=green
+round=15 color=green
+round=16 color=blue
+round=17 color=green
+round=18 color=green
+round=19 color=green
+round=20 color=green
+round=21 color=green
+round=22 color=green
+round=23 color=green
+round=24 color=blue
+round=25 color=blue
+round=26 color=blue
+round=27 color=green
+round=28 color=green
+round=29 color=green
+round=30 color=green
+round=31 color=blue
+round=32 color=green
+round=33 color=green
+round=34 color=green
+round=35 color=green
+round=36 color=green
+round=37 color=green
+round=38 color=blue
+round=39 color=green
+{'name': 'P300 visual color circles', 'start': 1664213620.2728407, 'end': 1664213678.0362766}
+_run_task.sound: relax_1min/audio/relax_1min_instructions.mp3
+{'name': 'audio', 'start': 1664213678.0362766, 'end': 1664213678.5046866, 'filename': 'relax_1min/audio/relax_1min_instructions.mp3'}
+_run_task.image: relax_1min/images/instructions_calmness_1min.png
+{'name': 'image', 'start': 1664213678.5046866, 'end': 1664213683.5458708, 'filename': 'relax_1min/images/instructions_calmness_1min.png'}
+_run_task.sound: relax_1min/audio/audio_2547fa5a12-1min.mp3
+{'name': 'audio', 'start': 1664213683.5458708, 'end': 1664213683.738315, 'filename': 'relax_1min/audio/audio_2547fa5a12-1min.mp3'}
+_run_task.video: relax_1min/video/Background-8788.mp4
+{'name': 'video', 'start': 1664213683.738315, 'end': 1664213749.8501158, 'filename': 'relax_1min/video/Background-8788.mp4'}
+_run_task.sound: P300_visual_circles/audio/p300_visual_circles_instructions.mp3
+{'name': 'audio', 'start': 1664213749.8501158, 'end': 1664213750.0751903, 'filename': 'P300_visual_circles/audio/p300_visual_circles_instructions.mp3'}
+_run_task.text: b'Focus on the centre of the screen\n\nSilently, count the number of blue circles that you see'
+{'name': 'text', 'start': 1664213750.0757027, 'end': 1664213758.1225278}
+_run_task.p300_visual_color_circles
+round=0 color=green
+round=1 color=blue
+round=2 color=blue
+round=3 color=blue
+round=4 color=green
+round=5 color=green
+round=6 color=green
+round=7 color=green
+round=8 color=green
+round=9 color=green
+round=10 color=green
+round=11 color=green
+round=12 color=blue
+round=13 color=green
+round=14 color=blue
+round=15 color=blue
+round=16 color=green
+round=17 color=green
+round=18 color=green
+round=19 color=blue
+round=20 color=green
+round=21 color=green
+round=22 color=green
+round=23 color=green
+round=24 color=green
+round=25 color=blue
+round=26 color=green
+round=27 color=green
+round=28 color=green
+round=29 color=green
+round=30 color=green
+round=31 color=green
+round=32 color=green
+round=33 color=blue
+round=34 color=green
+round=35 color=green
+round=36 color=blue
+round=37 color=green
+round=38 color=blue
+round=39 color=green
+{'name': 'P300 visual color circles', 'start': 1664213758.1225278, 'end': 1664213816.6812963}
+_run_task.sound: relax_1min/audio/relax_1min_instructions.mp3
+{'name': 'audio', 'start': 1664213816.6822853, 'end': 1664213817.3760178, 'filename': 'relax_1min/audio/relax_1min_instructions.mp3'}
+_run_task.image: relax_1min/images/instructions_calmness_1min.png
+{'name': 'image', 'start': 1664213817.3760178, 'end': 1664213822.4043548, 'filename': 'relax_1min/images/instructions_calmness_1min.png'}
+_run_task.sound: relax_1min/audio/audio_2547fa5a12-1min.mp3
+{'name': 'audio', 'start': 1664213822.4043548, 'end': 1664213822.4939888, 'filename': 'relax_1min/audio/audio_2547fa5a12-1min.mp3'}
+_run_task.video: relax_1min/video/Background-8788.mp4
+{'name': 'video', 'start': 1664213822.4939888, 'end': 1664213883.5983405, 'filename': 'relax_1min/video/Background-8788.mp4'}
+_run_task.sound: P300_visual_circles/audio/p300_visual_circles_instructions.mp3
+{'name': 'audio', 'start': 1664213883.5993366, 'end': 1664213883.8224628, 'filename': 'P300_visual_circles/audio/p300_visual_circles_instructions.mp3'}
+_run_task.text: b'Focus on the centre of the screen\n\nSilently, count the number of blue circles that you see'
+{'name': 'text', 'start': 1664213883.8224628, 'end': 1664213891.8645737}
+_run_task.p300_visual_color_circles
+round=0 color=blue
+round=1 color=green
+round=2 color=green
+round=3 color=green
+round=4 color=green
+round=5 color=green
+round=6 color=green
+round=7 color=green
+round=8 color=green
+round=9 color=green
+round=10 color=green
+round=11 color=blue
+round=12 color=green
+round=13 color=green
+round=14 color=green
+round=15 color=green
+round=16 color=green
+round=17 color=green
+round=18 color=green
+round=19 color=green
+round=20 color=green
+round=21 color=green
+round=22 color=blue
+round=23 color=green
+round=24 color=blue
+round=25 color=green
+round=26 color=green
+round=27 color=blue
+round=28 color=green
+round=29 color=green
+round=30 color=green
+round=31 color=green
+round=32 color=green
+round=33 color=blue
+round=34 color=green
+round=35 color=green
+round=36 color=blue
+round=37 color=green
+round=38 color=green
+round=39 color=blue
+{'name': 'P300 visual color circles', 'start': 1664213891.8645737, 'end': 1664213948.791355}
+_run_task.sound: common/audio/session_is_over.mp3
+{'name': 'audio', 'start': 1664213948.791355, 'end': 1664213949.1115406, 'filename': 'common/audio/session_is_over.mp3'}
+179.3766 	WARNING 	User requested fullscreen with size [800 600], but screen is actually [1536, 864]. Using actual size
+invalid command name "1734864219392update_gui_muse"
+    while executing
+"1734864219392update_gui_muse"
+    ("after" script)
+Looking for a EEG stream...
+Started acquiring data.
+Looking for a Markers stream...
+Start recording at time t=1664213470.230
+Time correction:  -4.550000002723209e-05
+Time correction:  1.3599999988400668e-05
+Done - wrote file: output/EEG/museS/20220926-133101_NeuroPilot_brown_pigeon.csv
+C:\Users\Lenovo\sibley_38\lib\site-packages\pyglet\media\codecs\wmf.py:838: UserWarning: [WinError -2147417850] Cannot change thread mode after it is set
+  warnings.warn(str(err))
+C:\Users\Lenovo\sibley_38\lib\site-packages\pyglet\media\codecs\wmf.py:838: UserWarning: [WinError -2147417850] Cannot change thread mode after it is set
+  warnings.warn(str(err))
+C:\Users\Lenovo\sibley_38\lib\site-packages\pyglet\image\codecs\wic.py:406: UserWarning: [WinError -2147417850] Cannot change thread mode after it is set
+  warnings.warn(str(err))
+close_window
+{'EEG': 'output/EEG/museS/20220926-133101_NeuroPilot_brown_pigeon.csv'}
+copying...output/EEG/museS/20220926-133101_NeuroPilot_brown_pigeon.csv
+saving session...
+C:\Users\Lenovo\sibley_38\sibley_home
+SUCCESS: The process "BlueMuse.exe" with PID 12092 has been terminated.
+

@@ -1,0 +1,8 @@
+All the files in this directory were downloaded from pixabay, and are Public Domain (CC0).
+
+The p300 experiment is adapted from NeuroTechX eegnb:
+https://github.com/NeuroTechX/eeg-notebooks/tree/master/eegnb/experiments
+Visual stimuli for the p300 test (CATS_DOGS):
+https://github.com/NeuroTechX/eeg-notebooks/tree/master/eegnb/stimuli/visual
+
+
