@@ -24,6 +24,7 @@ from multiprocessing import Process
 ########################################################
 # Testing Git dev branch
 ########################################################
+# Testing again November 2022
 
 # using global variable (and not class-level) to circumvent library-related issues
 # specifically, marker injection fails when with class-level variable
