@@ -22,7 +22,7 @@ from functools import partial
 from multiprocessing import Process
 
 ########################################################
-# Testing Git dev branch
+# Testing Git dev stick
 ########################################################
 # Testing again November 2022
 
@@ -32,6 +32,7 @@ from multiprocessing import Process
 ########################################################
 # Testing git merge
 # really testing git merge
+# super testing git merge
 ########################################################
 # using global variable (and not class-level) to circumvent library-related issues
 # specifically, marker injection fails when with class-level variable
