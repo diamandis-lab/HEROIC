@@ -32,6 +32,7 @@ from multiprocessing import Process
 ########################################################
 # Testing git merge
 # really testing git merge
+#mega testing git merge
 ########################################################
 # using global variable (and not class-level) to circumvent library-related issues
 # specifically, marker injection fails when with class-level variable
