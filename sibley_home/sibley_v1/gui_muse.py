@@ -21,6 +21,10 @@ from PIL import ImageTk,Image
 from functools import partial
 from multiprocessing import Process
 
+########################################################
+# Testing Git dev branch
+########################################################
+
 # using global variable (and not class-level) to circumvent library-related issues
 # specifically, marker injection fails when with class-level variable
 eeg_device = None
