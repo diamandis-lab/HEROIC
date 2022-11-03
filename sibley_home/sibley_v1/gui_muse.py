@@ -22,21 +22,7 @@ from functools import partial
 from multiprocessing import Process
 
 ########################################################
-# Testing Git dev stick
-########################################################
-# Testing again November 2022
-
-
-
-
-########################################################
-# Testing git merge
-# really testing git merge
-# super testing git merge
-########################################################
-# Testing Git dev TREE
-########################################################
-# Testing again November 2022
+#cleaning up merge testing
 
 # CHANGE 2
 
