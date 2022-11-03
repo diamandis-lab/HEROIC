@@ -432,6 +432,15 @@ class GuiMainMuse:
 
     def display_window_step03(self):
 
+        '''
+        This is function used to display the ending status of the EEG (Muse) headband including which displays an image of the headband.
+        Includes buttons for:
+        - about
+        - exit
+        - close program (close the window)
+
+        '''
+
         #these variables define a series of column (c) and row (r) coordinates to 
         #define various locations on the screen
         col_1 = 20 #presumably farthest left column
