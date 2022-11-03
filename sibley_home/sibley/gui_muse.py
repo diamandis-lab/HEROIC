@@ -432,49 +432,52 @@ class GuiMainMuse:
 
     def display_window_step03(self):
 
-        col_1 = 20
+        #these variables define a series of column (c) and row (r) coordinates to 
+        #define various locations on the screen
+        col_1 = 20 #presumably farthest left column
         col_2 = 220
         col_3 = 350
         col_4 = 820
-        col_5 = 1085
-        row_0 = 20
+        col_5 = 1085 #presumably farthest right column
+        row_0 = 20 # top row
         row_1 = 100
         row_2 = 200
         row_3 = 300
         row_4 = 400
         row_5 = 500
-        row_6 = 575
+        row_6 = 575 # bottom row
 
+        # define font and sizes
         config_font_large = ("Helvetica", 24)
         config_font = ("Helvetica", 20)
         config_font_medium = ("Helvetica", 16)
         config_font_small = ("Helvetica", 12)
 
+        #define administrative about and exit buttons
         self.button_about = Button(self.root, text="About", font=config_font_small, width=15, height=1,
                                    command=self.dialog_about, state=NORMAL, bg='khaki')
         self.button_about.place(x=col_1, y=row_0)
-
         self.button_exit = Button(self.root, text="Exit", font=config_font_small, width=15, height=1,
                                   command=partial(self.close_window, confirmation_prompt=False, sys_exit=True), state=NORMAL, bg='deep sky blue')
         self.button_exit.place(x=col_5 - 100, y=row_0)
 
+        # Display headband ending image and label with text
         self.label_step1 = Label(self.root, text="Step 3: session complete", font=config_font_large).place(x=col_3, y=row_0)
-
         self.canvas = Canvas(self.root, width = 420, height = 400)
         self.canvas.place(x=0, y=row_2)
-
-        image1 = Image.open("session_media/images/muse_headband_end_ok.jpg")
-        test = ImageTk.PhotoImage(image1)
-
-        label1 = Label(image=test)
+        headband_end_image_file = Image.open("session_media/images/muse_headband_end_ok.jpg")
+        headband_end_image = ImageTk.PhotoImage(headband_end_image_file)
+        label1 = Label(image=headband_end_image)
         label1.place(x=col_2-70, y=row_2)
 
+        # create next-screen button and label it with "Close program", once the button is pressed the command will close the window
         #self.label_start_session = Label(self.root, text="When ready, press ----- >", font=config_font).place(x=col_1, y=row_6)
         self.button_start_session = Button(self.root, text="Close program", font=config_font_medium, width=15,
                                            height=1,
                                            command=partial(self.close_window, confirmation_prompt=False, sys_exit=False), state=NORMAL, bg='green')
         self.button_start_session.place(x=col_3, y=row_6)
 
+        # Tkinter function that makes the screen appear indefinitely
         self.root.mainloop()
 
 
