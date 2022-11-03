@@ -99,7 +99,8 @@ class GuiMainMuse:
 
             eeg_device.thread_bluemuse = Thread(target=eeg_device.bluemuse_keeper, daemon=True, name='Monitor')
             eeg_device.thread_bluemuse.start()
-
+            
+            #this is where sibley displays the instructions on how to wear the device
             self.display_window_step01()
 
             #eeg_device.keep_alive_muse = False
@@ -128,7 +129,7 @@ class GuiMainMuse:
 
             self.save_session()
             eeg_device.bluemuse_exit() # kills: BlueMuse AND eeg_device.process_bluemuse_stream
-            sys.exit()
+            sys.exit() #end the program. Sys module is always available
 
 
     def store_settings(self):
@@ -245,7 +246,14 @@ class GuiMainMuse:
         mbox.showerror('About', 'Sibley EEG v0.1 (development version')
 
     def display_window_step01(self):
+        '''
+        This is function used to display an image that contains the instructions for putting on a muse headband.
+        Includes buttons for:
+        - about
+        - exit
+        - next (starts quality control)
 
+        '''
         c1 = 20
         c2 = 220
         c3 = 350
@@ -261,12 +269,14 @@ class GuiMainMuse:
         r7 = 100
         r8 = 100
         r9 = 575
-
+        
+        #define font sizes
         config_font_large = ("Helvetica", 24)
         config_font = ("Helvetica", 20)
         config_font_medium = ("Helvetica", 16)
         config_font_small = ("Helvetica", 12)
-
+        
+        #define administrative about and exit buttons
         self.button_about = Button(self.root, text="About", font=config_font_small, width=15, height=1,
                                    command=self.dialog_about, state=NORMAL, bg='khaki')
         self.button_about.place(x=c1, y=r0)
@@ -275,24 +285,23 @@ class GuiMainMuse:
         self.button_exit = Button(self.root, text="Exit", font=config_font_small, width=15, height=1,
                                   command=partial(self.close_window, confirmation_prompt=True, sys_exit=True), state=NORMAL, bg='deep sky blue')
         self.button_exit.place(x=c5 - 100, y=r0)
-
+        
+        #display headband image and label with text
         self.label_step1 = Label(self.root, text="Step 1: prepare the headband", font=config_font_large).place(x=c3, y=r0)
-
         self.canvas = Canvas(self.root, width = 420, height = 400)
         self.canvas.place(x=0, y=r2)
+        headband_image_file = Image.open("session_media/images/muse_headband_install.jpg")
+        headband_image = ImageTk.PhotoImage(headband_image_file)
+        headband_image_label = Label(image=headband_image)
+        headband_image_label.place(x=0, y=r2)
 
-        image1 = Image.open("session_media/images/muse_headband_install.jpg")
-        test = ImageTk.PhotoImage(image1)
-
-        label1 = Label(image=test)
-        label1.place(x=0, y=r2)
-
-
+        # create next-screen button and label it with "when read, press" 
         self.label_start_session = Label(self.root, text="When ready, press ----- >", font=config_font).place(x=c1, y=r9)
         self.button_start_session = Button(self.root, text="Next", font=config_font_medium, width=15,
-                                           height=1,
-                                           command=self.root.destroy, state=NORMAL, bg='green')
+                                           height=1, command=self.root.destroy, state=NORMAL, bg='green')
         self.button_start_session.place(x=c3, y=r9)
+
+        #tkinter function that makes the screen appear indefinitely
         self.root.mainloop()
 
 
