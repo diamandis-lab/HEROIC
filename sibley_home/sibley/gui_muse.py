@@ -254,21 +254,20 @@ class GuiMainMuse:
         - next (starts quality control)
 
         '''
-        c1 = 20
-        c2 = 220
-        c3 = 350
-        c4 = 820
-        c5 = 1085
-        r0 = 20
-        r1 = 100
-        r2 = 200
-        r3 = 300
-        r4 = 400
-        r5 = 500
-        r6 = 100
-        r7 = 100
-        r8 = 100
-        r9 = 575
+        #these variables define a series of column (c) and row (r) coordinates to 
+        #define various locations on the screen
+        col_1 = 20 #presumably farthest left column
+        col_2 = 220
+        col_3 = 350
+        col_4 = 820
+        col_5 = 1085 #presumably farthest right column
+        row_0 = 20 # top row
+        row_1 = 100
+        row_2 = 200
+        row_3 = 300
+        row_4 = 400
+        row_5 = 500
+        row_6 = 575 # bottom row
         
         #define font sizes
         config_font_large = ("Helvetica", 24)
@@ -279,27 +278,27 @@ class GuiMainMuse:
         #define administrative about and exit buttons
         self.button_about = Button(self.root, text="About", font=config_font_small, width=15, height=1,
                                    command=self.dialog_about, state=NORMAL, bg='khaki')
-        self.button_about.place(x=c1, y=r0)
+        self.button_about.place(x=col_1, y=row_0)
         # 'Button(command=...)' does not allow args (this triggers the action without pressing the button)
         # 'partial(func, arg1, arg2, ...)' is a workaround; lambda functions can also be used
         self.button_exit = Button(self.root, text="Exit", font=config_font_small, width=15, height=1,
                                   command=partial(self.close_window, confirmation_prompt=True, sys_exit=True), state=NORMAL, bg='deep sky blue')
-        self.button_exit.place(x=c5 - 100, y=r0)
+        self.button_exit.place(x=col_5 - 100, y=row_0)
         
         #display headband image and label with text
-        self.label_step1 = Label(self.root, text="Step 1: prepare the headband", font=config_font_large).place(x=c3, y=r0)
+        self.label_step1 = Label(self.root, text="Step 1: prepare the headband", font=config_font_large).place(x=col_3, y=row_0)
         self.canvas = Canvas(self.root, width = 420, height = 400)
-        self.canvas.place(x=0, y=r2)
+        self.canvas.place(x=0, y=row_2)
         headband_image_file = Image.open("session_media/images/muse_headband_install.jpg")
         headband_image = ImageTk.PhotoImage(headband_image_file)
         headband_image_label = Label(image=headband_image)
-        headband_image_label.place(x=0, y=r2)
+        headband_image_label.place(x=0, y=row_2)
 
         # create next-screen button and label it with "when read, press" 
-        self.label_start_session = Label(self.root, text="When ready, press ----- >", font=config_font).place(x=c1, y=r9)
+        self.label_start_session = Label(self.root, text="When ready, press ----- >", font=config_font).place(x=col_1, y=row_6)
         self.button_start_session = Button(self.root, text="Next", font=config_font_medium, width=15,
                                            height=1, command=self.root.destroy, state=NORMAL, bg='green')
-        self.button_start_session.place(x=c3, y=r9)
+        self.button_start_session.place(x=col_3, y=row_6)
 
         #tkinter function that makes the screen appear indefinitely
         self.root.mainloop()
