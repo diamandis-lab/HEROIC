@@ -305,7 +305,16 @@ class GuiMainMuse:
 
 
     def display_window_step02(self):
+        '''
+        This is function used to display the status of the EEG (Muse) headband including the connection, battery level, and quality check which displays an image of a horseshoe diagram to represent the EEG sensors with adequate quality check.
+        Includes buttons for:
+        - about
+        - exit
+        - start (starts the session)
+
+        '''
         global eeg_device
+        
         #these variables define a series of column (c) and row (r) coordinates to 
         #define various locations on the screen
         col_1 = 20 #presumably farthest left column
@@ -321,63 +330,74 @@ class GuiMainMuse:
         row_5 = 500
         row_6 = 575 # bottom row
 
+        # define font and sizes
         config_font_large = ("Helvetica", 24)
         config_font = ("Helvetica", 20)
         config_font_medium = ("Helvetica", 16)
         config_font_small = ("Helvetica", 12)
 
+        # define administrative about and exit buttons
         self.button_about = Button(self.root, text="About", font=config_font_small, width=15, height=1,
                                    command=self.dialog_about, state=NORMAL, bg='khaki')
         self.button_about.place(x=col_1, y=row_0)
-
         self.button_exit = Button(self.root, text="Exit", font=config_font_small, width=15, height=1,
                                   command=partial(self.close_window, confirmation_prompt=True, sys_exit=True), state=NORMAL, bg='deep sky blue')
         self.button_exit.place(x=col_5 - 100, y=row_0)
 
+        # Display EEG (Muse) connection status and label with text, starting status is 'No connection', to be updated using update_
         self.label_muse_status = Label(self.root, text="Muse headband status:", font=config_font).place(x=col_1, y=row_2)
         self.label_muse_status_msg = Label(self.root, text="", font=config_font)
         self.label_muse_status_msg.place(x=col_3, y=row_2)
         self.label_muse_status_msg.config(text='No connection', fg='red')
 
+        # Display EEG (Muse) battery level and label with text, starting status is '- - -'
         self.label_muse_battery = Label(self.root, text="Muse headband battery:", font=config_font).place(x=col_1, y=row_3)
         self.label_muse_battery_msg = Label(self.root, text="", font=config_font)
         self.label_muse_battery_msg.place(x=col_3, y=row_3)
         self.label_muse_battery_msg.config(text='- - -', fg='black')
 
+        # Display EEG Quality Check status and label with text, starting status is '- - -'
         self.label_eeg_qc = Label(self.root, text="EEG quality check:", font=config_font).place(x=col_1, y=row_4)
         self.label_eeg_qc_msg = Label(self.root, text="", font=config_font)
         self.label_eeg_qc_msg.place(x=col_3, y=row_4)
         self.label_eeg_qc_msg.config(text='- - -', fg='black')
 
-
+        # create next-screen button and label it with "Start session" to start the session, once the button is pressed the command will close the window
         self.label_start_session = Label(self.root, text="Session", font=config_font).place(x=col_1, y=row_6)
         self.button_start_session = Button(self.root, text="Start session", font=config_font_medium, width=15,
                                            height=1,
                                            command=self.close_window, state=DISABLED, bg='grey')
         self.button_start_session.place(x=col_3, y=row_6)
 
+        #display rectangle using Canvas and label with text
         self.label_step1 = Label(self.root, text="Step 2: establish data link", font=config_font_large).place(x=col_3, y=row_0)
-
         self.canvas = Canvas(self.root, width = 420, height = 400)
         self.canvas.create_rectangle(2, 10, 380, 380)
         self.canvas.place(x=720, y=150)
 
+        # Display the initial null quality check (all grey) horsehoe for Muse EEG headband.
         # Image.open (from PIL) handles more image formats than the default PhotoImage (can open certain types directly)
         self.image1_pre = Image.open("session_media/images/horseshoe_n_n_n_n.png")
         self.image1 = ImageTk.PhotoImage(self.image1_pre)
         self.label_horseshoe = Label(image=self.image1)
         self.label_horseshoe.place(x=800, y=250)
 
+        # Display Muse headband image and label with text, starting status is '- - -'
         self.label_horseshoe = Label(self.root, text="EEG sensor status", font=config_font).place(x=col_4-35, y=row_2)
         self.label_horseshoe_msg = Label(self.root, text="", font=config_font)
         self.label_horseshoe_msg.place(x=col_4-60, y=row_5-40)
         self.label_horseshoe_msg.config(text ='                    - - -        ', fg='black', font=config_font_medium)
 
 
+        # Tkinter function to move a window up of the stack, this is the window stacking order
         self.root.lift()
         #self.root.attributes('-topmost', True)
         #self.root.after_idle(self.root.attributes, '-topmost', False)
+
+        # Tkinter function to schedule an action (update_gui_muse) after a time has elapsed, 1000ms = 1s
         self.root.after(1000, self.update_gui_muse())
+        
+        #tkinter function that makes the screen appear indefinitely
         self.root.mainloop()
 
 
