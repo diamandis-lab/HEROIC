@@ -306,21 +306,20 @@ class GuiMainMuse:
 
     def display_window_step02(self):
         global eeg_device
-        c1 = 20
-        c2 = 220
-        c3 = 350
-        c4 = 820
-        c5 = 1085
-        r0 = 20
-        r1 = 100
-        r2 = 200
-        r3 = 300
-        r4 = 400
-        r5 = 500
-        r6 = 100
-        r7 = 100
-        r8 = 100
-        r9 = 575
+        #these variables define a series of column (c) and row (r) coordinates to 
+        #define various locations on the screen
+        col_1 = 20 #presumably farthest left column
+        col_2 = 220
+        col_3 = 350
+        col_4 = 820
+        col_5 = 1085 #presumably farthest right column
+        row_0 = 20 # top row
+        row_1 = 100
+        row_2 = 200
+        row_3 = 300
+        row_4 = 400
+        row_5 = 500
+        row_6 = 575 # bottom row
 
         config_font_large = ("Helvetica", 24)
         config_font = ("Helvetica", 20)
@@ -329,35 +328,35 @@ class GuiMainMuse:
 
         self.button_about = Button(self.root, text="About", font=config_font_small, width=15, height=1,
                                    command=self.dialog_about, state=NORMAL, bg='khaki')
-        self.button_about.place(x=c1, y=r0)
+        self.button_about.place(x=col_1, y=row_0)
 
         self.button_exit = Button(self.root, text="Exit", font=config_font_small, width=15, height=1,
                                   command=partial(self.close_window, confirmation_prompt=True, sys_exit=True), state=NORMAL, bg='deep sky blue')
-        self.button_exit.place(x=c5 - 100, y=r0)
+        self.button_exit.place(x=col_5 - 100, y=row_0)
 
-        self.label_muse_status = Label(self.root, text="Muse headband status:", font=config_font).place(x=c1, y=r2)
+        self.label_muse_status = Label(self.root, text="Muse headband status:", font=config_font).place(x=col_1, y=row_2)
         self.label_muse_status_msg = Label(self.root, text="", font=config_font)
-        self.label_muse_status_msg.place(x=c3, y=r2)
+        self.label_muse_status_msg.place(x=col_3, y=row_2)
         self.label_muse_status_msg.config(text='No connection', fg='red')
 
-        self.label_muse_battery = Label(self.root, text="Muse headband battery:", font=config_font).place(x=c1, y=r3)
+        self.label_muse_battery = Label(self.root, text="Muse headband battery:", font=config_font).place(x=col_1, y=row_3)
         self.label_muse_battery_msg = Label(self.root, text="", font=config_font)
-        self.label_muse_battery_msg.place(x=c3, y=r3)
+        self.label_muse_battery_msg.place(x=col_3, y=row_3)
         self.label_muse_battery_msg.config(text='- - -', fg='black')
 
-        self.label_eeg_qc = Label(self.root, text="EEG quality check:", font=config_font).place(x=c1, y=r4)
+        self.label_eeg_qc = Label(self.root, text="EEG quality check:", font=config_font).place(x=col_1, y=row_4)
         self.label_eeg_qc_msg = Label(self.root, text="", font=config_font)
-        self.label_eeg_qc_msg.place(x=c3, y=r4)
+        self.label_eeg_qc_msg.place(x=col_3, y=row_4)
         self.label_eeg_qc_msg.config(text='- - -', fg='black')
 
 
-        self.label_start_session = Label(self.root, text="Session", font=config_font).place(x=c1, y=r9)
+        self.label_start_session = Label(self.root, text="Session", font=config_font).place(x=col_1, y=row_6)
         self.button_start_session = Button(self.root, text="Start session", font=config_font_medium, width=15,
                                            height=1,
                                            command=self.close_window, state=DISABLED, bg='grey')
-        self.button_start_session.place(x=c3, y=r9)
+        self.button_start_session.place(x=col_3, y=row_6)
 
-        self.label_step1 = Label(self.root, text="Step 2: establish data link", font=config_font_large).place(x=c3, y=r0)
+        self.label_step1 = Label(self.root, text="Step 2: establish data link", font=config_font_large).place(x=col_3, y=row_0)
 
         self.canvas = Canvas(self.root, width = 420, height = 400)
         self.canvas.create_rectangle(2, 10, 380, 380)
@@ -369,9 +368,9 @@ class GuiMainMuse:
         self.label_horseshoe = Label(image=self.image1)
         self.label_horseshoe.place(x=800, y=250)
 
-        self.label_horseshoe = Label(self.root, text="EEG sensor status", font=config_font).place(x=c4-35, y=r2)
+        self.label_horseshoe = Label(self.root, text="EEG sensor status", font=config_font).place(x=col_4-35, y=row_2)
         self.label_horseshoe_msg = Label(self.root, text="", font=config_font)
-        self.label_horseshoe_msg.place(x=c4-60, y=r5-40)
+        self.label_horseshoe_msg.place(x=col_4-60, y=row_5-40)
         self.label_horseshoe_msg.config(text ='                    - - -        ', fg='black', font=config_font_medium)
 
 
