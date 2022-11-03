@@ -5,6 +5,14 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox as mbox
 from tkinter.filedialog import askopenfilename
+from pathlib import Path
+import shutil
+import json
+from PIL import ImageTk,Image
+from functools import partial
+from multiprocessing import Process
+from threading import Thread
+
 from pylsl import resolve_byprop, resolve_stream, stream_inlet, resolve_streams
 from psychopy import visual
 from sibley.configuration.parser import list_session, run_session, get_data_file, get_eeg_marks
@@ -12,15 +20,9 @@ from sibley.devices.default_eeg import DefaultEEG
 from sibley.devices.epoc import EPOC
 from sibley.devices.muse import Muse
 from sibley.task.media import record_audio, show_text
-from sibley.utils import windows_process_running, windows_taskkill, fix_muse_data
-from pathlib import Path
-import shutil
-from sibley.utils import zip_folder
-import json
-from PIL import ImageTk,Image
-from functools import partial
-from multiprocessing import Process
-from threading import Thread
+from sibley.utils import windows_process_running, windows_taskkill, fix_muse_data, zip_folder
+
+
 
 # using global variable (and not class-level) to circumvent library-related issues
 # specifically, marker injection fails when with class-level variable
