@@ -77,7 +77,7 @@ class GuiMainMuse:
             os.makedirs(item, exist_ok=True)
 
         params = params_default
-        params['user_interface'] = 'muse'
+        #params['user_interface'] = 'muse'
 
         if params['user_interface']=='muse':
             self.root = Tk()
