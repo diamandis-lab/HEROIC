@@ -34,6 +34,12 @@ from multiprocessing import Process
 # really testing git merge
 # super testing git merge
 ########################################################
+# Testing Git dev TREE
+########################################################
+# Testing again November 2022
+
+# CHANGE 2
+
 # using global variable (and not class-level) to circumvent library-related issues
 # specifically, marker injection fails when with class-level variable
 eeg_device = None
