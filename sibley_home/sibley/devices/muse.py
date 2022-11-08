@@ -139,21 +139,28 @@ class Muse:
 
 
     def update_status_telemetry(self):
+        '''
+        This is a function called every 1000ms by update gui muse. The purpose is to check the connected status
+        and the battery level. Here's how it executes:
+        1. creates a telemetry stream which is how you can get attributes of the device, not data.
+        2. if this is the first time, set up inlet if you found a stream. 
+        3. Every 10 seconds, once there is new data, they will do an update of the battery
+        4. once a device is connected, it will say connected regardless of any changes to that.
+        '''
         # IMPORTANT: pull_sample(timeout=0) avoids blocking the execution
         # telemetry has low frequency, ~0.1 Hz
         # when there is no new data, and empty array is returned (None, None)
         # if new information came through the channel: ([35.0, 3126.199951171875, 0.0, 0.0], 1637869946.443)
         print('update_status_telemetry')
 
-        # without Muse, and empty stream is created, but not an inlet
+        # without Muse, an empty stream is created, but not an inlet
         # eventually, when a data-containing stream is found, the inlet is initialized
         if self.inlet_telemetry==None:
             self.stream_telemetry = resolve_byprop('type', 'Telemetry', timeout=1)
             if len(self.stream_telemetry)==1:
                 self.inlet_telemetry = stream_inlet(self.stream_telemetry[0])
 
-
-        if self.inlet_telemetry!=None:
+        else:
             telemetry_sample = self.inlet_telemetry.pull_sample(timeout=0)
             if telemetry_sample[0] != None:
                 # 'is_connected' is declared with the first telemetry data, and show battery status immediately
