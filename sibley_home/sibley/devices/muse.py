@@ -81,13 +81,16 @@ class Muse:
 
     def bluemuse_keeper(self):
         while True:
+
+            #built-in kill switch for this while true loop. 
             if self.keep_alive_muse==False:
                 print('########### stopping bluemuse_keeper...')
                 break
-            #print('0. keep_bluemuse_stream')
-            #self.update_status_stream()
+
+            #determine if bluemuse is running. print a couple variables.
             self.status['bluemuse_running'] = windows_process_running('BlueMuse.exe')
-            print(self.status)
+            print(self.status['bluemuse_running', 'is_streaming' ])
+
             if self.status['bluemuse_running']==False:
                 #cmd = 'start bluemuse://start?streamfirst=true'
                 #print('bluemuse_keeper... ' + cmd)
@@ -95,14 +98,19 @@ class Muse:
                 self.start_bluemuse()
 
             else:
-                is_streaming_old = self.status['is_streaming']
-                self.update_status_stream()
+                is_streaming_old = self.status['is_streaming'] #store the fact that bluemuse is streaming
+                self.update_status_stream() # get a new streaming update
+
+                #if not already streaming, then open a stream. this may be how sibley recovers dropped connections.
                 if self.status['is_streaming']==False:
                     self.stream_open()
 
+                #if the streaming status went from false to true, that means the bluemuse gui will pop up
+                # and so we need to supress the LSL bridge to prevent confusion. 
                 if self.status['is_streaming'] == True and is_streaming_old == False:
                     # close the window titled "LSL Bridge" to avoid causing confusion to the user
                     os.system("C:\\PROGRA~1\\nircmd-x64\\nircmd.exe win hide title \"LSL Bridge\"")
+                    #os.system("C:\\PROGRA~1\\nircmd-x64\\nircmd.exe win hide title \"BlueMuse\"")
 
             time.sleep(2)
 

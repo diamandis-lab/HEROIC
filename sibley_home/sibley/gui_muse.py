@@ -82,13 +82,13 @@ class GuiMainMuse:
         #params['user_interface'] = 'muse'
 
         if params['user_interface']=='muse':
+
+            #create a screen to hold the first display window
             self.root = Tk()
             self.root.geometry("1200x650")
             self.root.title("Sibley EEG v0.1")
 
-
-            eeg_device = Muse()
-            #eeg_device.stream_open()
+            
 
             # bluemuse_stream() periodically instructs BlueMuse to start the stream from the paired device
             # the goal is to rescue dropped connections (stopped streaming in BlueMuse)
@@ -99,8 +99,13 @@ class GuiMainMuse:
             #daemon = Thread(target=eeg_device.bluemuse_keeper, daemon=True, name='Monitor')
             #daemon.start()
 
+
+            #create a muse class object
+            eeg_device = Muse()
+            #eeg_device.stream_open()
+            #here we create a thread where the argument target is called when you run it.
             eeg_device.thread_bluemuse = Thread(target=eeg_device.bluemuse_keeper, daemon=True, name='Monitor')
-            eeg_device.thread_bluemuse.start()
+            eeg_device.thread_bluemuse.start() #this presumably runs the thread. which activates bluemuse_keeper.
             
             #this is where sibley displays the instructions on how to wear the device
             self.display_window_step01()
@@ -108,7 +113,7 @@ class GuiMainMuse:
             #eeg_device.keep_alive_muse = False
 
             # The window BlueMuse is minimized immediately to avoid causing confusion to the user
-            #os.system("C:\\PROGRA~1\\nircmd-x64\\nircmd.exe win hide title \"BlueMuse\"")
+            os.system("C:\\PROGRA~1\\nircmd-x64\\nircmd.exe win hide title \"BlueMuse\"")
             # The second window, BlueMuse's "LSL Bridge" takes longer to appear, but we don't know exactly when
             #time.sleep(5)
             #os.system("C:\\PROGRA~1\\nircmd-x64\\nircmd.exe win hide title \"LSL Bridge\"")
