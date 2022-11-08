@@ -121,23 +121,22 @@ class GuiMainMuse:
 
                 eeg_device.open_outlet()
                 self.store_settings()
-
-                self.start_session()
-                
                 if self.checkpoint_2 == True:
+                    self.start_session()
+                    
+                    
                     self.root = Tk()
                     self.root.geometry("1200x650")
                     self.root.title("Sibley EEG v0.1")
                     self.display_window_step03()
 
                     self.save_session()
-                    eeg_device.bluemuse_exit() # kills: BlueMuse AND eeg_device.process_bluemuse_stream
-                    sys.exit() #end the program. Sys module is always available
+                eeg_device.bluemuse_exit() # kills: BlueMuse AND eeg_device.process_bluemuse_stream
+                sys.exit() #end the program. Sys module is always available
 
     def activate_switch(self):
         if (self.checkpoint_1 == False) and (self.checkpoint_2 ==False):
             self.checkpoint_1 = True
-        
             self.root.destroy()
         elif (self.checkpoint_1 == True) and (self.checkpoint_2 ==False):
             self.checkpoint_1 = False
