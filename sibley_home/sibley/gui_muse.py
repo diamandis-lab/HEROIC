@@ -64,6 +64,8 @@ class GuiMainMuse:
         #self.after_id = None # 'after' loop, needed to close it
 
         eeg_device = None
+        self.checkpoint_1 = False
+        self.checkpoint_2 = False
         #self.bluemuse_stream = None
 
         self.task_log = []
@@ -110,28 +112,39 @@ class GuiMainMuse:
             # The second window, BlueMuse's "LSL Bridge" takes longer to appear, but we don't know exactly when
             #time.sleep(5)
             #os.system("C:\\PROGRA~1\\nircmd-x64\\nircmd.exe win hide title \"LSL Bridge\"")
-
-            self.root = Tk()
-            self.root.geometry("1200x650")
-            self.root.title("Sibley EEG v0.1")
-            self.display_window_step02()
-
-
-            eeg_device.open_outlet()
-            self.store_settings()
-
-            self.start_session()
-
-            self.root = Tk()
-            self.root.geometry("1200x650")
-            self.root.title("Sibley EEG v0.1")
-            self.display_window_step03()
-
-            self.save_session()
-            eeg_device.bluemuse_exit() # kills: BlueMuse AND eeg_device.process_bluemuse_stream
-            sys.exit() #end the program. Sys module is always available
+            if self.checkpoint_1 == True:
+                self.root = Tk()
+                self.root.geometry("1200x650")
+                self.root.title("Sibley EEG v0.1")
+                self.display_window_step02()
 
 
+                eeg_device.open_outlet()
+                self.store_settings()
+
+                self.start_session()
+                
+                if self.checkpoint_2 == True:
+                    self.root = Tk()
+                    self.root.geometry("1200x650")
+                    self.root.title("Sibley EEG v0.1")
+                    self.display_window_step03()
+
+                    self.save_session()
+                    eeg_device.bluemuse_exit() # kills: BlueMuse AND eeg_device.process_bluemuse_stream
+                    sys.exit() #end the program. Sys module is always available
+
+    def activate_switch(self):
+        if (self.checkpoint_1 == False) and (self.checkpoint_2 ==False):
+            self.checkpoint_1 = True
+        
+            self.root.destroy()
+        elif (self.checkpoint_1 == True) and (self.checkpoint_2 ==False):
+            self.checkpoint_1 = False
+            self.checkpoint_2 = True
+            self.root.destroy()
+        else:
+            assert False, 'Checkpoints are messed up'
     def store_settings(self):
         global params
         global data_file
@@ -297,7 +310,7 @@ class GuiMainMuse:
         # create next-screen button and label it with "when read, press" 
         self.label_start_session = Label(self.root, text="When ready, press ----- >", font=config_font).place(x=col_1, y=row_6)
         self.button_start_session = Button(self.root, text="Next", font=config_font_medium, width=15,
-                                           height=1, command=self.root.destroy, state=NORMAL, bg='green')
+                                           height=1, command=self.activate_switch, state=NORMAL, bg='green')
         self.button_start_session.place(x=col_3, y=row_6)
 
         #tkinter function that makes the screen appear indefinitely
@@ -366,7 +379,7 @@ class GuiMainMuse:
         self.label_start_session = Label(self.root, text="Session", font=config_font).place(x=col_1, y=row_6)
         self.button_start_session = Button(self.root, text="Start session", font=config_font_medium, width=15,
                                            height=1,
-                                           command=self.close_window, state=DISABLED, bg='grey')
+                                           command=self.activate_switch, state=DISABLED, bg='grey')
         self.button_start_session.place(x=col_3, y=row_6)
 
         #display rectangle using Canvas and label with text
