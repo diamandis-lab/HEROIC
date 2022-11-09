@@ -81,7 +81,8 @@ class Muse:
 
     def bluemuse_keeper(self):
         while True:
-
+            os.system("C:\\PROGRA~1\\nircmd-x64\\nircmd.exe win hide title \"BlueMuse\"")
+            os.system("C:\\PROGRA~1\\nircmd-x64\\nircmd.exe win hide title \"LSL Bridge\"")
             #built-in kill switch for this while true loop. 
             if self.keep_alive_muse==False:
                 print('########### stopping bluemuse_keeper...')
@@ -89,7 +90,7 @@ class Muse:
 
             #determine if bluemuse is running. print a couple variables.
             self.status['bluemuse_running'] = windows_process_running('BlueMuse.exe')
-            print(self.status['bluemuse_running', 'is_streaming' ])
+            print(self.status['bluemuse_running'],self.status['is_streaming' ])
 
             if self.status['bluemuse_running']==False:
                 #cmd = 'start bluemuse://start?streamfirst=true'
