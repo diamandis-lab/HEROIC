@@ -501,13 +501,20 @@ class GuiMainMuse:
 
         # create next-screen button and label it with "Close program", once the button is pressed the command will close the window
         #self.label_start_session = Label(self.root, text="When ready, press ----- >", font=config_font).place(x=col_1, y=row_6)
-        self.button_start_session = Button(self.root, text="Close program", font=config_font_medium, width=15,
-                                           height=1,
-                                           command=partial(self.close_window, confirmation_prompt=False, sys_exit=False), state=NORMAL, bg='green')
+        self.please_wait_label = Label(self.root, text="Please wait 10 seconds then click button below", font=config_font_large).place(x=col_3, y=row_5)
+        self.button_start_session = Button(self.root, text="Close program", font=config_font_medium, width=15, height=1,
+                                           command=partial(self.close_window, confirmation_prompt=False, sys_exit=False), state=DISABLED, bg='green')
+        
+
         self.button_start_session.place(x=col_3, y=row_6)
+
+        self.root.after(10000, self.button_start_session.config(state=NORMAL))
 
         # Tkinter function that makes the screen appear indefinitely
         self.root.mainloop()
-
-
+        #time.sleep(10)
+        #self.button_start_session = Button(self.root, text="Close program", font=config_font_medium, width=15, height=1,
+         #                                  command=partial(self.close_window, confirmation_prompt=False, sys_exit=False), state=NORMAL, bg='green')
+        #self.button_start_session.place(x=col_3, y=row_6)
+        #self.root.mainloop()
 
