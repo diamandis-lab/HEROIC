@@ -113,7 +113,7 @@ class GuiMainMuse:
             #eeg_device.keep_alive_muse = False
 
             # The window BlueMuse is minimized immediately to avoid causing confusion to the user
-            os.system("C:\\PROGRA~1\\nircmd-x64\\nircmd.exe win hide title \"BlueMuse\"")
+            #os.system("C:\\PROGRA~1\\nircmd-x64\\nircmd.exe win hide title \"BlueMuse\"")
             # The second window, BlueMuse's "LSL Bridge" takes longer to appear, but we don't know exactly when
             #time.sleep(5)
             #os.system("C:\\PROGRA~1\\nircmd-x64\\nircmd.exe win hide title \"LSL Bridge\"")
@@ -126,6 +126,7 @@ class GuiMainMuse:
 
                 eeg_device.open_outlet()
                 self.store_settings()
+
                 if self.checkpoint_2 == True:
                     self.start_session()
                     
@@ -136,8 +137,9 @@ class GuiMainMuse:
                     self.display_window_step03()
 
                     self.save_session()
-                eeg_device.bluemuse_exit() # kills: BlueMuse AND eeg_device.process_bluemuse_stream
-                sys.exit() #end the program. Sys module is always available
+
+            eeg_device.bluemuse_exit() # kills: BlueMuse AND eeg_device.process_bluemuse_stream
+            sys.exit() #end the program. Sys module is always available
 
     def activate_switch(self):
         if (self.checkpoint_1 == False) and (self.checkpoint_2 ==False):
@@ -149,6 +151,7 @@ class GuiMainMuse:
             self.root.destroy()
         else:
             assert False, 'Checkpoints are messed up'
+            
     def store_settings(self):
         global params
         global data_file
