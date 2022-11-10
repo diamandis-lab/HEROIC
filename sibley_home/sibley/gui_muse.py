@@ -256,9 +256,9 @@ class GuiMainMuse:
                 do_close_root = False
         if do_close_root:
             self.root.destroy()
+            eeg_device.keep_alive_muse = False
+            eeg_device.bluemuse_exit()
             if sys_exit:
-                eeg_device.keep_alive_muse = False
-                eeg_device.bluemuse_exit()
                 sys.exit()
 
 
@@ -315,10 +315,10 @@ class GuiMainMuse:
         headband_image_label.place(x=0, y=row_2)
 
         # create next-screen button and label it with "when read, press" 
-        self.label_start_session = Label(self.root, text="When ready, press ----- >", font=config_font).place(x=col_1, y=row_6)
-        self.button_start_session = Button(self.root, text="Next", font=config_font_medium, width=15,
+        self.label_start_qc = Label(self.root, text="When ready, press ----- >", font=config_font).place(x=col_1, y=row_6)
+        self.button_start_qc = Button(self.root, text="Next", font=config_font_medium, width=15,
                                            height=1, command=self.activate_switch, state=NORMAL, bg='green')
-        self.button_start_session.place(x=col_3, y=row_6)
+        self.button_start_qc.place(x=col_3, y=row_6)
 
         #tkinter function that makes the screen appear indefinitely
         self.root.mainloop()
@@ -446,7 +446,7 @@ class GuiMainMuse:
             else:
                 self.label_eeg_qc_msg.config(text='Fail', fg='red')
                 self.label_horseshoe_msg.config(text='         Adjust headband          ', fg='red')
-                self.button_start_session.config(state=DISABLED, bg='grey')
+                self.button_start_session.config(state=NORMAL, bg='grey')
 
         self.root.after(1000, self.update_gui_muse)
 
@@ -502,9 +502,9 @@ class GuiMainMuse:
         # create next-screen button and label it with "Close program", once the button is pressed the command will close the window
         #self.label_start_session = Label(self.root, text="When ready, press ----- >", font=config_font).place(x=col_1, y=row_6)
         self.please_wait_label = Label(self.root, text="Please wait 10 seconds then click button below", font=config_font_large).place(x=col_3, y=row_5)
-        self.button_start_session = Button(self.root, text="Close program", font=config_font_medium, width=15, height=1,
+        self.button_end_session = Button(self.root, text="Close program", font=config_font_medium, width=15, height=1,
                                            command=partial(self.close_window, confirmation_prompt=False, sys_exit=False), state=NORMAL, bg='green')
-        self.button_start_session.place(x=col_3, y=row_6)
+        self.button_end_session.place(x=col_3, y=row_6)
         
         self.root.mainloop()
         # Tkinter function that makes the screen appear indefinitely
