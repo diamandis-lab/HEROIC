@@ -179,12 +179,7 @@ class Muse:
 
 
     def update_status_channel_qc(self):
-        # QC based on PSD of Alpha Beta GammaLo bands (Theta excluded, too variable)
-        # 'Pass' is given to a channel if median PSD of the three bands is below the 'psd_cutoff'
-        #iter_freqs = {'Alpha': (8, 14, 3),
-        #              'Beta': (14, 30, 1.5),
-        #              'GammaLo': (30, 45, 1)}
-
+        
         montage = make_standard_montage("standard_1020")
 
         ch_names = ['TP9', 'AF7', 'AF8', 'TP10']
@@ -200,8 +195,7 @@ class Muse:
         # sample once per second (256 samples); more stable than with shorter intervals
 
         data = self.inlet_eeg.pull_chunk(max_samples=1000000)  # empty the buffer
-        time.sleep(0.75)  # wait 0.5s to refill
-
+        time.sleep(0.75)  # wait to refill. if it crashes during QC, this may be too brief.
 
         chunk = self.inlet_eeg.pull_chunk(timeout=0, max_samples=100)
         eeg = pd.DataFrame(chunk[0])
@@ -209,11 +203,8 @@ class Muse:
         raw.set_montage(montage)
 
         std_cutoff = 20 #arbitrary based on experience with lsl bridge
-        
-        
-        for ch_pos, channel in enumerate(['TP9','AF7','AF8','TP10'],0):
+        for ch_pos, channel in enumerate(ch_names, 0):
            
-            print('!!!!!!!!!!!!!!!!', channel)
             raw_data, times = raw[channel][:]
 
             if  np.std(raw_data) < std_cutoff:
@@ -223,39 +214,7 @@ class Muse:
 
         self.status['channel_summary'] = '_'.join(['g' if self.status['quality_ch' + str(x)]==1 else 'r' for x in range(1, 5)])
         
-        
-
-        ''' this was what we were originall using
-        psd = {}
-            for freq_name in iter_freqs.keys():
-                psds, freqs = psd_multitaper(raw, fmin=iter_freqs[freq_name][0], fmax=iter_freqs[freq_name][1])
-                psd[freq_name] = pd.DataFrame(psds).mean(axis=1)
-                #print(psd[freq_name])
-            # good signal typically < 2,000; wide cutoff to facilitate the beggining of session.
-            # signal of moderate quality tends to stabilize with time
-            psd_cutoff = 5e4
-            for ch_pos in range(4):
-                if int(median([psd['Alpha'][ch_pos], psd['Beta'][ch_pos], psd['GammaLo'][ch_pos]])) < psd_cutoff:
-                    self.status['quality_ch' + str(ch_pos + 1)] = 1
-                else:
-                    self.status['quality_ch' + str(ch_pos + 1)] = 0
-
-            self.status['channel_summary'] = '_'.join(['g' if self.status['quality_ch' + str(x)]==1 else 'r' for x in range(1, 5)])
-        '''
-        '''
-        channel_status = {}
-        for ch_pos in range(4):
-            channel_status[ch_names[ch_pos]] = int(psd['Alpha'][ch_pos])
-        print('Alpha: ' + str(channel_status))
-        channel_status = {}
-        for ch_pos in range(4):
-            channel_status[ch_names[ch_pos]] = int(psd['Beta'][ch_pos])
-        print('Beta: ' + str(channel_status))
-        channel_status = {}
-        for ch_pos in range(4):
-            channel_status[ch_names[ch_pos]] = int(psd['GammaLo'][ch_pos])
-        print('GammaLo' + str(channel_status))
-        '''
+       
 
     def update_status(self):
         print(self.status)
@@ -301,11 +260,3 @@ class Muse:
         recording.start()
         time.sleep(5)
         self.outlet.push_sample(x=[99], timestamp=time.time())
-
-
-
-    #def push_sample(self, marker, timestamp):
-    #    print('Muse.push_sample...' + str(marker[0]) + '...' + str(timestamp))
-    #    self.outlet.push_sample(marker, timestamp=timestamp)
-
-
