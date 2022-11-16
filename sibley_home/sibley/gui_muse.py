@@ -55,19 +55,39 @@ def get_dict_keys(_dict):
 
 
 class GuiMainMuse:
+    '''
+    Init will run the tkinter GUI, which has three main step: 
+    1) equipping the device. 
+    2) connection and quality control -> 2.5) run psychopy session. 
+    3) end program/save data. 
+    Each window will be deleted by the "next" button, which will also control 
+    a switch that enables progression to the next step.
+
+    To connect the device:
+    1. Gui_muse will create a muse class object called eeg_device
+    2. eeg_device is assigned a Thread class
+        a) this class has a parameter "target" which determines what gets run by this thread. the target is set to bluemuse_keeper. 
+           the keeper, is a function inside muse.py that checks the connection and if it's dropped, it reconnects.
+        b) the keeper repeats the following inside a while TRUE loop:
+            0) nircmd supression of bluemuse and museLSL
+            i) assign bluemuse_running by whether there is a windows process called BlueMuse.exe
+            ii) start bluemuse if it's not running.
+            iii) if it is running, then check the streaming status.
+            iv) if not streaming, then start streaming
+            v) if streaming just went from off to on, then use nircmd to supress LSL bridge (and we added BlueMuse supress)
+            vi) wait 2 seconds.
+    '''
 
     def __init__(self):
 
         global eeg_device
         global params
 
-        #self.after_id = None # 'after' loop, needed to close it
-
         eeg_device = None
         self.checkpoint_1 = False
         self.checkpoint_2 = False
-        #self.bluemuse_stream = None
 
+        #make any necessary folders, if they don't already exist.
         self.task_log = []
         self.device = device_default
         self.session_duration, self.session_config_file = list_session()
@@ -78,77 +98,74 @@ class GuiMainMuse:
         for item in folders_required:
             os.makedirs(item, exist_ok=True)
 
-        params = params_default
-        #params['user_interface'] = 'muse'
+        params = params_default #TO-DO this can be loaded in from a JSON at some point. 
 
         if params['user_interface']=='muse':
 
-            #create a screen to hold the first display window
+            #create a screen to hold the first display window (shows how to equip device)
             self.root = Tk()
             self.root.geometry("1200x650")
             self.root.title("Sibley EEG v0.1")
 
-            
-
-            # bluemuse_stream() periodically instructs BlueMuse to start the stream from the paired device
-            # the goal is to rescue dropped connections (stopped streaming in BlueMuse)
-            # Function executed as multiprocess in the main loop (and not in the Muse object) to prevent interference with tkinter
-            #eeg_device.process_bluemuse = Process(target=eeg_device.bluemuse_keeper)
-            #eeg_device.process_bluemuse.start()
-            #Process(target=eeg_device.bluemuse_keeper()).start()
-            #daemon = Thread(target=eeg_device.bluemuse_keeper, daemon=True, name='Monitor')
-            #daemon.start()
-
-
             #create a muse class object
             eeg_device = Muse()
-            #eeg_device.stream_open()
+
             #here we create a thread where the argument target is called when you run it.
             eeg_device.thread_bluemuse = Thread(target=eeg_device.bluemuse_keeper, daemon=True, name='Monitor')
-            eeg_device.thread_bluemuse.start() #this presumably runs the thread. which activates bluemuse_keeper.
+            eeg_device.thread_bluemuse.start() # activate bluemuse_keeper.
             
             #this is where sibley displays the instructions on how to wear the device
             self.display_window_step01()
 
-            #eeg_device.keep_alive_muse = False
-
-            # The window BlueMuse is minimized immediately to avoid causing confusion to the user
-            #os.system("C:\\PROGRA~1\\nircmd-x64\\nircmd.exe win hide title \"BlueMuse\"")
-            # The second window, BlueMuse's "LSL Bridge" takes longer to appear, but we don't know exactly when
-            #time.sleep(5)
-            #os.system("C:\\PROGRA~1\\nircmd-x64\\nircmd.exe win hide title \"LSL Bridge\"")
+            #first checkpoint determines whether the "Next" button was clicked. If so, proceed to step 2, otherwise skip to the ending of the program.
             if self.checkpoint_1 == True:
+
+                #create a screen to hold the second display window (shows connection and quality control status)
                 self.root = Tk()
                 self.root.geometry("1200x650")
                 self.root.title("Sibley EEG v0.1")
                 self.display_window_step02()
 
-
+                #makes the streaming data discoverable
                 eeg_device.open_outlet()
                 self.store_settings()
 
+                #second checkpoint determines whether the "start session" button was successfully clicked. 
+                # If so, start session otherwise skip to the ending of the program.
                 if self.checkpoint_2 == True:
+
+                    #start session runs whatever neurocognitive test was selected.
                     self.start_session()
                     
-                    
+                    #create a screen to hold the third display window (the closing window)
                     self.root = Tk()
                     self.root.geometry("1200x650")
                     self.root.title("Sibley EEG v0.1")
                     self.display_window_step03()
 
+                    #save your data
                     self.save_session()
-
-            eeg_device.bluemuse_exit() # kills: BlueMuse AND eeg_device.process_bluemuse_stream
-            sys.exit() #end the program. Sys module is always available
+            
+            # kills: BlueMuse AND eeg_device.process_bluemuse_stream. Then end the program using the Sys module which is always available
+            eeg_device.bluemuse_exit() 
+            sys.exit()
 
     def activate_switch(self):
+        '''
+        This is a function that is called when a "next" button is clicked. The logic gates determine which point of the program the user is at
+        then set the checkpoint to true so that the user can progress. Without setting these checkpoints to true (i.e. clicking the close window button)
+        you will skip to the end of the program and call sys.exit()
+        '''
+        #if you are between windows 1 and 2
         if (self.checkpoint_1 == False) and (self.checkpoint_2 ==False):
             self.checkpoint_1 = True
             self.root.destroy()
+        #if you are trying to start the session
         elif (self.checkpoint_1 == True) and (self.checkpoint_2 ==False):
             self.checkpoint_1 = False
             self.checkpoint_2 = True
             self.root.destroy()
+        #if you are neither of these, there must be a mistake
         else:
             assert False, 'Checkpoints are messed up'
             
@@ -422,12 +439,17 @@ class GuiMainMuse:
 
 
     def update_gui_muse(self):
-        print('update_gui_muse...')
+        print('update_gui_muse (for horseshoe update)')
         global eeg_device
 
         eeg_device.update_status_telemetry()
 
-        print(eeg_device.status)
+        print('bluemuse running:' , eeg_device.status['bluemuse_running'],
+            'device is connected to bluemuse: ', eeg_device.status['is_connected' ],
+            'device streaming: ',eeg_device.status['is_streaming'], 
+            'channel quality summary: ', eeg_device.status['channel_summary'], '\n')
+        
+        
         if eeg_device.status['is_connected']==True:
             self.label_muse_status_msg.config(text="Connected", fg='green')
             self.label_muse_battery_msg.config(text=str(eeg_device.status['battery_level']), fg='green')
