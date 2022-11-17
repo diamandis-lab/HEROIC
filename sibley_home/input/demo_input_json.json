@@ -1,0 +1,15 @@
+{
+
+    "study": "TestingInput",
+    "session_type": "P300 visual color circles",
+    "eeg_device": "Muse 2",
+    "participant_id": "rick_tester",
+    "group": "unknown",
+    "age": "23",
+    "comments": "Today is a good day",
+    "session_uuid": "None",
+    "timestamp": "None",
+    "user_interface": "muse"
+
+   
+}

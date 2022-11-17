@@ -8,6 +8,7 @@ from tkinter.filedialog import askopenfilename
 from pathlib import Path
 import shutil
 import json
+import glob
 from PIL import ImageTk,Image
 from functools import partial
 from multiprocessing import Process
@@ -33,16 +34,41 @@ eeg_device = None
 params = None
 data_file = None  # initialized by store_settings from session config['data_capture'], using captured data types
 
+
+
+'''
 params_default = {'study': 'unknown',
-                  'session_type': 'unknown',
-                  'eeg_device': 'unknown',
-                  'participant_id': 'unknown',
-                  'group': 'unknown',
-                  'age': 'unknown',
-                  'comments': 'unknown',
-                  'session_uuid': 'unknown',
-                  'timestamp': 'unknown',
-                  'user_interface': 'muse'}
+                'session_type': 'sibley_home_2209',
+                'eeg_device': 'unknown',
+                'participant_id': 'unknown',
+                'group': 'unknown',
+                'age': 'unknown',
+                'comments': 'unknown',
+                'session_uuid': 'unknown',
+                'timestamp': 'unknown',
+                'user_interface': 'muse'}
+'''
+#if a path exists to an input json, then read it and overwrite the default params to those
+if os.path.exists(glob.glob('input\*.json')[0]):
+    
+    json_paths = glob.glob('input\*.json')
+
+    with open(json_paths[0]) as param_json:
+        params_default = json.load(param_json)
+    
+else:
+    params_default = {'study': 'unknown',
+                'session_type': 'unknown',
+                'eeg_device': 'unknown',
+                'participant_id': 'unknown',
+                'group': 'unknown',
+                'age': 'unknown',
+                'comments': 'unknown',
+                'session_uuid': 'unknown',
+                'timestamp': 'unknown',
+                'user_interface': 'muse'}
+
+
 
 device_default = {'Session without EEG': 'none',
                        'Muse 2': 'muse2',
@@ -99,6 +125,7 @@ class GuiMainMuse:
             os.makedirs(item, exist_ok=True)
 
         params = params_default #TO-DO this can be loaded in from a JSON at some point. 
+        
 
         if params['user_interface']=='muse':
 
@@ -170,15 +197,20 @@ class GuiMainMuse:
             assert False, 'Checkpoints are messed up'
             
     def store_settings(self):
+        '''
+        This is called right before the session begins. It sets the fields that are required when you want to later
+        save your data. 
+        '''
         global params
         global data_file
-        params['study'] = 'NeuroPilot'
-        params['session_type'] = 'home_session_2209'
-        params['eeg_device'] = 'Muse S'
+        
+        
+        #hard code some of the settings. TO-DO In the future, we want to make this more automated.  
         params['timestamp'] = time.strftime("%Y%m%d-%H%M%S")
-        params['participant_id'] = 'brown_pigeon'
         data_file = get_data_file('session_config/' + self.session_config_file[params['session_type']])
 
+        #at the moment, we are not accepting audio and keyboard input from the user, but if we were
+        #this is where it creates a name for those files
         if 'audio' in data_file.keys():
             data_file['audio'] = 'output/audio/' + \
                                  params['timestamp'] + '_' + params['study'] + \
@@ -192,46 +224,72 @@ class GuiMainMuse:
 
 
     def start_session(self):
+        '''
+        Method for actually running whatever neurocognitive test you wanted to run. 
+        '''
         global eeg_device
         global params
         global data_file
-        print('start_session')
-        print(params['eeg_device'])
+        print('################ starting the session ########################')
+        print('with the params set to: ', params)
+
+        #if you are going to collect audio, turn on the microphone.
         if 'audio' in data_file.keys():
             m, s = divmod(self.session_duration[params['session_type']], 60)
             record_audio(filename=data_file['audio'], until=str(m) + ':' + str(s))
-        if params['eeg_device'] == 'Muse 2' or params['eeg_device'] == 'Muse S':
-            data_file['EEG'] = 'output/EEG/' + self.device[params['eeg_device']] + '/' + \
-                               params['timestamp'] + '_' + params['study'] + \
-                               '_' + params['participant_id'] + '.csv'
-            eeg_device.record_data(fn=data_file['EEG'], duration=self.session_duration[params['session_type']])
 
+        #if your device is either form of Muse, start recording the muse EEG data using muse.py
+        if params['eeg_device'] == 'Muse 2' or params['eeg_device'] == 'Muse S':
+            
+            #define file name for the EEG data
+            data_file['EEG'] = 'output/EEG/' + self.device[params['eeg_device']] + '/' + params['timestamp'] + '_' + params['study'] + '_' + params['participant_id'] + '.csv'
+            #start recording data                   
+            eeg_device.record_muse_data(fn=data_file['EEG'], duration=self.session_duration[params['session_type']])
+
+        #start a psychopy window
         mywin = visual.Window(monitor="testMonitor", units="deg", fullscr=True, color=[-1, -1, -1])
-        self.task_log = run_session(filename='session_config/' + self.session_config_file[params['session_type']],
-                                    eeg=eeg_device,
-                                    win=mywin,
-                                    data_file=data_file)
+        
+        #run the session and assign any output to the task logs
+        self.task_log = run_session(filename='session_config/' + self.session_config_file[params['session_type']], eeg=eeg_device, win=mywin, data_file=data_file)
+
+        #when the session is done, show a screen of text saying they are done.
         show_text(win=mywin, text='Session completed:\n\n' + params['session_type'], duration=4)
+
+        #close the psychopy window
         mywin.close()
 
     def save_session(self):
         global params
         global data_file
         print(data_file)
-        #params['comments'] = self.textfield_comments.get("1.0", END)[:-1]
-        params['session_uuid'] = str(uuid.uuid4())
+        
+        #this creates a random serial code to associate with the session number.
+        params['session_uuid'] = str(uuid.uuid4()) #TO-DO determine if this is necessary
+
+        #assign a name for the output file as a composite of a few parameters. Create the path for that file.
         session_name = params['timestamp'] + '_' + params['study'] + '_' + params['participant_id']
         Path("output/session/" + session_name).mkdir(parents=True, exist_ok=True)
+
+        #start a new dictionary where we will store data about this session run. 
         session = {'params': params, 'data_file': data_file}
+
+        #if you want to collect EEG data (this is technically optional), then you will also need to collect the markings 
+        #to timestamp the events during your neurocognitive testing.
         if 'EEG' in data_file.keys():
             if data_file['EEG'] != 'none':
                 session['EEG_marks'] = get_eeg_marks('session_config/' + self.session_config_file[params['session_type']])
+
+        #assign the output to this session
         session['task_log'] = self.task_log
+
+        #write a JSON containing all the info about the session (EEG mark definitions, params, task log) to output/info
         with open('output/info/' + session_name + '.json', 'w') as outfile:
             json.dump(session, outfile, indent=4)
         shutil.copyfile('output/info/' + session_name + '.json', 'output/session/' + session_name + '/session_info.json')
+
+
         if 'EEG' in data_file.keys():
-            if data_file['EEG'] == 'none':  # session supports EEG capture, but it was executed with "no EEG device"
+            if data_file['EEG'] == 'none':  # this is exe session supports EEG capture, but it was executed with "no EEG device"
                 open('output/session/' + session_name + '/EEG_none.txt', mode='a').close()  # creates empty file
             else:
                 if params['eeg_device'] == 'Muse 2' or params['eeg_device'] == 'Muse S':

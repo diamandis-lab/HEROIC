@@ -91,7 +91,7 @@ class Muse:
 
             #determine if bluemuse is running. print a couple variables.
             self.status['bluemuse_running'] = windows_process_running('BlueMuse.exe')
-            print(self.status['bluemuse_running'],self.status['is_streaming' ])
+            #print(self.status['bluemuse_running'],self.status['is_streaming' ])
 
             if self.status['bluemuse_running']==False:
                 #cmd = 'start bluemuse://start?streamfirst=true'
@@ -161,7 +161,7 @@ class Muse:
         # telemetry has low frequency, ~0.1 Hz
         # when there is no new data, and empty array is returned (None, None)
         # if new information came through the channel: ([35.0, 3126.199951171875, 0.0, 0.0], 1637869946.443)
-        print('update_status_telemetry')
+        print('update_status_telemetry (determines if connection exists)')
 
         # without Muse, an empty stream is created, but not an inlet
         # eventually, when a data-containing stream is found, the inlet is initialized
@@ -254,7 +254,7 @@ class Muse:
                           channel_format='int32', source_id='sibley_outlet')
         self.outlet = StreamOutlet(info)
 
-    def record_data(self, fn, duration):
+    def record_muse_data(self, fn, duration):
         # Start a background process that will stream data from the first available Muse
         recording = Process(target=record, args=(duration, fn))
         recording.start()
