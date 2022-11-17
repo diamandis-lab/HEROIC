@@ -472,10 +472,37 @@ class GuiMainMuse:
 
         # Display the initial null quality check (all grey) horsehoe for Muse EEG headband.
         # Image.open (from PIL) handles more image formats than the default PhotoImage (can open certain types directly)
-        self.image1_pre = Image.open("session_media/images/horseshoe_n_n_n_n.png")
-        self.image1 = ImageTk.PhotoImage(self.image1_pre)
-        self.label_horseshoe = Label(image=self.image1)
-        self.label_horseshoe.place(x=800, y=250)
+        #self.image1_pre = Image.open("session_media/images/horseshoe_n_n_n_n.png")
+        #self.image1 = ImageTk.PhotoImage(self.image1_pre)
+        #self.label_horseshoe = Label(image=self.image1)
+        #self.label_horseshoe.place(x=800, y=250)
+
+        # New horseshoe and individual electrode correspondence here
+        self.image2_pre = Image.open("session_media/images/horseshoe_all.png")
+        self.image2 = ImageTk.PhotoImage(self.image2_pre)
+        self.label2_horseshoe = Label(image=self.image2)
+        self.label2_horseshoe.place(x=800, y=250)
+        #  Electrode 1
+        self.image_electrode1_pre = Image.open("session_media/images/electrode_null.png")
+        self.image_electrode1 = ImageTk.PhotoImage(self.image_electrode1_pre)
+        self.label_electrode1 = Label(image=self.image_electrode1)
+        self.label_electrode1.place(x=col_4, y=row_4-20)
+        #  Electrode 2
+        self.image_electrode2_pre = Image.open("session_media/images/electrode_null.png")
+        self.image_electrode2 = ImageTk.PhotoImage(self.image_electrode2_pre)
+        self.label_electrode2 = Label(image=self.image_electrode2)
+        self.label_electrode2.place(x=col_4+20, y=row_3-30)
+        #  Electrode 3
+        self.image_electrode3_pre = Image.open("session_media/images/electrode_null.png")
+        self.image_electrode3 = ImageTk.PhotoImage(self.image_electrode3_pre)
+        self.label_electrode3 = Label(image=self.image_electrode3)
+        self.label_electrode3.place(x=col_4+100, y=row_3-30)
+        #  Electrode 4
+        self.image_electrode4_pre = Image.open("session_media/images/electrode_null.png")
+        self.image_electrode4 = ImageTk.PhotoImage(self.image_electrode4_pre)
+        self.label_electrode4 = Label(image=self.image_electrode4)
+        self.label_electrode4.place(x=col_4+125, y=row_4-20)
+        
 
         # Display Muse headband image and label with text, starting status is '- - -'
         self.label_horseshoe = Label(self.root, text="EEG sensor status", font=config_font).place(x=col_4-35, y=row_2)
@@ -499,6 +526,10 @@ class GuiMainMuse:
     def update_gui_muse(self):
         print('update_gui_muse (for horseshoe update)')
         global eeg_device
+        
+        col_4 = 820 # TO-DO: cleanup make col & row global for the module!
+        row_3 = 300
+        row_4 = 400
 
         eeg_device.update_status_telemetry()
 
@@ -514,11 +545,47 @@ class GuiMainMuse:
 
             eeg_device.update_status_channel_qc()
 
-            self.image1_pre = Image.open('session_media/images/horseshoe_' + eeg_device.status['channel_summary'] + '.png')
-            self.image1 = ImageTk.PhotoImage(self.image1_pre)
-            self.label_horseshoe = Label(image=self.image1)
-            self.label_horseshoe.place(x=800, y=250)
-
+            #self.image1_pre = Image.open('session_media/images/horseshoe_' + eeg_device.status['channel_summary'] + '.png')
+            #self.image1 = ImageTk.PhotoImage(self.image1_pre)
+            #self.label_horseshoe = Label(image=self.image1)
+            #self.label_horseshoe.place(x=800, y=250)
+            
+            #  Electrode 1
+            if eeg_device.status['channel_summary'][0] == 'g':
+                self.image_electrode1_pre = Image.open("session_media/images/electrode_green.png")
+                #self.image_electrode1 = ImageTk.PhotoImage(self.image_electrode1_pre)
+                #self.label_electrode1 = Label(image=self.image_electrode1)
+                #self.label_electrode1.place(x=col_4, y=row_4-20)
+            else:
+                self.image_electrode1_pre = Image.open("session_media/images/electrode_red.png")
+            self.image_electrode1 = ImageTk.PhotoImage(self.image_electrode1_pre)
+            self.label_electrode1 = Label(image=self.image_electrode1)
+            self.label_electrode1.place(x=col_4, y=row_4-20)
+            #  Electrode 2
+            if eeg_device.status['channel_summary'][2] == 'g':
+                self.image_electrode2_pre = Image.open("session_media/images/electrode_green.png")
+            else:
+                self.image_electrode2_pre = Image.open("session_media/images/electrode_red.png")
+            self.image_electrode2 = ImageTk.PhotoImage(self.image_electrode2_pre)
+            self.label_electrode2 = Label(image=self.image_electrode2)
+            self.label_electrode2.place(x=col_4+20, y=row_3-30)
+            #  Electrode 3
+            if eeg_device.status['channel_summary'][4] == 'g':
+                self.image_electrode3_pre = Image.open("session_media/images/electrode_green.png")
+            else:
+                self.image_electrode3_pre = Image.open("session_media/images/electrode_red.png")
+            self.image_electrode3 = ImageTk.PhotoImage(self.image_electrode3_pre)
+            self.label_electrode3 = Label(image=self.image_electrode3)
+            self.label_electrode3.place(x=col_4+100, y=row_3-30)
+            #  Electrode 4
+            if eeg_device.status['channel_summary'][6] == 'g':
+                self.image_electrode4_pre = Image.open("session_media/images/electrode_green.png")
+            else:
+                self.image_electrode4_pre = Image.open("session_media/images/electrode_red.png")
+            self.image_electrode4 = ImageTk.PhotoImage(self.image_electrode4_pre)
+            self.label_electrode4 = Label(image=self.image_electrode4)
+            self.label_electrode4.place(x=col_4+125, y=row_4-20)
+            
             if eeg_device.status['channel_summary'] == 'g_g_g_g':
                 self.label_eeg_qc_msg.config(text='Pass', fg='green')
                 self.label_horseshoe_msg.config(text='          Good signal              ', fg='green')
