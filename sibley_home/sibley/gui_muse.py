@@ -24,17 +24,34 @@ from sibley.task.media import record_audio, show_text
 from sibley.utils import windows_process_running, windows_taskkill, fix_muse_data, zip_folder
 
 
-
 # using global variable (and not class-level) to circumvent library-related issues
 # specifically, marker injection fails when with class-level variable
 eeg_device = None
-
 
 # using global to improve code readability (reduces "self hell")
 params = None
 data_file = None  # initialized by store_settings from session config['data_capture'], using captured data types
 
-
+# These variables define a series of column (c) and row (r) coordinates to 
+# Define various locations on the screen for the interface
+col_1 = 20 # farthest left column
+col_2 = 220
+col_3 = 350
+col_4 = 820
+col_5 = 1085 # farthest right column
+row_0 = 20 # top row
+row_1 = 100
+row_2 = 200
+row_3 = 300
+row_4 = 400
+row_5 = 500
+row_6 = 575 # bottom row
+        
+# Define font sizes for the interface
+config_font_large = ("Helvetica", 24)
+config_font = ("Helvetica", 20)
+config_font_medium = ("Helvetica", 16)
+config_font_small = ("Helvetica", 12)
 
 '''
 params_default = {'study': 'unknown',
@@ -77,6 +94,9 @@ device_default = {'Session without EEG': 'none',
 
 
 def get_dict_keys(_dict):
+    '''
+    This method will convert dictionary keys into a list.
+    '''
     return list(_dict.keys())
 
 
@@ -259,6 +279,9 @@ class GuiMainMuse:
         mywin.close()
 
     def save_session(self):
+        '''
+        This method will save the data from the neurocognitive test session.
+        '''
         global params
         global data_file
         print(data_file)
@@ -287,11 +310,14 @@ class GuiMainMuse:
             json.dump(session, outfile, indent=4)
         shutil.copyfile('output/info/' + session_name + '.json', 'output/session/' + session_name + '/session_info.json')
 
-
+        # Checks for the different types of input from the recorded data
         if 'EEG' in data_file.keys():
-            if data_file['EEG'] == 'none':  # this is exe session supports EEG capture, but it was executed with "no EEG device"
-                open('output/session/' + session_name + '/EEG_none.txt', mode='a').close()  # creates empty file
+            # This is exe session supports EEG capture, but it was executed with "no EEG device"
+            if data_file['EEG'] == 'none':
+                # Creates empty file
+                open('output/session/' + session_name + '/EEG_none.txt', mode='a').close()
             else:
+                # When the device used is a Muse headband, realigns the format of the data 
                 if params['eeg_device'] == 'Muse 2' or params['eeg_device'] == 'Muse S':
                     fix_muse_data(data_file['EEG'])
                 # data_file['EEG'] can contain one file (Muse) or multiple (EPOC)
@@ -300,14 +326,17 @@ class GuiMainMuse:
                     print('copying...' + chunk)
                     filename, file_extension = os.path.splitext(chunk)
                     shutil.copyfile(chunk, 'output/session/' + session_name + '/EEG' + file_extension)
+        # Checks for audio input and saves the data to the audio output
         if 'audio' in data_file.keys():
             filename, file_extension = os.path.splitext(data_file['audio'])
             print('data_file[audio]: ' + data_file['audio'])
             shutil.copyfile(data_file['audio'], 'output/session/' + session_name + '/audio' + file_extension)
+        # Checks for keyboard input and saves the data to the keyboard output
         if 'keyboard' in data_file.keys():
             filename, file_extension = os.path.splitext(data_file['keyboard'])
             shutil.copyfile(data_file['keyboard'], 'output/session/' + session_name + '/keyboard' + file_extension)
 
+        # The data is compiled into a SBL file for the output
         zip_folder(dir_home=os.getcwd() + '\\output',
                    dir_parent=os.getcwd() + '\\output\\session\\',
                    dir_target=session_name,
@@ -319,16 +348,22 @@ class GuiMainMuse:
         print(os.getcwd())
 
     def close_window(self, confirmation_prompt=False, sys_exit=False):
+        '''
+        This method will close the control panel window of the program and the program's external running windows including BlueMuse. The method will ask the user to confirm closing the program.
+        '''
         # TO-DO: connect to close window button (right corner X)
         print('close_window')
         global eeg_device
         do_close_root = True
+
+        # Prompts the user to confirm if they want to close the program window
         if confirmation_prompt:
             result = mbox.askquestion("Exit application",
                                       "Do you want to close the program?",
                                       icon='warning')
             if result == 'no':
                 do_close_root = False
+        # This will close the window, the program, and other external tools like BlueMuse.
         if do_close_root:
             self.root.destroy()
             eeg_device.keep_alive_muse = False
@@ -338,6 +373,9 @@ class GuiMainMuse:
 
 
     def dialog_about(self):
+        '''
+        This method shows a popup of dialog regard the About details of the program.
+        '''
         mbox.showerror('About', 'Sibley EEG v0.1 (development version')
 
     def display_window_step01(self):
@@ -348,29 +386,8 @@ class GuiMainMuse:
         - exit
         - next (starts quality control)
 
-        '''
-        #these variables define a series of column (c) and row (r) coordinates to 
-        #define various locations on the screen
-        col_1 = 20 #presumably farthest left column
-        col_2 = 220
-        col_3 = 350
-        col_4 = 820
-        col_5 = 1085 #presumably farthest right column
-        row_0 = 20 # top row
-        row_1 = 100
-        row_2 = 200
-        row_3 = 300
-        row_4 = 400
-        row_5 = 500
-        row_6 = 575 # bottom row
-        
-        #define font sizes
-        config_font_large = ("Helvetica", 24)
-        config_font = ("Helvetica", 20)
-        config_font_medium = ("Helvetica", 16)
-        config_font_small = ("Helvetica", 12)
-        
-        #define administrative about and exit buttons
+        '''        
+        # Define administrative about and exit buttons
         self.button_about = Button(self.root, text="About", font=config_font_small, width=15, height=1,
                                    command=self.dialog_about, state=NORMAL, bg='khaki')
         self.button_about.place(x=col_1, y=row_0)
@@ -380,7 +397,7 @@ class GuiMainMuse:
                                   command=partial(self.close_window, confirmation_prompt=True, sys_exit=True), state=NORMAL, bg='deep sky blue')
         self.button_exit.place(x=col_5 - 100, y=row_0)
         
-        #display headband image and label with text
+        # Display headband image and label with text
         self.label_step1 = Label(self.root, text="Step 1: prepare the headband", font=config_font_large).place(x=col_3, y=row_0)
         self.canvas = Canvas(self.root, width = 420, height = 400)
         self.canvas.place(x=0, y=row_2)
@@ -389,13 +406,13 @@ class GuiMainMuse:
         headband_image_label = Label(image=headband_image)
         headband_image_label.place(x=0, y=row_2)
 
-        # create next-screen button and label it with "when read, press" 
+        # Create next-screen button and label it with "when read, press" 
         self.label_start_qc = Label(self.root, text="When ready, press ----- >", font=config_font).place(x=col_1, y=row_6)
         self.button_start_qc = Button(self.root, text="Next", font=config_font_medium, width=15,
                                            height=1, command=self.activate_switch, state=NORMAL, bg='green')
         self.button_start_qc.place(x=col_3, y=row_6)
 
-        #tkinter function that makes the screen appear indefinitely
+        # Tkinter function that makes the screen appear indefinitely
         self.root.mainloop()
 
 
@@ -410,28 +427,7 @@ class GuiMainMuse:
         '''
         global eeg_device
         
-        #these variables define a series of column (c) and row (r) coordinates to 
-        #define various locations on the screen
-        col_1 = 20 #presumably farthest left column
-        col_2 = 220
-        col_3 = 350
-        col_4 = 820
-        col_5 = 1085 #presumably farthest right column
-        row_0 = 20 # top row
-        row_1 = 100
-        row_2 = 200
-        row_3 = 300
-        row_4 = 400
-        row_5 = 500
-        row_6 = 575 # bottom row
-
-        # define font and sizes
-        config_font_large = ("Helvetica", 24)
-        config_font = ("Helvetica", 20)
-        config_font_medium = ("Helvetica", 16)
-        config_font_small = ("Helvetica", 12)
-
-        # define administrative about and exit buttons
+        # Define administrative about and exit buttons
         self.button_about = Button(self.root, text="About", font=config_font_small, width=15, height=1,
                                    command=self.dialog_about, state=NORMAL, bg='khaki')
         self.button_about.place(x=col_1, y=row_0)
@@ -457,14 +453,14 @@ class GuiMainMuse:
         self.label_eeg_qc_msg.place(x=col_3, y=row_4)
         self.label_eeg_qc_msg.config(text='- - -', fg='black')
 
-        # create next-screen button and label it with "Start session" to start the session, once the button is pressed the command will close the window
+        # Create next-screen button and label it with "Start session" to start the session, once the button is pressed the command will close the window
         self.label_start_session = Label(self.root, text="Session", font=config_font).place(x=col_1, y=row_6)
         self.button_start_session = Button(self.root, text="Start session", font=config_font_medium, width=15,
                                            height=1,
                                            command=self.activate_switch, state=DISABLED, bg='grey')
         self.button_start_session.place(x=col_3, y=row_6)
 
-        #display rectangle using Canvas and label with text
+        # Display rectangle using Canvas and label with text
         self.label_step1 = Label(self.root, text="Step 2: establish data link", font=config_font_large).place(x=col_3, y=row_0)
         self.canvas = Canvas(self.root, width = 420, height = 400)
         self.canvas.create_rectangle(2, 10, 380, 380)
@@ -472,11 +468,6 @@ class GuiMainMuse:
 
         # Display the initial null quality check (all grey) horsehoe for Muse EEG headband.
         # Image.open (from PIL) handles more image formats than the default PhotoImage (can open certain types directly)
-        #self.image1_pre = Image.open("session_media/images/horseshoe_n_n_n_n.png")
-        #self.image1 = ImageTk.PhotoImage(self.image1_pre)
-        #self.label_horseshoe = Label(image=self.image1)
-        #self.label_horseshoe.place(x=800, y=250)
-
         # New horseshoe and individual electrode correspondence here
         self.image2_pre = Image.open("session_media/images/horseshoe_all.png")
         self.image2 = ImageTk.PhotoImage(self.image2_pre)
@@ -503,33 +494,28 @@ class GuiMainMuse:
         self.label_electrode4 = Label(image=self.image_electrode4)
         self.label_electrode4.place(x=col_4+125, y=row_4-20)
         
-
         # Display Muse headband image and label with text, starting status is '- - -'
         self.label_horseshoe = Label(self.root, text="EEG sensor status", font=config_font).place(x=col_4-35, y=row_2)
         self.label_horseshoe_msg = Label(self.root, text="", font=config_font)
         self.label_horseshoe_msg.place(x=col_4-60, y=row_5-40)
         self.label_horseshoe_msg.config(text ='                    - - -        ', fg='black', font=config_font_medium)
 
-
         # Tkinter function to move a window up of the stack, this is the window stacking order
         self.root.lift()
-        #self.root.attributes('-topmost', True)
-        #self.root.after_idle(self.root.attributes, '-topmost', False)
 
         # Tkinter function to schedule an action (update_gui_muse) after a time has elapsed, 1000ms = 1s
         self.root.after(1000, self.update_gui_muse())
         
-        #tkinter function that makes the screen appear indefinitely
+        # Tkinter function that makes the screen appear indefinitely
         self.root.mainloop()
 
 
     def update_gui_muse(self):
+        '''
+        This method will update the status of the Muse EEG signal data taken from updating the status telemetry, connection, and the channel quality check from using BlueMuse.
+        '''
         print('update_gui_muse (for horseshoe update)')
         global eeg_device
-        
-        col_4 = 820 # TO-DO: cleanup make col & row global for the module!
-        row_3 = 300
-        row_4 = 400
 
         eeg_device.update_status_telemetry()
 
@@ -538,24 +524,17 @@ class GuiMainMuse:
             'device streaming: ',eeg_device.status['is_streaming'], 
             'channel quality summary: ', eeg_device.status['channel_summary'], '\n')
         
-        
+        # When the device is connected, the quality of the channel will be checked
         if eeg_device.status['is_connected']==True:
             self.label_muse_status_msg.config(text="Connected", fg='green')
             self.label_muse_battery_msg.config(text=str(eeg_device.status['battery_level']), fg='green')
 
             eeg_device.update_status_channel_qc()
 
-            #self.image1_pre = Image.open('session_media/images/horseshoe_' + eeg_device.status['channel_summary'] + '.png')
-            #self.image1 = ImageTk.PhotoImage(self.image1_pre)
-            #self.label_horseshoe = Label(image=self.image1)
-            #self.label_horseshoe.place(x=800, y=250)
-            
+            # Here for each electrode, an image is loaded that corresponded to the quality status, either red, yellow or green
             #  Electrode 1
             if eeg_device.status['channel_summary'][0] == 'g':
                 self.image_electrode1_pre = Image.open("session_media/images/electrode_green.png")
-                #self.image_electrode1 = ImageTk.PhotoImage(self.image_electrode1_pre)
-                #self.label_electrode1 = Label(image=self.image_electrode1)
-                #self.label_electrode1.place(x=col_4, y=row_4-20)
             elif eeg_device.status['channel_summary'][0] == 'y':
                 self.image_electrode1_pre = Image.open("session_media/images/electrode_yellow.png")
             else:
@@ -594,6 +573,7 @@ class GuiMainMuse:
             self.label_electrode4 = Label(image=self.image_electrode4)
             self.label_electrode4.place(x=col_4+125, y=row_4-20)
             
+            # Provides a channel summary, there is an output status message and when the channel summary outputs a good signal this enables the abilty of button to advance
             if eeg_device.status['channel_summary'] == 'g_g_g_g':
                 self.label_eeg_qc_msg.config(text='Pass', fg='green')
                 self.label_horseshoe_msg.config(text='          Good signal              ', fg='green')
@@ -603,6 +583,7 @@ class GuiMainMuse:
                 self.label_horseshoe_msg.config(text='         Adjust headband          ', fg='red')
                 self.button_start_session.config(state=NORMAL, bg='grey')
 
+        # Every 1 second, the status of the Muse is updated
         self.root.after(1000, self.update_gui_muse)
 
     def display_window_step03(self):
@@ -616,28 +597,7 @@ class GuiMainMuse:
 
         '''
 
-        #these variables define a series of column (c) and row (r) coordinates to 
-        #define various locations on the screen
-        col_1 = 20 #presumably farthest left column
-        col_2 = 220
-        col_3 = 350
-        col_4 = 820
-        col_5 = 1085 #presumably farthest right column
-        row_0 = 20 # top row
-        row_1 = 100
-        row_2 = 200
-        row_3 = 300
-        row_4 = 400
-        row_5 = 500
-        row_6 = 575 # bottom row
-
-        # define font and sizes
-        config_font_large = ("Helvetica", 24)
-        config_font = ("Helvetica", 20)
-        config_font_medium = ("Helvetica", 16)
-        config_font_small = ("Helvetica", 12)
-
-        #define administrative about and exit buttons
+        # Define administrative about and exit buttons
         self.button_about = Button(self.root, text="About", font=config_font_small, width=15, height=1,
                                    command=self.dialog_about, state=NORMAL, bg='khaki')
         self.button_about.place(x=col_1, y=row_0)
@@ -654,19 +614,11 @@ class GuiMainMuse:
         label1 = Label(image=headband_end_image)
         label1.place(x=col_2-70, y=row_2)
 
-        # create next-screen button and label it with "Close program", once the button is pressed the command will close the window
-        #self.label_start_session = Label(self.root, text="When ready, press ----- >", font=config_font).place(x=col_1, y=row_6)
+        # Create next-screen button and label it with "Close program", once the button is pressed the command will close the window
         self.please_wait_label = Label(self.root, text="Please wait 10 seconds then click button below", font=config_font_large).place(x=col_3, y=row_5)
         self.button_end_session = Button(self.root, text="Close program", font=config_font_medium, width=15, height=1,
                                            command=partial(self.close_window, confirmation_prompt=False, sys_exit=False), state=NORMAL, bg='green')
         self.button_end_session.place(x=col_3, y=row_6)
         
-        self.root.mainloop()
         # Tkinter function that makes the screen appear indefinitely
-        
-        #time.sleep(10)
-        #self.button_start_session = Button(self.root, text="Close program", font=config_font_medium, width=15, height=1,
-         #                                  command=partial(self.close_window, confirmation_prompt=False, sys_exit=False), state=NORMAL, bg='green')
-        #self.button_start_session.place(x=col_3, y=row_6)
-        #self.root.mainloop()
-
+        self.root.mainloop()
