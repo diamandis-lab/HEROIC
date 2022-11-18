@@ -556,6 +556,8 @@ class GuiMainMuse:
                 #self.image_electrode1 = ImageTk.PhotoImage(self.image_electrode1_pre)
                 #self.label_electrode1 = Label(image=self.image_electrode1)
                 #self.label_electrode1.place(x=col_4, y=row_4-20)
+            elif eeg_device.status['channel_summary'][0] == 'y':
+                self.image_electrode1_pre = Image.open("session_media/images/electrode_yellow.png")
             else:
                 self.image_electrode1_pre = Image.open("session_media/images/electrode_red.png")
             self.image_electrode1 = ImageTk.PhotoImage(self.image_electrode1_pre)
@@ -564,6 +566,8 @@ class GuiMainMuse:
             #  Electrode 2
             if eeg_device.status['channel_summary'][2] == 'g':
                 self.image_electrode2_pre = Image.open("session_media/images/electrode_green.png")
+            elif eeg_device.status['channel_summary'][2] == 'y':
+                self.image_electrode2_pre = Image.open("session_media/images/electrode_yellow.png")
             else:
                 self.image_electrode2_pre = Image.open("session_media/images/electrode_red.png")
             self.image_electrode2 = ImageTk.PhotoImage(self.image_electrode2_pre)
@@ -572,6 +576,8 @@ class GuiMainMuse:
             #  Electrode 3
             if eeg_device.status['channel_summary'][4] == 'g':
                 self.image_electrode3_pre = Image.open("session_media/images/electrode_green.png")
+            elif eeg_device.status['channel_summary'][4] == 'y':
+                self.image_electrode3_pre = Image.open("session_media/images/electrode_yellow.png")
             else:
                 self.image_electrode3_pre = Image.open("session_media/images/electrode_red.png")
             self.image_electrode3 = ImageTk.PhotoImage(self.image_electrode3_pre)
@@ -580,6 +586,8 @@ class GuiMainMuse:
             #  Electrode 4
             if eeg_device.status['channel_summary'][6] == 'g':
                 self.image_electrode4_pre = Image.open("session_media/images/electrode_green.png")
+            elif eeg_device.status['channel_summary'][6] == 'y':
+                self.image_electrode4_pre = Image.open("session_media/images/electrode_yellow.png")
             else:
                 self.image_electrode4_pre = Image.open("session_media/images/electrode_red.png")
             self.image_electrode4 = ImageTk.PhotoImage(self.image_electrode4_pre)
@@ -591,7 +599,7 @@ class GuiMainMuse:
                 self.label_horseshoe_msg.config(text='          Good signal              ', fg='green')
                 self.button_start_session.config(state=NORMAL, bg='green')
             else:
-                self.label_eeg_qc_msg.config(text='Fail', fg='red')
+                self.label_eeg_qc_msg.config(text='Unsuccessful', fg='red')
                 self.label_horseshoe_msg.config(text='         Adjust headband          ', fg='red')
                 self.button_start_session.config(state=NORMAL, bg='grey')
 

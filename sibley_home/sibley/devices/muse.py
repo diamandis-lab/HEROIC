@@ -195,7 +195,7 @@ class Muse:
         # sample once per second (256 samples); more stable than with shorter intervals
 
         data = self.inlet_eeg.pull_chunk(max_samples=1000000)  # empty the buffer
-        time.sleep(0.75)  # wait to refill. if it crashes during QC, this may be too brief.
+        time.sleep(1)  # wait to refill. if it crashes during QC, this may be too brief.
 
         chunk = self.inlet_eeg.pull_chunk(timeout=0, max_samples=100)
         eeg = pd.DataFrame(chunk[0])
@@ -203,16 +203,20 @@ class Muse:
         raw.set_montage(montage)
 
         std_cutoff = 20 #arbitrary based on experience with lsl bridge
+        upper_cutoff = std_cutoff + 30 # Arbitrary based on experience
         for ch_pos, channel in enumerate(ch_names, 0):
            
             raw_data, times = raw[channel][:]
 
             if  np.std(raw_data) < std_cutoff:
                 self.status['quality_ch' + str(ch_pos + 1)] = 1
+            elif upper_cutoff > np.std(raw_data) >= std_cutoff:
+                self.status['quality_ch' + str(ch_pos + 1)] = 2
+
             else:
                 self.status['quality_ch' + str(ch_pos + 1)] = 0
 
-        self.status['channel_summary'] = '_'.join(['g' if self.status['quality_ch' + str(x)]==1 else 'r' for x in range(1, 5)])
+        self.status['channel_summary'] = '_'.join(['g' if self.status['quality_ch' + str(x)]==1 else ('y' if self.status['quality_ch' + str(x)]==2 else 'r') for x in range(1, 5)])
         
        
 
