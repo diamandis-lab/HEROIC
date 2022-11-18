@@ -12,10 +12,8 @@ from mne.channels import make_standard_montage
 from mne.io import RawArray
 from mne import create_info
 
-
 from muselsl import record
 from pylsl import resolve_byprop, StreamOutlet, StreamInfo, stream_inlet
-
 
 from sibley.utils import windows_process_running, windows_taskkill
 
@@ -51,6 +49,9 @@ class Muse:
 
 
     def start_bluemuse(self):
+        '''
+        This method will start the BlueMuse operations, refresh the Bluetooth list, then hides the BlueMuse window.
+        '''
         print("muse.start_bluemuse()")
         # the first command will launch Bluemuse and modify settings (if needed)
         # it seems like Bluemuse stores settings from previous session; we re-do just in case
@@ -64,6 +65,9 @@ class Muse:
 
 
     def stream_open(self):
+        '''
+        This method runs the command line interface settings for BlueMuse.
+        '''
         cmd = 'start bluemuse://refresh'
         subprocess.call(cmd, shell=True)
         cmd = 'start bluemuse://setting?key=eeg_enabled!value=true'
@@ -81,43 +85,51 @@ class Muse:
 
 
     def bluemuse_keeper(self):
+        '''
+        This method keeps the connection between BlueMuse and the Muse device, and occurs periodically.
+        '''
         while True:
+            #  Uses nicrmd to supress the BlueMuse and LSL Bridge pop up windows.
             os.system("C:\\PROGRA~1\\nircmd-x64\\nircmd.exe win hide title \"BlueMuse\"")
             os.system("C:\\PROGRA~1\\nircmd-x64\\nircmd.exe win hide title \"LSL Bridge\"")
-            #built-in kill switch for this while true loop. 
+            
+            # Built-in kill switch for this while true loop. 
             if self.keep_alive_muse==False:
                 print('########### stopping bluemuse_keeper...')
                 break
 
-            #determine if bluemuse is running. print a couple variables.
+            # Determine if Bluemuse is running. print a couple variables.
             self.status['bluemuse_running'] = windows_process_running('BlueMuse.exe')
-            #print(self.status['bluemuse_running'],self.status['is_streaming' ])
-
+            
+            # When BlueMuse is not running, then start running
             if self.status['bluemuse_running']==False:
-                #cmd = 'start bluemuse://start?streamfirst=true'
-                #print('bluemuse_keeper... ' + cmd)
-                #subprocess.call(cmd, shell=True)
                 self.start_bluemuse()
 
             else:
-                is_streaming_old = self.status['is_streaming'] #store the fact that bluemuse is streaming
-                self.update_status_stream() # get a new streaming update
+                # Stores the fact that bluemuse is streaming
+                is_streaming_old = self.status['is_streaming']
+                # Get a new streaming update
+                self.update_status_stream()
 
-                #if not already streaming, then open a stream. this may be how sibley recovers dropped connections.
+                # If not already streaming, then open a stream. this may be how sibley recovers dropped connections.
                 if self.status['is_streaming']==False:
                     self.stream_open()
 
-                #if the streaming status went from false to true, that means the bluemuse gui will pop up
+                #if the streaming status went from false to true, that means the BlueMuse gui will pop up
                 # and so we need to supress the LSL bridge to prevent confusion. 
                 if self.status['is_streaming'] == True and is_streaming_old == False:
                     # close the window titled "LSL Bridge" to avoid causing confusion to the user
                     os.system("C:\\PROGRA~1\\nircmd-x64\\nircmd.exe win hide title \"LSL Bridge\"")
                     #os.system("C:\\PROGRA~1\\nircmd-x64\\nircmd.exe win hide title \"BlueMuse\"")
 
+            # Wait some time before running the loop again, every 2 seconds
             time.sleep(2)
 
 
     def bluemuse_exit(self):
+        '''
+        This method will close the BlueMuse stream and program window.
+        '''
         #if self.process_bluemuse_stream.is_alive():
         #    self.process_bluemuse_stream.kill()
         if windows_process_running('BlueMuse.exe'):
@@ -125,6 +137,9 @@ class Muse:
 
 
     def update_status_stream(self):
+        '''
+        This method will update the status if the Muse device is streaming based on a pulled segment of data.
+        '''
         # IMPORTANT: pull_sample(timeout=0) avoids blocking the execution
         # using Muse's PPG stream to check whether the device is streaming
         # when there is no new data, and empty array is returned (None, None)
@@ -141,7 +156,7 @@ class Muse:
             data = self.inlet_PPG.pull_chunk()  # empty the buffer
             time.sleep(0.1)                     # wait 0.1s to refill
             PPG_sample = self.inlet_PPG.pull_sample(timeout=0) # sample the buffer, non-blocking in case streaming is down
-            #print(PPG_sample)  # ([3119.0, 10680.0, 0.0], 1664304474.7449062)
+            # Determines if there is data in the sample, then the status is streaming.
             if PPG_sample[0] != None:
                 self.status['is_streaming'] = True
             else:
@@ -179,7 +194,9 @@ class Muse:
 
 
     def update_status_channel_qc(self):
-        
+        '''
+        This method will continuous update the EEG channel status and quality for Muse, using standard deviation to evaluate the channel quality status.
+        '''
         montage = make_standard_montage("standard_1020")
 
         ch_names = ['TP9', 'AF7', 'AF8', 'TP10']
@@ -199,11 +216,12 @@ class Muse:
 
         chunk = self.inlet_eeg.pull_chunk(timeout=0, max_samples=100)
         eeg = pd.DataFrame(chunk[0])
-        raw = RawArray(eeg.transpose(), info) #this is where its breaking.
+        raw = RawArray(eeg.transpose(), info)
         raw.set_montage(montage)
 
-        std_cutoff = 20 #arbitrary based on experience with lsl bridge
-        upper_cutoff = std_cutoff + 30 # Arbitrary based on experience
+        # For each channel, using the set cutoffs the quality status of the channel will be assigned.
+        std_cutoff = 25 # Arbitrary cutoff based on experience with lsl bridge
+        upper_cutoff = std_cutoff + 30 # Arbitrary cutoff based on experience
         for ch_pos, channel in enumerate(ch_names, 0):
            
             raw_data, times = raw[channel][:]
@@ -216,11 +234,13 @@ class Muse:
             else:
                 self.status['quality_ch' + str(ch_pos + 1)] = 0
 
+        # Joins each channel quality status into the overall channel summary.
         self.status['channel_summary'] = '_'.join(['g' if self.status['quality_ch' + str(x)]==1 else ('y' if self.status['quality_ch' + str(x)]==2 else 'r') for x in range(1, 5)])
         
-       
-
     def update_status(self):
+        '''
+        This method will update the connection status by tooking for an active EEG LSL stream.
+        '''
         print(self.status)
         if self.stream_telemetry==None:
             print("resolve_byprop: type=telemetry")
@@ -246,20 +266,31 @@ class Muse:
 
 
     def shutdown(self):
+        '''
+        This method will close the BlueMuse program.
+        '''
         cmd = 'start bluemuse://shutdown'
         subprocess.call(cmd, shell=True)
 
     def view(self):
+        '''
+        This method uses muselsl to visualize the LSL stream data created.
+        '''
         cmd = 'start /b muselsl view --version 2'
         subprocess.call(cmd, shell=True)
 
     def open_outlet(self):
+        '''
+        This method stores a data stream as a StreamInfo object opens a stream outlet which are used to make streaming data available.
+        '''
         info = StreamInfo(name='Markers', type='Markers', channel_count=1,
                           channel_format='int32', source_id='sibley_outlet')
         self.outlet = StreamOutlet(info)
 
     def record_muse_data(self, fn, duration):
-        # Start a background process that will stream data from the first available Muse
+        '''
+        This method starts a background process that will stream data from the first available Muse
+        '''
         recording = Process(target=record, args=(duration, fn))
         recording.start()
         time.sleep(5)
