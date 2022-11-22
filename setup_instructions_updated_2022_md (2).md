@@ -62,8 +62,8 @@ Go to View Advanced System Settings, Environmental Variables, Path, and Edit:
 
 ### Updates within sibley_38:
 
- | Issue | Files | Updates and Source Code
- |---------|
+ | Issue | Files | Updates and Source Code |
+ |---|---|---|
  | `sibley_38` Directory Organizing | eeg_station_main.zip, `\sibley_38\` | extract ZIP and move to `sibley_38` directory, copy everything from `sibley_38\sibley_38` to `sibley_38` directory, rename `sibley_38\sibley_38` to `sibley_38\sibley`. See screenshots taken from the L001 file folder for proper folder set up. |
  |`sibley_2.0` |[Download & extract](https://github.com/IngridCampbell/sibley_2.0/archive/refs/heads/dev.zip)| For sibley_2.0, download a ZIP from the dev branch or in command prompt `git clone https://github.com/IngridCampbell/sibley_2.0.git` with `git branch --set-upstream-to=origin/dev` and `git pull`
  | Launching sibley | C:\Users\Lenovo\sibley_38\sibley\ `launch_sibley.bat` | `cd sibley_38` and `mkdir session_logs` and edit: `set PATH_SIBLEY=C:\Users\admin_name\sibley_38\sibley`, `cmd /k "..\Scripts\activate.bat & python .\main.py > ..\session_logs\%LOG_NAME% 2>&1"` |
