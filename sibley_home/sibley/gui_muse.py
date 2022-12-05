@@ -472,12 +472,12 @@ class GuiMainMuse:
         self.image2_pre = Image.open("session_media/images/horseshoe_all.png")
         self.image2 = ImageTk.PhotoImage(self.image2_pre)
         self.label2_horseshoe = Label(image=self.image2)
-        self.label2_horseshoe.place(x=800, y=250)
+        self.label2_horseshoe.place(x=780, y=250)
         #  Electrode 1
         self.image_electrode1_pre = Image.open("session_media/images/electrode_null.png")
         self.image_electrode1 = ImageTk.PhotoImage(self.image_electrode1_pre)
         self.label_electrode1 = Label(image=self.image_electrode1)
-        self.label_electrode1.place(x=col_4, y=row_4-20)
+        self.label_electrode1.place(x=col_4-25, y=row_4-20)
         #  Electrode 2
         self.image_electrode2_pre = Image.open("session_media/images/electrode_null.png")
         self.image_electrode2 = ImageTk.PhotoImage(self.image_electrode2_pre)
@@ -492,12 +492,12 @@ class GuiMainMuse:
         self.image_electrode4_pre = Image.open("session_media/images/electrode_null.png")
         self.image_electrode4 = ImageTk.PhotoImage(self.image_electrode4_pre)
         self.label_electrode4 = Label(image=self.image_electrode4)
-        self.label_electrode4.place(x=col_4+125, y=row_4-20)
+        self.label_electrode4.place(x=col_4+155, y=row_4-20)
         
         # Display Muse headband image and label with text, starting status is '- - -'
         self.label_horseshoe = Label(self.root, text="EEG sensor status", font=config_font).place(x=col_4-35, y=row_2)
         self.label_horseshoe_msg = Label(self.root, text="", font=config_font)
-        self.label_horseshoe_msg.place(x=col_4-60, y=row_5-40)
+        self.label_horseshoe_msg.place(x=col_4-60, y=row_5-10)
         self.label_horseshoe_msg.config(text ='                    - - -        ', fg='black', font=config_font_medium)
 
         # Tkinter function to move a window up of the stack, this is the window stacking order
@@ -541,7 +541,7 @@ class GuiMainMuse:
                 self.image_electrode1_pre = Image.open("session_media/images/electrode_red.png")
             self.image_electrode1 = ImageTk.PhotoImage(self.image_electrode1_pre)
             self.label_electrode1 = Label(image=self.image_electrode1)
-            self.label_electrode1.place(x=col_4, y=row_4-20)
+            self.label_electrode1.place(x=col_4-25, y=row_4-20)
             #  Electrode 2
             if eeg_device.status['channel_summary'][2] == 'g':
                 self.image_electrode2_pre = Image.open("session_media/images/electrode_green.png")
@@ -571,7 +571,7 @@ class GuiMainMuse:
                 self.image_electrode4_pre = Image.open("session_media/images/electrode_red.png")
             self.image_electrode4 = ImageTk.PhotoImage(self.image_electrode4_pre)
             self.label_electrode4 = Label(image=self.image_electrode4)
-            self.label_electrode4.place(x=col_4+125, y=row_4-20)
+            self.label_electrode4.place(x=col_4+155, y=row_4-20)
             
             # Provides a channel summary, there is an output status message and when the channel summary outputs a good signal this enables the abilty of button to advance
             if eeg_device.status['channel_summary'] == 'g_g_g_g':
