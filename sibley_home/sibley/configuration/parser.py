@@ -8,6 +8,8 @@ import sibley.task.p300_visual
 import sibley.task.auditory_oddball
 import sibley.task.cue_go_nogo_visual
 import sibley.task.p300_visual_color_circles
+import sibley.task.eyes_closed_eyes_open
+
 from sibley.task.media import play_sound, play_video_vlc, show_image, show_text
 import os
 
@@ -18,6 +20,7 @@ task_codes = {'session_start': 90,
               'cue_go_nogo_visual': 82,
               'auditory_oddball': 83,
               'P300 visual color circles': 84,
+              'eyes_closed_eyes_open': 85,
               'text': 70,
               'image': 71,
               'audio': 72,
@@ -143,6 +146,13 @@ def _run_task(eeg, win, data_file, task):
         sibley.task.p300_visual_color_circles.run_session(win=win, eeg=eeg,
                                                           rounds=task['params']['rounds'],
                                                           percent_green=task['params']['percent_green'])
+    
+    if task['name'] == 'eyes_closed_eyes_open':
+        print('_run_task.eyes_closed_eyes_open')
+        sibley.task.eyes_closed_eyes_open.run_session(win=win, eeg=eeg,
+                                                          rounds=task['params']['rounds'],
+                                                          condition=task['params']['condition'])
+
 
 
 
