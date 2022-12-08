@@ -1,0 +1,274 @@
+{
+    "session_type": "home_session",
+    "duration": 730,
+    "data_capture": [
+        "EEG"
+    ],
+	"EEG_marks": [
+
+		{
+			"name": "P300 visual color circles",
+			"type": "task",
+			"mark": 84
+		},
+		{
+			"name": "control",
+			"type": "stimulus",
+			"mark": 1		
+		},
+		{
+			"name": "oddball",
+			"type": "stimulus",
+			"mark": 2		
+		}, 
+        {
+            "name": "eyes_closed_eyes_open",
+			"type": "task",
+			"mark": 85
+		},
+		{
+			"name": "Relax",
+			"type": "task",
+			"mark": 73
+		},
+		{
+			"name": "closed",
+			"type": "stimulus",
+			"mark": 3		
+		},
+		{
+			"name": "open",
+			"type": "stimulus",
+			"mark": 4
+			}
+	],
+    "task": [
+        {
+            "name": "text",
+            "params": {
+                "text": "Close your eyes and relax ...",
+                "duration": 5,
+                "height": 2,
+                "wrap_width": 32
+            }
+        },
+        {
+            "name": "eyes_closed_eyes_open",
+            "params": {
+              "rounds": 60,
+              "condition": "closed"
+            }
+          },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "audio/home_session_2203/task_rest_eyes_open_msg.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "text",
+            "params": {
+            "text": "Look at the X sign and relax",
+            "duration": 5,
+            "height": 2,
+            "wrap_width": 32
+            }
+        },
+        {
+            "name": "eyes_closed_eyes_open",
+            "params": {
+              "rounds": 60,
+              "condition": "open"
+            }
+          },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/home_session_2203/task_rest_info.png",
+                "duration": 5
+            }
+        },
+
+        {
+            "name": "text",
+            "params": {
+                "text": "Close your eyes and relax ...",
+                "duration": 5,
+                "height": 2,
+                "wrap_width": 32
+            }
+        },
+        {
+            "name": "eyes_closed_eyes_open",
+            "params": {
+              "rounds": 60,
+              "condition": "closed"
+            }
+          },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "audio/home_session_2203/task_rest_eyes_open_msg.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "text",
+            "params": {
+            "text": "Look at the X sign and relax",
+            "duration": 5,
+            "height": 2,
+            "wrap_width": 32
+            }
+        },
+        {
+            "name": "eyes_closed_eyes_open",
+            "params": {
+              "rounds": 60,
+              "condition": "open"
+            }
+        },
+
+        {
+            "name": "audio",
+            "params": {
+                "filename": "P300_visual_circles/audio/p300_visual_circles_instructions.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "text",
+            "params": {
+                "text": "Focus on the screen, and silently,\ncount the number of blue circles that you see",
+                "duration": 8,
+                "height": 2,
+                "wrap_width": 32
+            }
+        },
+
+        {
+            "name": "P300 visual color circles",
+            "params": {
+                "rounds": 40,
+                "percent_green": 90
+            }
+        },
+
+
+
+        {
+            "name": "audio",
+            "params": {
+                "filename": "relax_1min/audio/relax_1min_instructions.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "relax_1min/images/instructions_calmness_1min.png",
+                "duration": 5
+            }
+        },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "relax_1min/audio/audio_2547fa5a12-1min.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "video",
+            "params": {
+                "filename": "relax_1min/video/Background-8788.mp4",
+                "wait": true,
+                "no_repeats": 5
+            }
+        },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "P300_visual_circles/audio/p300_visual_circles_instructions.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "text",
+            "params": {
+                "text": "Focus on the centre of the screen\n\nSilently, count the number of blue circles that you see",
+                "duration": 8,
+                "height": 2,
+                "wrap_width": 32
+            }
+        },
+        {
+            "name": "P300 visual color circles",
+            "params": {
+                "rounds": 40,
+                "percent_green": 90
+            }
+        },
+
+        {
+            "name": "audio",
+            "params": {
+                "filename": "relax_1min/audio/relax_1min_instructions.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "image",
+            "params": {
+                "filename": "relax_1min/images/instructions_calmness_1min.png",
+                "duration": 5
+            }
+        },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "relax_1min/audio/audio_2547fa5a12-1min.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "video",
+            "params": {
+                "filename": "relax_1min/video/Background-8788.mp4",
+                "wait": true,
+                "no_repeats": 5
+            }
+        },
+
+        {
+            "name": "audio",
+            "params": {
+                "filename": "P300_visual_circles/audio/p300_visual_circles_instructions.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "text",
+            "params": {
+                "text": "Focus on the centre of the screen\n\nSilently, count the number of blue circles that you see",
+                "duration": 8,
+                "height": 2,
+                "wrap_width": 32
+            }
+        },
+        {
+            "name": "P300 visual color circles",
+            "params": {
+                "rounds": 40,
+                "percent_green": 90
+            }
+        },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "common/audio/session_is_over.mp3",
+                "wait": false
+            }
+        }
+    ]
+}
