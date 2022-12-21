@@ -1,0 +1,15 @@
+{
+
+    "study": "RemoteStudy",
+    "session_type": "home_session",
+    "eeg_device": "Muse 2",
+    "participant_id": "Patient",
+    "group": "unknown",
+    "age": "",
+    "comments": "Today is a good day",
+    "session_uuid": "None",
+    "timestamp": "None",
+    "user_interface": "muse"
+
+   
+}
