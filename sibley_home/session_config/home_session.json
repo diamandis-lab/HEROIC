@@ -1,6 +1,6 @@
 {
     "session_type": "home_session",
-    "duration": 730,
+    "duration": 610,
     "data_capture": [
         "EEG"
     ],
@@ -44,6 +44,13 @@
 	],
     "task": [
         {
+            "name": "audio",
+            "params": {
+                "filename": "audio/home_session_2203/task_rest_eyes_closed_msg.mp3",
+                "wait": false
+            }
+        },
+	{
             "name": "text",
             "params": {
                 "text": "Close your eyes and relax ...",
@@ -55,7 +62,7 @@
         {
             "name": "eyes_closed_eyes_open",
             "params": {
-              "rounds": 60,
+              "rounds": 30,
               "condition": "closed"
             }
           },
@@ -78,7 +85,7 @@
         {
             "name": "eyes_closed_eyes_open",
             "params": {
-              "rounds": 60,
+              "rounds": 30,
               "condition": "open"
             }
           },
@@ -89,7 +96,13 @@
                 "duration": 5
             }
         },
-
+	{
+            "name": "audio",
+            "params": {
+                "filename": "audio/home_session_2203/task_rest_eyes_closed_msg.mp3",
+                "wait": false
+            }
+        },
         {
             "name": "text",
             "params": {
@@ -102,7 +115,7 @@
         {
             "name": "eyes_closed_eyes_open",
             "params": {
-              "rounds": 60,
+              "rounds": 30,
               "condition": "closed"
             }
           },
@@ -125,7 +138,7 @@
         {
             "name": "eyes_closed_eyes_open",
             "params": {
-              "rounds": 60,
+              "rounds": 30,
               "condition": "open"
             }
         },
