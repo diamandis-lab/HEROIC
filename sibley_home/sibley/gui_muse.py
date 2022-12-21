@@ -581,7 +581,7 @@ class GuiMainMuse:
             else:
                 self.label_eeg_qc_msg.config(text='Unsuccessful', fg='red')
                 self.label_horseshoe_msg.config(text='         Adjust headband          ', fg='red')
-                self.button_start_session.config(state=NORMAL, bg='grey')
+                self.button_start_session.config(state=DISABLED, bg='grey')
 
         # Every 1 second, the status of the Muse is updated
         self.root.after(1000, self.update_gui_muse)
