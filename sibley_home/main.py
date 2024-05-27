@@ -1,4 +1,4 @@
-from sibley.gui_muse import GuiMainMuse
+from heroic_settings.gui_muse import GuiMainMuse
 
 
 if __name__ == '__main__':

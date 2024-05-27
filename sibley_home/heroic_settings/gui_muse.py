@@ -16,12 +16,12 @@ from threading import Thread
 
 from pylsl import resolve_byprop, resolve_stream, stream_inlet, resolve_streams
 from psychopy import visual
-from sibley.configuration.parser import list_session, run_session, get_data_file, get_eeg_marks
-from sibley.devices.default_eeg import DefaultEEG
-from sibley.devices.epoc import EPOC
-from sibley.devices.muse import Muse
-from sibley.task.media import record_audio, show_text
-from sibley.utils import windows_process_running, windows_taskkill, fix_muse_data, zip_folder
+from heroic_settings.configuration.parser import list_session, run_session, get_data_file, get_eeg_marks
+from heroic_settings.devices.default_eeg import DefaultEEG
+from heroic_settings.devices.epoc import EPOC
+from heroic_settings.devices.muse import Muse
+from heroic_settings.task.media import record_audio, show_text
+from heroic_settings.utils import windows_process_running, windows_taskkill, fix_muse_data, zip_folder
 
 
 # using global variable (and not class-level) to circumvent library-related issues
@@ -55,7 +55,7 @@ config_font_small = ("Helvetica", 12)
 
 '''
 params_default = {'study': 'unknown',
-                'session_type': 'sibley_home_2209',
+                'session_type': 'HEROIC',
                 'eeg_device': 'unknown',
                 'participant_id': 'unknown',
                 'group': 'unknown',
@@ -152,7 +152,7 @@ class GuiMainMuse:
             #create a screen to hold the first display window (shows how to equip device)
             self.root = Tk()
             self.root.geometry("1200x650")
-            self.root.title("Sibley EEG v0.1")
+            self.root.title("HEROIC EEG v1.0")
 
             #create a muse class object
             eeg_device = Muse()
@@ -161,7 +161,7 @@ class GuiMainMuse:
             eeg_device.thread_bluemuse = Thread(target=eeg_device.bluemuse_keeper, daemon=True, name='Monitor')
             eeg_device.thread_bluemuse.start() # activate bluemuse_keeper.
             
-            #this is where sibley displays the instructions on how to wear the device
+            #this is where HEROIC displays the instructions on how to wear the device
             self.display_window_step01()
 
             #first checkpoint determines whether the "Next" button was clicked. If so, proceed to step 2, otherwise skip to the ending of the program.
@@ -170,7 +170,7 @@ class GuiMainMuse:
                 #create a screen to hold the second display window (shows connection and quality control status)
                 self.root = Tk()
                 self.root.geometry("1200x650")
-                self.root.title("Sibley EEG v0.1")
+                self.root.title("HEROIC EEG v1.0")
                 self.display_window_step02()
 
                 #makes the streaming data discoverable
@@ -187,7 +187,7 @@ class GuiMainMuse:
                     #create a screen to hold the third display window (the closing window)
                     self.root = Tk()
                     self.root.geometry("1200x650")
-                    self.root.title("Sibley EEG v0.1")
+                    self.root.title("HEROIC EEG v1.0")
                     self.display_window_step03()
 
                     #save your data
@@ -376,7 +376,7 @@ class GuiMainMuse:
         '''
         This method shows a popup of dialog regard the About details of the program.
         '''
-        mbox.showerror('About', 'Sibley EEG v0.1 (development version')
+        mbox.showerror('About', 'HEROIC EEG v1.0 (First Release)')
 
     def display_window_step01(self):
         '''
