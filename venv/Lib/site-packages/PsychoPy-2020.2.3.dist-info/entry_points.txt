@@ -1,0 +1,2 @@
+[gui_scripts]
+psychopy = psychopy.app.psychopyApp:main

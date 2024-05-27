@@ -1,0 +1,133 @@
+{
+    "session_type": "eyes_closed_eyes_open",
+    "duration": 240,
+    "data_capture": [
+        "EEG"
+    ],
+	"EEG_marks": [
+
+		{
+            "name": "eyes_closed_eyes_open",
+			"type": "task",
+			"mark": 85
+		},
+		{
+			"name": "Relax",
+			"type": "task",
+			"mark": 73
+		},
+		{
+			"name": "closed",
+			"type": "stimulus",
+			"mark": 3		
+		},
+		{
+			"name": "open",
+			"type": "stimulus",
+			"mark": 4
+			}
+	],
+    "task": [
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/home_session_2203/task_rest_info.png",
+                "duration": 5
+            }
+        },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "audio/home_session_2203/task_rest_eyes_closed_msg.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "text",
+            "params": {
+                "text": "Close your eyes and relax ...",
+                "duration": 5,
+                "height": 2,
+                "wrap_width": 32
+            }
+        },
+        {
+            "name": "eyes_closed_eyes_open",
+            "params": {
+              "rounds": 60,
+              "condition": "closed"
+            }
+          },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "audio/home_session_2203/task_rest_eyes_open_msg.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "text",
+            "params": {
+            "text": "Look at the X sign and relax",
+            "duration": 5,
+            "height": 2,
+            "wrap_width": 32
+            }
+        },
+        {
+            "name": "eyes_closed_eyes_open",
+            "params": {
+              "rounds": 60,
+              "condition": "open"
+            }
+          },
+        {
+            "name": "image",
+            "params": {
+                "filename": "images/home_session_2203/task_rest_info.png",
+                "duration": 5
+            }
+        },
+
+        {
+            "name": "text",
+            "params": {
+                "text": "Close your eyes and relax ...",
+                "duration": 5,
+                "height": 2,
+                "wrap_width": 32
+            }
+        },
+        {
+            "name": "eyes_closed_eyes_open",
+            "params": {
+              "rounds": 60,
+              "condition": "closed"
+            }
+          },
+        {
+            "name": "audio",
+            "params": {
+                "filename": "audio/home_session_2203/task_rest_eyes_open_msg.mp3",
+                "wait": false
+            }
+        },
+        {
+            "name": "text",
+            "params": {
+            "text": "Look at the X sign and relax",
+            "duration": 5,
+            "height": 2,
+            "wrap_width": 32
+            }
+        },
+        {
+            "name": "eyes_closed_eyes_open",
+            "params": {
+              "rounds": 60,
+              "condition": "open"
+            }
+          }
+        
+    ]
+}
