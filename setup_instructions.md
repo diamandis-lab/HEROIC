@@ -1,10 +1,10 @@
-# How to configure EEG-station (Windows 10)
+# How to configure HEROIC EEG-station (Windows 10)
 
 ### Summary
 
 EEG-station is a Windows 10 computer containing the software necessary to design and run EEG experiments.
 The following set up instructions should take precedence over instructions provided on external links.
-Most recently successful in setting up sibley_38 on a Lenovo Thinkpad Yoga 260 (Windows 10 Pro) and Dell Latitude E7440 systems on September 16, 2022.
+Most recently successful in setting up HEROIC on a Lenovo Thinkpad Yoga 260 (Windows 10 Pro) and Dell Latitude E7440 systems on September 16, 2022.
 
 ### Auxiliary tools (Install these first)
 
@@ -25,15 +25,15 @@ nircmd-x64 | [Download](https://www.nirsoft.net/utils/nircmd-x64.zip)|Tool to ex
 Software | Link | Comments
 ---------|------|---------
 Python 3.8.9|[Download](https://www.python.org/ftp/python/3.8.9/python-3.8.9-amd64.exe) | Python runtime and SDK. Avoid using the latest branch (as of this writing 3.9.4). PsychoPy contains many dependencies and the development of some may have not reached the latest version. Note: during installation select add to path.
-python venv|create venv|`mkdir sibley_38` and `python -m venv sibley_38`. Change directory to: `C:\Users\Lenovo\sibley_38\Scripts` To activate environment: `activate`. **Execute library installs within this venv**. `pip install wheel` (Optionally, update wheel following the instructions). **pip 20.2.3**: `pip --version` and `python -m pip install==20.2.3` Note: for ease of access to sibley_38 in File Folder, pin the 'sibley_38' folder to Quick Access.
-precompiled PyAudio & PyTable|[Page](https://www.lfd.uci.edu/~gohlke/pythonlibs/)|**This step is not required when using Conda.** Download precompiled wheels for Windows [PyAudio‑0.2.11‑cp38‑cp38‑win_amd64.whl](https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio) and [tables‑3.7.0‑cp38‑cp38‑win_amd64.whl](https://www.lfd.uci.edu/~gohlke/pythonlibs/#pytables), and move the files to `C:\Users\admin_name\sibley_38`. Use command `cd ..` to change directory to `C:\Users\Lenovo\sibley_38`, then install by: `pip install PyAudio‑0.2.11‑cp38‑cp38‑win_amd64.whl` and `pip install tables‑3.7.0‑cp38‑cp38‑win_amd64.whl`
+python venv|create venv|`mkdir HEROIC` and `python -m venv HEROIC`. Change directory to: `C:\Users\Lenovo\HEROIC\Scripts` To activate environment: `activate`. **Execute library installs within this venv**. `pip install wheel` (Optionally, update wheel following the instructions). **pip 20.2.3**: `pip --version` and `python -m pip install==20.2.3` Note: for ease of access to HEROIC in File Folder, pin the 'HEROIC' folder to Quick Access.
+precompiled PyAudio & PyTable|[Page](https://www.lfd.uci.edu/~gohlke/pythonlibs/)|**This step is not required when using Conda.** Download precompiled wheels for Windows [PyAudio‑0.2.11‑cp38‑cp38‑win_amd64.whl](https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio) and [tables‑3.7.0‑cp38‑cp38‑win_amd64.whl](https://www.lfd.uci.edu/~gohlke/pythonlibs/#pytables), and move the files to `C:\Users\admin_name\HEROIC`. Use command `cd ..` to change directory to `C:\Users\Lenovo\HEROIC`, then install by: `pip install PyAudio‑0.2.11‑cp38‑cp38‑win_amd64.whl` and `pip install tables‑3.7.0‑cp38‑cp38‑win_amd64.whl`
 PsychoPy 2020.2.3 | [Delete me](https://www.psychopy.org/api/api.html) | Python library for running experiments in behavioural sciences. `pip install psychopy==2020.2.3`. **More recent versions fail to install in Windows**.
 vispy|[Documentation](https://vispy.org/)|Visualization library in Python `pip install vispy` (required by muselsl view -v2)
 mne|[Documentation](https://vispy.org/)|EEG signal analysis library in Python `pip install mne` (required by muselsl view -v2)
 Muse LSL|[github](https://github.com/alexandrebarachant/muse-lsl)|`pip install muselsl==2.1.0` Visualization of the data stream from BlueMuse by executing `muselsl view -v2` (this command was unnescessary). Then `pip install pylsl==1.10.5`
 ffpyplayer|[Documentation](https://matham.github.io/ffpyplayer/index.html)|Python library used to play audio `pip install ffpyplayer`
 playsound 1.2.2|[Documentation](https://github.com/TaylorSMarks/playsound)|Python sound library `pip install playsound==1.2.2`. Newer versions (i.e. 1.3.0) produce an error due to a bug in the library.
-sibley EEG|copy files or [Download eeg-station-main ZIP](https://github.com/diamandis-lab/eeg-station.git) |main application from private GitHub repository (get invitation from owner)
+HEROIC EEG|copy files or [Download eeg-station-main ZIP](https://github.com/diamandis-lab/eeg-station.git) |main application from private GitHub repository (get invitation from owner)
 
 ### Optional
 
@@ -60,45 +60,19 @@ Go to View Advanced System Settings, Environmental Variables, Path, and Edit:
 | **Dell** Path: %USERPROFILE%\.dotnet\tools|
 |C:\boost_1_67_0\boost_1_67_0\stage\lib|
 
-### Updates within sibley_38:
+### Updates within HEROIC:
 
  | Issue | Files | Updates and Source Code |
  |---|---|---|
- | `sibley_38` Directory Organizing | eeg_station_main.zip, `\sibley_38\` | extract ZIP and move to `sibley_38` directory, copy everything from `sibley_38\sibley_38` to `sibley_38` directory, rename `sibley_38\sibley_38` to `sibley_38\sibley`. See screenshots taken from the L001 file folder for proper folder set up. |
- |`sibley_2.0` |[Download & extract](https://github.com/IngridCampbell/sibley_2.0/archive/refs/heads/dev.zip)| For sibley_2.0, download a ZIP from the dev branch or in command prompt `git clone https://github.com/IngridCampbell/sibley_2.0.git`, then `cd sibley_2.0` with `git branch --set-upstream-to=origin/dev` and `git pull`
- | Launching sibley | C:\Users\Lenovo\sibley_38\sibley\ `launch_sibley.bat` | `cd sibley_38` and `mkdir session_logs` and edit: `set PATH_SIBLEY=C:\Users\admin_name\sibley_38\sibley`, `cmd /k "..\Scripts\activate.bat & python .\main.py > ..\session_logs\%LOG_NAME% 2>&1"` |
- | Data Problem (Summer 2022 Bug) & Save Session | C:\Users\Lenovo\sibley_38\sibley\sandbox\ `\fix_muse_data-code.py` | Copy the `fix_muse_data` function. Copy the `save_session` functions|
- | |C:\Users\Lenovo\sibley_38\sibley\sibley `\utils.py` | Paste `fix_muse_data` function & save.  Copy **Code 2** and paste in the end of function `fix_muse_data`, watch import statement `import pandas as pd`, and the indentations. Save. |
- | |C:\Users\Lenovo\sibley_38\sibley\sibley `\gui.py` | Paste and replace current `save_session` function being especially careful with indentations, update `from sibley.utils import zip_folder, fix_muse_data`. Replace the `sibley.utils.fix_muse_data(data_file['EEG'])` line with `fix_muse_data(data_file['EEG'])` & save |
- |Visual Problem (Summer 2022 Bug)| C:\Users\Lenovo\sibley_38\sibley\sibley\task `p300_visual_color_circles.py` | Within function `run_session` write new function `show_cross(win)` (above the function `show_stimulus`. Cut the code below in **Code 1** from function `show_stimulus` and paste into the function `show_cross`. Change `color=custom_color['black']`  to `color=custom_color['grey']`. Call the function `show_cross(win=win)` after the `print('round=' + str(pos) + ' color=' + color_curr) # include blank line after` statement. Save changes. Note: With these changes the system should be able to run a session though it may be unable to properly save session. |
- |Visual Circles Rarity | C:\Users\Lenovo\sibley_38\sibley\sibley\task `p300_visual_color_circles.py` | Change rarity of green circles on visual test to `percent_green = 90`. Save. |
- | | C:\Users\Lenovo\sibley_38\sibley\session_config `p300_visual_color_circles.json` | Open in Visual Studio and change `"percent_green": 90` for all 3 parameters. **Check this on the Dell and Dell 2022.** Save. |
- | sibley Control Panel Window Pop Up During Session |C:\Users\Lenovo\sibley_38\sibley\sibley `\gui.py` |In the `start_session` function,  add `self.root.withdraw()` after the `print('start_session’)` line to hide the control panel window. Then, add `self.root.deiconify()`, after the `mywin.close()` line to show the control panel window again. |
- |Troubleshooting |  | Be careful with indentations. If there are necessary updates, push working progress to the main repository. |
- | Launch sibley shortcut| C:\Users\Lenovo\sibley_38\sibley `launch_sibley.bat` | Create launch_sibley shortcut to an accessible location on system (`C:\Users\Lenovo\Desktop`) |
+ | `HEROIC` Directory Organizing | eeg_station_main.zip, `\HEROIC\` | extract ZIP and move to `HEROIC` directory, copy everything from `HEROIC\HEROIC-core` to `HEROIC` directory, rename `HEROIC\HEROIC-core` to `HEROIC\HEROIC`. See screenshots taken from the L001 file folder for proper folder set up. |
 
-**Code 1**
+ | Launching HEROIC | C:\Users\Lenovo\HEROIC\HEROIC-core\ `launch_HEROIC.bat` | `cd HEROIC` and `mkdir session_logs` and edit: `set PATH_HEROIC=C:\Users\admin_name\HEROIC\HEROIC-core`, `cmd /k "..\Scripts\activate.bat & python .\main.py > ..\session_logs\%LOG_NAME% 2>&1"` |
 
-    def show_cross(win):
-        text_cross = visual.TextStim(win=win, text='\u00D7', color=custom_color['black'], 	colorSpace='hex', height=8.6, pos=[0, 0.5])
-        text_cross.draw()
-        win.flip()
-        core.wait(random.randint(300, 500) / 1000)
-        win.flip()
-	
-**Code 2**
 
-    import pandas as pd
-	#
-    # removes malformed rows, possibily due to stream drops and reconnects
-    # reopens .csv, drops lines with wrong number of columns, saves clean .csv
-    with open(fname, 'r') as fp:
-        lines = fp.readlines()
-    lines = [x.replace('\n', '') for x in lines] # removes return character at the end of each line
-    lines_clean = [line.split(',') for line in lines if len(line.split(',')) == 6]
-    eeg_clean = pd.DataFrame(lines_clean[1:], columns=lines_clean[0])
-    if len(lines_clean) < len(lines):
-        eeg_clean.to_csv(fname, index=False)
+
+ 
+ | Launch HEROIC shortcut| C:\Users\Lenovo\HEROIC\HEROIC-core `launch_HEROIC.bat` | Create launch_HEROIC shortcut to an accessible location on system (`C:\Users\Lenovo\Desktop`) |
+
 	
  
  ### Set Up Completed
@@ -107,6 +81,6 @@ If the following are accomplished then the EEG-station is properly configure on 
  | Test | Evaluate | 
  |---------|
  | Run a P300 Visual Test | Successful Launch EEG Session & Save Session, blue circles should appear ~10% throughout the visual circles test |
-  | Check Session Logs | Launch EEG Session & Save Session should be stored in C:\Users\Lenovo\sibley_38\session_logs with File(s) for each run (ie. Fri) |
-  |Check Sessions Output | C:\Users\Lenovo\sibley_38\sibley\output\session |
+  | Check Session Logs | Launch EEG Session & Save Session should be stored in C:\Users\Lenovo\HEROIC\session_logs with File(s) for each run (ie. Fri) |
+  |Check Sessions Output | C:\Users\Lenovo\HEROIC\HEROIC-core\output\session |
  | Data Stored | Check if data stored as .sbl, download 7-zip to extract file as folder|
