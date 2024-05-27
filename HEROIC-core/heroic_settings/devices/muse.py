@@ -15,7 +15,7 @@ from mne import create_info
 from muselsl import record
 from pylsl import resolve_byprop, StreamOutlet, StreamInfo, stream_inlet
 
-from sibley.utils import windows_process_running, windows_taskkill
+from heroic_settings.utils import windows_process_running, windows_taskkill
 
 
 class Muse:

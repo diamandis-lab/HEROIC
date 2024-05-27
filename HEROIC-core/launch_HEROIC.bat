@@ -1,7 +1,7 @@
 
 
 echo "Starting HEROIC EEG..."
-set PATH_HEROIC=C:\Users\Lenovo\HEROIC\sibley_home
+set PATH_HEROIC=C:\Users\Lenovo\HEROIC\HEROIC-core
 
 set d=%date:-=%
 set t=%time::=%

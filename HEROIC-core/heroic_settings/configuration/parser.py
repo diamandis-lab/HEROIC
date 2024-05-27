@@ -3,14 +3,14 @@ import subprocess
 from subprocess import Popen
 import time
 
-import sibley.task.stroop
-import sibley.task.p300_visual
-import sibley.task.auditory_oddball
-import sibley.task.cue_go_nogo_visual
-import sibley.task.p300_visual_color_circles
-import sibley.task.eyes_closed_eyes_open
+import heroic_settings.task.stroop
+import heroic_settings.task.p300_visual
+import heroic_settings.task.auditory_oddball
+import heroic_settings.task.cue_go_nogo_visual
+import heroic_settings.task.p300_visual_color_circles
+import heroic_settings.task.eyes_closed_eyes_open
 
-from sibley.task.media import play_sound, play_video_vlc, show_image, show_text
+from heroic_settings.task.media import play_sound, play_video_vlc, show_image, show_text
 import os
 
 task_codes = {'session_start': 90,

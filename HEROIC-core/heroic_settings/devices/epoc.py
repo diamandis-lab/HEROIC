@@ -2,7 +2,7 @@ import subprocess
 import time
 
 from pylsl import StreamInfo, StreamOutlet
-from sibley.utils import windows_process_running
+from heroic_settings.utils import windows_process_running
 
 
 class EPOC:
