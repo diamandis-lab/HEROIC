@@ -1,16 +1,13 @@
 # eeg-station
-## Experimental laboratory EEG software
-![sibley main window](img/eeg_sibley.png)
+## Desktop application to collect timestamped data from EEG wearables
+![sibley main window](img/eeg_heroic.png)
 Integrates delivery of experiments and different data capture streams:
-* __Low-cost electroencephalogram (EEG):__ 14-channel EPOC X and 4-channel Muse S
-* __Speech-to-text:__ verbal response analysis using neural network-based speech recognition for accurate inference and timing
-* __Real-time speech recognition:__ allows to adapt the experiment parameters to the subject's responses
-* __Keystrokes:__ conventional keylogger
-* __Motion:__ Apple watch gyroscope and accelerometer data
+* __Low-cost electroencephalogram (EEG):__ 14-channel EPOC X, 4-channel Muse 2 and Muse S
 
 Experiments
-* __Stroop test:__ A) keystroke capture with 3 colours, B) 3 colours and speech, and C) 6 colours and speech
-* __Arithmetic test:__ A) Boring, B) Flow (difficulty adapts), C) Overwhelming
+* __Resting State Task:__ A) eyes closed, B) eyes open
+* __Visual Oddball Task:__ A) mental count of infrequent stimuli
+* __Meditation:__ A) mental relaxation
 
 
 #### EEG traces of a Muse 2 headband
@@ -18,6 +15,3 @@ Experiments
 
 #### EEG traces of an EPOC X device
 ![eeg epoc](img/eeg_EPOC.png)
-
-#### Example of speech-to-text
-![eeg epoc](img/speech_to_text.png)
