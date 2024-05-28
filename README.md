@@ -4,16 +4,17 @@
 * See `setup_instructions.md` for walkthrough of software installation steps
 * Launch the EEG Software: with HEROIC/HEROIC-core/`launch_HEROIC.bat`
 * Prepare EEG headband 
-* See `HEROIC_Participant_Instructions.pdf` to configure EEG headband and software together
-
+* See `HEROIC_Participant_Instructions.pdf` for instructions for study participants
+  
 ## Use GUI to guide users through device setup
 ![sibley main window](img/eeg_heroic.PNG)
-Integrates delivery of experiments and different data capture streams:
-* __Low-cost electroencephalogram (EEG):__ 4-channel Muse 2 and Muse S
 
-#### Interactive real-time feedback helps users to independently 
+
+## Interactive real-time feedback helps users to independently 
 ![eeg muse](img/eeg_muse.png)
 
+Integrates delivery of experiments and different data capture streams:
+* __Low-cost electroencephalogram (EEG):__ 4-channel Muse 2 and Muse S
 
 ### Experiments
 By default, the platform guided participants through one-minute sessions of resting state in both eyes closed and open conditions, three one-minute visual oddball tasks with one-minute meditation sequence in between each visual oddball task. One session will last approximately 7 minutes 
