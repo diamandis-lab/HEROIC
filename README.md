@@ -1,5 +1,8 @@
 # HEROIC: a platform for remote collection of electroencephalographic data using consumer-grade brain wearables
 
+This is the official repo containing the platform described by the accompanying manuscript published in BMC Bioinformatics.
+URL: https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-024-05865-9
+
 ## Software Setup
 * See `setup_instructions.md` for walkthrough of software installation steps
 * Launch the EEG Software: with HEROIC/HEROIC-core/`launch_HEROIC.bat`
